@@ -27,9 +27,18 @@
         <!--form-stars-here-->
         <div class="form-wrapv">
 
-            <h2>Login to your account</h2>
-            <form method="POST" action="{{ route('login.custom') }}">
+            <h2>Đăng ký</h2>
+            <form action="{{ route('register.custom') }}" method="POST">
                 @csrf
+                <div class="form-sub-w3">
+                    <input type="text" name="name" placeholder="Name" required="" id="name" />
+                    @if ($errors->has('name'))
+                    <span class="text-danger">{{ $errors->first('name') }}</span>
+                    @endif
+                    <div class="icon-w3">
+                        <span class="fas fa-user" aria-hidden="true"></span>
+                    </div>
+                </div>
                 <div class="form-sub-w3">
                     <input type="text" name="email" placeholder="Email " required="" id="email" />
                     @if ($errors->has('email'))
@@ -48,13 +57,11 @@
                         <span class="fas fa-unlock-alt" aria-hidden="true"></span>
                     </div>
                 </div>
-                <div class="form-sub-content">
-                    <p class="forgot-w3ls">Forgot Password?<a class href="#"> Click here</a></p>
-                    <p class="forgot-w3ls1">New User? <a class href="{{url('register')}}">Signup here</a></p>
+                <div class="form-sub-w3">
+                    <p>Bạn đã có tài khoản? <a class href="{{url('login')}}">Đăng nhập</a></p>
                 </div>
                 <div class="submit-button text-center">
-                    <button type="submit" class="btn btn-style btn-primary">Login Now</button>
-
+                    <button type="submit" class="btn btn-style btn-primary">Đăng ký</button>
                 </div>
             </form>
 

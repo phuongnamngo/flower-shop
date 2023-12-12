@@ -90,7 +90,6 @@
     <button onclick="topFunction()" id="movetop" title="Go to top">
         <span class="fa fa-angle-up"></span>
     </button>
-    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
     <script>
         // When the user scrolls down 20px from the top of the document, show the button
         window.onscroll = function() {

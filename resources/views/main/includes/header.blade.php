@@ -1,7 +1,7 @@
 <header id="site-header" class="fixed-top">
     <div class="container">
         <nav class="navbar navbar-expand-lg navbar-light stroke py-lg-0">
-            <h1><a class="navbar-brand pe-xl-5 pe-lg-4" href="index.html">
+            <h1><a class="navbar-brand pe-xl-5 pe-lg-4" href="{{url('/')}}">
                     <span class="w3yellow">Shoppy</span>Kart
                 </a></h1>
             <button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
@@ -11,36 +11,25 @@
             <div class="collapse navbar-collapse" id="navbarScroll">
                 <ul class="navbar-nav me-lg-auto my-2 my-lg-0 navbar-nav-scroll">
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="index.html">Home</a>
+                        <a class="nav-link {{request()->is('/') ? 'active' : ''}} " aria-current="page" href="{{url('/')}}">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="about.html">About</a>
+                        <a class="nav-link {{request()->is('about') ? 'active' : ''}}" href="{{url('/about')}}">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link {{request()->is('products') ? 'active' : ''}}" href="{{url('/products')}}">Products</a>
                     </li>
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#Pages" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            Products <span class="fa fa-angle-down ms-1"></span>
-                        </a>
-                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <li><a class="dropdown-item pt-2" href="products.html">Products</a></li>
-                            <li><a class="dropdown-item" href="product-single.html">Product Single</a></li>
-                            <li><a class="dropdown-item" href="checkout.html">Cart Page</a></li>
-                        </ul>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#Pages" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <a class="nav-link dropdown-toggle {{request()->is('blog') || request()->is('faq') ? 'active' : ''}}" href="#Pages" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             Pages <span class="fa fa-angle-down ms-1"></span>
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <li><a class="dropdown-item pt-2" href="blog.html">Blog Page</a></li>
-                            <li><a class="dropdown-item" href="blog-single.html">Blog Single</a></li>
-                            <li><a class="dropdown-item" href="elements.html">Elements</a></li>
-                            <li><a class="dropdown-item" href="error.html">Error Page</a></li>
-                            <li><a class="dropdown-item" href="faq.html">FaQ</a></li>
-
+                            <li><a class="dropdown-item pt-2" href="{{url('/blog')}}">Blog Page</a></li>
+                            <li><a class="dropdown-item" href="{{url('/faq')}}">FaQ</a></li>
                         </ul>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="contact.html">Contact</a>
+                        <a class="nav-link {{request()->is('contact') ? 'active' : ''}}" href="{{url('/contact')}}">Contact</a>
                     </li>
                     <li class="nav-item search-right">
                         <a href="#search" class="btn search-btn" title="search"><span class="fas fa-search me-2" aria-hidden="true"></span></a>
@@ -63,7 +52,11 @@
             </div>
             <ul class="header-search me-lg-4 d-flex">
                 <li class="get-btn me-2">
-                    <a href="login.html" class="btn btn-style btn-primary" title="search"><i class="fas fa-user me-lg-2"></i> <span class="btn-texe-inf">Login</span></a>
+                    @guest
+                    <a href="{{url('/login')}}" class="btn btn-style btn-primary" title="search"><i class="fas fa-user me-lg-2"></i> <span class="btn-texe-inf">Login</span></a>
+                    @else
+                    <a href="{{url('signout')}}" class="btn btn-style btn-success" title="search"><i class="fas fa-user me-lg-2"></i> <span class="btn-texe-inf">Logout</span></a>
+                    @endguest
                 </li>
                 <li class="shopvcart galssescart2 cart cart box_1 get-btn">
                     <form action="#" method="post" class="last">

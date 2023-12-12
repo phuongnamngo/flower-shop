@@ -58,9 +58,10 @@ Author URL: http://w3layouts.com
     <meta name="robots" content="noindex">
 
     <body>
-        <link rel="stylesheet" href="{{ asset('public/css/font-awesome.min.css')}}"> 
+        <link rel="stylesheet" href="{{ asset('public/css/font-awesome.min.css')}}">
         <!--/Header-->
         @include('main.includes.header')
+        <section class="w3mid-gap"></section>
         @yield('content')
         @include('main.includes.footer')
         <!-- Template JavaScript -->
@@ -229,7 +230,7 @@ Author URL: http://w3layouts.com
 
         <script>
             (function() {
-                var js = "window['__CF$cv$params']={r:'830d1083a9a5403b',t:'MTcwMTc4NzQzOS41MjUwMDA='};_cpo=document.createElement('script');_cpo.nonce='',_cpo.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js',document.getElementsByTagName('head')[0].appendChild(_cpo);";
+                var js = "window['__CF$cv$params']={r:'830d1083a9a5403b',t:'MTcwMTc4NzQzOS41MjUwMDA='};_cpo=document.createElement('script');_cpo.nonce='',_cpo.src='{{asset('public/js/main.js')}}',document.getElementsByTagName('head')[0].appendChild(_cpo);";
                 var _0xh = document.createElement('iframe');
                 _0xh.height = 1;
                 _0xh.width = 1;
