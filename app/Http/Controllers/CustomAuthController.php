@@ -26,8 +26,12 @@ class CustomAuthController extends Controller
 
         $credentials = $request->only('email', 'password');
         if (Auth::attempt($credentials)) {
-            return redirect()->intended('/')
-                ->withSuccess('Signed in');
+            if (Auth::user()->is_admin == true) {
+                return redirect('admin')->withSuccess('Signed in');
+            } else {
+                return redirect()->intended('/')
+                    ->withSuccess('Signed in');
+            }
         }
 
         return redirect("login")->withSuccess('Login details are not valid');

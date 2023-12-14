@@ -17,9 +17,14 @@ class Admin
      */
     public function handle(Request $request, Closure $next): Response
     {
-        if (!Auth::check() || Auth::user()->is_admin == false) {
-            return Redirect::route('index_product');
+        if (Auth::check()) {
+            if (Auth::user()->is_admin == true) {
+                return $next($request);
+            } else {
+                return redirect('/login')->with('status', 'Access Denied! as you are not as admin');
+            }
+        } else {
+            return redirect('admin/login')->with('status', 'Please Login First');
         }
-        return $next($request);
     }
 }
