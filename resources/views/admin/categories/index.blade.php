@@ -122,8 +122,11 @@
         <div class="row">
             <div class="col-12">
                 <div class="card mb-4">
-                    <div class="card-header pb-0">
-                        <h6>Authors table</h6>
+                    <div class="d-flex align-items-center justify-content-between px-4 pt-4 pb-2">
+                        <div class="card-header p-0">
+                            <h6>Authors table</h6>
+                        </div>
+                        <button type="button" class="btn btn-primary m-0" data-bs-toggle="modal" data-bs-target="#add-categories">Thêm</button>
                     </div>
                     <div class="card-body px-0 pt-0 pb-2">
                         <div class="table-responsive p-0">
@@ -163,9 +166,8 @@
                                             <span class="text-secondary text-xs font-weight-bold">23/04/18</span>
                                         </td>
                                         <td class="align-middle">
-                                            <a href="javascript:;" class="text-secondary font-weight-bold text-xs" data-toggle="tooltip" data-original-title="Edit user">
-                                                Edit
-                                            </a>
+                                            <button type="button" class="btn btn-success mb-0" data-bs-toggle="modal" data-bs-target="#edit-modal">Chỉnh sửa</button>
+                                            <button type="button" class="btn btn-secondary mb-0">Xóa</button>
                                         </td>
                                     </tr>
                                 </tbody>
@@ -177,4 +179,62 @@
         </div>
     </div>
 </main>
+<div class="modal fade" id="edit-modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Sửa danh mục</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <div class="mb-3">
+                        <label for="recipient-name" class="col-form-label">Tên danh mục:</label>
+                        <input type="text" class="form-control" id="recipient-name">
+                    </div>
+                    <div class="mb-3">
+                        <select class="form-select" aria-label="Default select example">
+                            <option selected>Chọn trạng thái</option>
+                            <option value="1">Hiện</option>
+                            <option value="0">Ẩn</option>
+                        </select>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Hủy</button>
+                <button type="button" class="btn btn-primary">Thêm</button>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="add-categories" tabindex="-1" aria-labelledby="eidtModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="eidtModalLabel">Thêm danh mục</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <div class="mb-3">
+                        <label for="recipient-name" class="col-form-label">Tên danh mục:</label>
+                        <input type="text" class="form-control" id="recipient-name">
+                    </div>
+                    <div class="mb-3">
+                        <select class="form-select" aria-label="Default select example">
+                            <option selected>Chọn trạng thái</option>
+                            <option value="1">Hiện</option>
+                            <option value="0">Ẩn</option>
+                        </select>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Hủy</button>
+                <button type="button" class="btn btn-primary">Sửa</button>
+            </div>
+        </div>
+    </div>
+</div>
 @endsection
