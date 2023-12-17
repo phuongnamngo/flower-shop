@@ -12,19 +12,22 @@
                                 <p class="mb-0">Enter your email and password to sign in</p>
                             </div>
                             <div class="card-body">
-                                <form role="form">
+                                <form method="POST" action="{{route('admin.login')}}" role="form">
+                                    @csrf
                                     <div class="mb-3">
-                                        <input type="email" class="form-control form-control-lg" placeholder="Email" aria-label="Email">
+                                        <input type="email" class="form-control form-control-lg" name="email" placeholder="Email" aria-label="Email">
+                                        @if ($errors->has('email'))
+                                        <span class="text-danger">{{ $errors->first('email') }}</span>
+                                        @endif
                                     </div>
                                     <div class="mb-3">
-                                        <input type="email" class="form-control form-control-lg" placeholder="Password" aria-label="Password">
-                                    </div>
-                                    <div class="form-check form-switch">
-                                        <input class="form-check-input" type="checkbox" id="rememberMe">
-                                        <label class="form-check-label" for="rememberMe">Remember me</label>
+                                        <input type="password" class="form-control form-control-lg" name="password" placeholder="Password" aria-label="Password">
+                                        @if ($errors->has('password'))
+                                        <span class="text-danger">{{ $errors->first('password') }}</span>
+                                        @endif
                                     </div>
                                     <div class="text-center">
-                                        <button type="button" class="btn btn-lg btn-primary btn-lg w-100 mt-4 mb-0">Sign in</button>
+                                        <button type="submit" class="btn btn-lg btn-primary btn-lg w-100 mt-4 mb-0">Sign in</button>
                                     </div>
                                 </form>
                             </div>

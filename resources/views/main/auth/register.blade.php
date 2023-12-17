@@ -28,7 +28,7 @@
         <div class="form-wrapv">
 
             <h2>Đăng ký</h2>
-            <form action="{{ route('register.custom') }}" method="POST">
+            <form action="{{ route('register') }}" method="POST">
                 @csrf
                 <div class="form-sub-w3">
                     <input type="text" name="name" placeholder="Name" required="" id="name" />
@@ -52,6 +52,15 @@
                     <input type="password" name="password" placeholder="Password" required="" id="password" />
                     @if ($errors->has('password'))
                     <span class="text-danger">{{ $errors->first('password') }}</span>
+                    @endif
+                    <div class="icon-w3">
+                        <span class="fas fa-unlock-alt" aria-hidden="true"></span>
+                    </div>
+                </div>
+                <div class="form-sub-w3">
+                    <input type="password" name="password_confirmation" placeholder="Confirm Password" required="" id="password_confirmation" />
+                    @if ($errors->has('password_confirmation'))
+                    <span class="text-danger">{{ $errors->first('password_confirmation') }}</span>
                     @endif
                     <div class="icon-w3">
                         <span class="fas fa-unlock-alt" aria-hidden="true"></span>

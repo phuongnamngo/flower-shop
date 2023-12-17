@@ -37,18 +37,18 @@
                     <div class="flexslider1">
 
                         <ul class="slides">
-                            <li data-thumb="assets/images/cart1.jpg">
-                                <div class="thumb-image"> <img src="assets/images/cart1.jpg" data-imagezoom="true" class="img-fluid radius-image" alt=" "> </div>
+                            <li data-thumb="{{asset('public/'.$product->img)}}">
+                                <div class="thumb-image"> <img src="{{asset('public/'.$product->img)}}" data-imagezoom="true" class="img-fluid radius-image" alt=" "> </div>
                             </li>
-                            <li data-thumb="assets/images/cart2.jpg">
-                                <div class="thumb-image"> <img src="assets/images/cart2.jpg" data-imagezoom="true" class="img-fluid radius-image" alt=" "> </div>
+                            <!-- <li data-thumb="{{asset('public/images/cart2.jpg')}}">
+                                <div class="thumb-image"> <img src="{{asset('public/images/cart2.jpg')}}" data-imagezoom="true" class="img-fluid radius-image" alt=" "> </div>
                             </li>
-                            <li data-thumb="assets/images/cart3.jpg">
-                                <div class="thumb-image"> <img src="assets/images/cart3.jpg" data-imagezoom="true" class="img-fluid radius-image" alt=" "> </div>
+                            <li data-thumb="{{asset('public/images/cart3.jpg')}}">
+                                <div class="thumb-image"> <img src="{{asset('public/images/cart3.jpg')}}" data-imagezoom="true" class="img-fluid radius-image" alt=" "> </div>
                             </li>
-                            <li data-thumb="assets/images/cart4.jpg">
-                                <div class="thumb-image"> <img src="assets/images/cart4.jpg" data-imagezoom="true" class="img-fluid radius-image" alt=" "> </div>
-                            </li>
+                            <li data-thumb="{{asset('public/images/cart4.jpg')}}">
+                                <div class="thumb-image"> <img src="{{asset('public/images/cart4.jpg')}}" data-imagezoom="true" class="img-fluid radius-image" alt=" "> </div>
+                            </li> -->
                         </ul>
                         <div class="clearfix"></div>
                     </div>
@@ -70,7 +70,7 @@
                     </div>
                 </div>
                 <div class="col-lg-7 single-right-left ps-lg-5">
-                    <h3>Men Slim Fit Checkered Casual Shirt
+                    <h3>{{$product->name}}
                     </h3>
                     <div class="caption">
 
@@ -103,25 +103,23 @@
                         </ul>
 
                         <h6>
-                            <span class="item_price">$575</span>
-                            <del>$1,199</del> Free Delivery
+                            <span class="item_price">{{$product->price}}</span>
+                            <!-- <del>$1,199</del> Free Delivery -->
                         </h6>
                     </div>
-                    <div class="desc_single my-4">
+                    <!-- <div class="desc_single my-4">
                         <ul class="emi-views">
                             <li><span>Special Price</span> Get extra 5% off (price inclusive of discount)</li>
                             <li><span>Bank Offer</span> 5% Unlimited Cashback on Flipkart Axis Bank Credit Card</li>
                             <li><span>Bank Offer</span> 5% Cashback* on HDFC Bank Debit Cards</li>
                             <li><span>Bank Offer</span> Extra 5% off* with Axis Bank Buzz Credit Card</li>
                         </ul>
-                    </div>
+                    </div> -->
                     <div class="desc_single mb-4">
                         <h5>Description:</h5>
-                        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Facere, ratione et ipsam velit
-                            explicabo deleniti obcaecati a, numquam, unde quisquam quas quae accusamus eveniet magni.
-                            Nobis iure et porro aut..</p>
+                        <p>{{$product->desc}}</p>
                     </div>
-                    <div class="description-apt d-grid mb-4">
+                    <!-- <div class="description-apt d-grid mb-4">
                         <div class="occasional">
                             <h5 class="sp_title mb-3">Highlights:</h5>
                             <ul class="single_specific">
@@ -149,12 +147,21 @@
                                 </li>
                             </ul>
                         </div>
-                    </div>
+                    </div> -->
                     <div class="description mb-4">
-                        <h5>Check delivery, payment options and charges at your location</h5>
-                        <form action="#" class="d-flex" method="post">
-                            <input type="text" placeholder="Enter pincode" required>
-                            <button class="submit btn btn-style btn-primary ms-3" type="submit">Check</button>
+                        <h4 class="mb-4">Bình luận sản phẩm</h4>
+                        @foreach($comment as $item)
+                        <div class="">
+                            <h5>{{$item->name}}</h5>
+                            <p>{{$item->body}}</p>
+                        </div>
+                        @endforeach
+                        <form action="{{route('comment')}}" class="d-flex" method="POST">
+                            @csrf
+                            <input type="text" placeholder="Comment" required name="body">
+                            <input type="text" hidden placeholder="Enter pincode" value="{{$product->id}}" required name="product_id">
+                            <input type="text" hidden placeholder="Enter pincode" required class="hidden" value="{{auth()->id()}}" name="user_id">
+                            <button class="submit btn btn-style btn-primary ms-3" type="submit">Comment</button>
                         </form>
                     </div>
 

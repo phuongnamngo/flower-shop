@@ -28,7 +28,7 @@
         <div class="form-wrapv">
 
             <h2>Login to your account</h2>
-            <form method="POST" action="{{ route('login.custom') }}">
+            <form method="POST" action="{{ route('login') }}">
                 @csrf
                 <div class="form-sub-w3">
                     <input type="text" name="email" placeholder="Email " required="" id="email" />
@@ -49,8 +49,8 @@
                     </div>
                 </div>
                 <div class="form-sub-content">
-                    <p class="forgot-w3ls">Forgot Password?<a class href="#"> Click here</a></p>
-                    <p class="forgot-w3ls1">New User? <a class href="{{url('register')}}">Signup here</a></p>
+                    <!-- <p class="forgot-w3ls">Forgot Password?<a class href="{{route('password.request')}}"> Click here</a></p> -->
+                    <p class="forgot-w3ls1 text-start">New User? <a class href="{{url('register')}}">Signup here</a></p>
                 </div>
                 <div class="submit-button text-center">
                     <button type="submit" class="btn btn-style btn-primary">Login Now</button>

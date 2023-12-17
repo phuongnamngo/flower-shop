@@ -48,7 +48,7 @@
                                 <a class="dropdown-item border-radius-md" href="javascript:;">
                                     <div class="d-flex py-1">
                                         <div class="my-auto">
-                                            <img src="../assets/img/team-2.jpg" class="avatar avatar-sm  me-3 ">
+                                            <img src="{{asset('public/assets/img/team-2.jpg')}}" class="avatar avatar-sm  me-3 ">
                                         </div>
                                         <div class="d-flex flex-column justify-content-center">
                                             <h6 class="text-sm font-weight-normal mb-1">
@@ -66,7 +66,7 @@
                                 <a class="dropdown-item border-radius-md" href="javascript:;">
                                     <div class="d-flex py-1">
                                         <div class="my-auto">
-                                            <img src="../assets/img/small-logos/logo-spotify.svg" class="avatar avatar-sm bg-gradient-dark  me-3 ">
+                                            <img src="{{asset('public/assets/img/small-logos/logo-spotify.svg')}}" class="avatar avatar-sm bg-gradient-dark  me-3 ">
                                         </div>
                                         <div class="d-flex flex-column justify-content-center">
                                             <h6 class="text-sm font-weight-normal mb-1">
@@ -126,52 +126,51 @@
                         <div class="card-header p-0">
                             <h6>Authors table</h6>
                         </div>
-                        <button type="button" class="btn btn-primary m-0" data-bs-toggle="modal" data-bs-target="#add-categories">Thêm</button>
+                        <a href="{{route('admin.category.create')}}" class="btn btn-primary m-0">Thêm</a>
                     </div>
                     <div class="card-body px-0 pt-0 pb-2">
                         <div class="table-responsive p-0">
-                            <table class="table align-items-center mb-0">
+                            <table class="table align-items-center mb-0 data-table">
                                 <thead>
                                     <tr>
-                                        <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Author</th>
-                                        <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Function</th>
+                                        <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">No</th>
+                                        <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Name</th>
                                         <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Status
                                         </th>
                                         <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                                            Employed</th>
-                                        <th class="text-secondary opacity-7"></th>
+                                            Action</th>
                                     </tr>
                                 </thead>
                                 <tbody>
+                                    @foreach ($categories as $category)
                                     <tr>
-                                        <td>
-                                            <div class="d-flex px-2 py-1">
-                                                <div>
-                                                    <img src="{{asset('public/assets/img/team-2.jpg')}}" class="avatar avatar-sm me-3" alt="user1">
-                                                </div>
-                                                <div class="d-flex flex-column justify-content-center">
-                                                    <h6 class="mb-0 text-sm">John Michael</h6>
-                                                    <p class="text-xs text-secondary mb-0">john@creative-tim.com</p>
-                                                </div>
-                                            </div>
+                                        <td class="px-4">
+                                            <span class="text-secondary text-xs font-weight-bold">{{ ++$i }}</span>
                                         </td>
                                         <td>
-                                            <p class="text-xs font-weight-bold mb-0">Manager</p>
-                                            <p class="text-xs text-secondary mb-0">Organization</p>
+                                            <span class="text-secondary text-xs font-weight-bold">{{ $category->name }}</span>
                                         </td>
                                         <td class="align-middle text-center text-sm">
-                                            <span class="badge badge-sm bg-gradient-success">Online</span>
+                                            @if($category->status == 1)
+                                            <span class="badge badge-sm bg-gradient-success">Hiện</span>
+                                            @else
+                                            <span class="badge badge-sm bg-gradient-success">Ẩn</span>
+                                            @endif
                                         </td>
                                         <td class="align-middle text-center">
-                                            <span class="text-secondary text-xs font-weight-bold">23/04/18</span>
-                                        </td>
-                                        <td class="align-middle">
-                                            <button type="button" class="btn btn-success mb-0" data-bs-toggle="modal" data-bs-target="#edit-modal">Chỉnh sửa</button>
-                                            <button type="button" class="btn btn-secondary mb-0">Xóa</button>
+                                            <form action="{{ route('admin.category.destroy',$category->id) }}" method="POST">
+                                                <a class="btn btn-success mb-0" href="{{ route('admin.category.edit',$category->id) }}">Edit</a>
+
+                                                @csrf
+                                                @method('DELETE')
+                                                <button type="submit" class="btn btn-secondary mb-0">Delete</button>
+                                            </form>
                                         </td>
                                     </tr>
+                                    @endforeach
                                 </tbody>
                             </table>
+                            {!! $categories->links() !!}
                         </div>
                     </div>
                 </div>
@@ -179,62 +178,4 @@
         </div>
     </div>
 </main>
-<div class="modal fade" id="edit-modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Sửa danh mục</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                <form>
-                    <div class="mb-3">
-                        <label for="recipient-name" class="col-form-label">Tên danh mục:</label>
-                        <input type="text" class="form-control" id="recipient-name">
-                    </div>
-                    <div class="mb-3">
-                        <select class="form-select" aria-label="Default select example">
-                            <option selected>Chọn trạng thái</option>
-                            <option value="1">Hiện</option>
-                            <option value="0">Ẩn</option>
-                        </select>
-                    </div>
-                </form>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Hủy</button>
-                <button type="button" class="btn btn-primary">Thêm</button>
-            </div>
-        </div>
-    </div>
-</div>
-<div class="modal fade" id="add-categories" tabindex="-1" aria-labelledby="eidtModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="eidtModalLabel">Thêm danh mục</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                <form>
-                    <div class="mb-3">
-                        <label for="recipient-name" class="col-form-label">Tên danh mục:</label>
-                        <input type="text" class="form-control" id="recipient-name">
-                    </div>
-                    <div class="mb-3">
-                        <select class="form-select" aria-label="Default select example">
-                            <option selected>Chọn trạng thái</option>
-                            <option value="1">Hiện</option>
-                            <option value="0">Ẩn</option>
-                        </select>
-                    </div>
-                </form>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Hủy</button>
-                <button type="button" class="btn btn-primary">Sửa</button>
-            </div>
-        </div>
-    </div>
-</div>
 @endsection

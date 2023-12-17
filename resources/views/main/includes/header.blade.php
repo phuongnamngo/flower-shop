@@ -55,7 +55,10 @@
                     @guest
                     <a href="{{url('/login')}}" class="btn btn-style btn-primary" title="search"><i class="fas fa-user me-lg-2"></i> <span class="btn-texe-inf">Login</span></a>
                     @else
-                    <a href="{{url('signout')}}" class="btn btn-style btn-success" title="search"><i class="fas fa-user me-lg-2"></i> <span class="btn-texe-inf">Logout</span></a>
+                    <form method="POST" action="{{route('logout')}}">
+                        @csrf
+                        <button type="submit" class="btn btn-style btn-success" title="search"><i class="fas fa-user me-lg-2"></i> <span class="btn-texe-inf">Logout</span></button>
+                    </form>
                     @endguest
                 </li>
                 <li class="shopvcart galssescart2 cart cart box_1 get-btn">

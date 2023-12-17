@@ -222,15 +222,16 @@
                         </div>
                     </div>
                     <div class="ecom-products-grids row">
+                        @foreach($products as $product)
                         <div class="col-lg-4 col-6 product-incfhny mt-4">
                             <div class="product-grid2 shopv">
                                 <div class="product-image2">
                                     <a href="product-single.html">
-                                        <img class="pic-1 img-fluid radius-image" src="assets/images/shop-1.jpg">
-                                        <img class="pic-2 img-fluid radius-image" src="assets/images/shop-1.jpg">
+                                        <img class="pic-1 img-fluid radius-image" src="{{asset('public/' .$product->img)}}">
+                                        <img class="pic-2 img-fluid radius-image" src="{{asset('public/' .$product->img)}}">
                                     </a>
                                     <ul class="social">
-                                        <li><a href="#" data-tip="Quick View"><span class="fa fa-eye"></span></a></li>
+                                        <li><a href="{{route('product.detail', $product->id)}}" data-tip="Quick View"><span class="fa fa-eye"></span></a></li>
 
                                         <li><a href="products.html" data-tip="Add to Cart"><span class="fa fa-shopping-bag"></span></a>
                                         </li>
@@ -248,268 +249,12 @@
                                     </div>
                                 </div>
                                 <div class="product-content">
-                                    <h3 class="title"><a href="product-single.html">Checkered Casual Shirt </a></h3>
-                                    <span class="price"><del>$975.00</del>$899.99</span>
+                                    <h3 class="title"><a href="product-single.html">{{$product->name}} </a></h3>
+                                    <span class="price">{{$product->price}}</span>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-lg-4 col-6 product-incfhny mt-4">
-                            <div class="product-grid2">
-                                <div class="product-image2">
-                                    <a href="product-single.html">
-                                        <img class="pic-1 img-fluid radius-image" src="assets/images/shop-2.jpg">
-                                        <img class="pic-2 img-fluid radius-image" src="assets/images/shop-2.jpg">
-                                    </a>
-                                    <ul class="social">
-                                        <li><a href="#" data-tip="Quick View"><span class="fa fa-eye"></span></a></li>
-
-                                        <li><a href="products.html" data-tip="Add to Cart"><span class="fa fa-shopping-bag"></span></a>
-                                        </li>
-                                    </ul>
-                                    <div class="shopv single-item">
-                                        <form action="#" method="post">
-                                            <input type="hidden" name="cmd" value="_cart">
-                                            <input type="hidden" name="add" value="1">
-                                            <input type="hidden" name="shopv_item" value="Cotton Flared Kurta">
-                                            <input type="hidden" name="amount" value="599.99">
-                                            <button type="submit" class="shopv-cart pshopv-cart add-to-cart">
-                                                Add to Cart
-                                            </button>
-                                        </form>
-                                    </div>
-                                </div>
-                                <div class="product-content">
-                                    <h3 class="title"><a href="product-single.html">Cotton Flared Kurta</a></h3>
-                                    <span class="price"><del>$775.00</del>$599.99</span>
-                                </div>
-                            </div>
-
-                        </div>
-                        <div class="col-lg-4 col-6 product-incfhny mt-4">
-                            <div class="product-grid2">
-                                <div class="product-image2">
-                                    <a href="product-single.html">
-                                        <img class="pic-1 img-fluid radius-image" src="assets/images/shop-3.jpg">
-                                        <img class="pic-2 img-fluid radius-image" src="assets/images/shop-3.jpg">
-                                    </a>
-                                    <ul class="social">
-                                        <li><a href="#" data-tip="Quick View"><span class="fa fa-eye"></span></a></li>
-
-                                        <li><a href="products.html" data-tip="Add to Cart"><span class="fa fa-shopping-bag"></span></a>
-                                        </li>
-                                    </ul>
-                                    <div class="shopv single-item">
-                                        <form action="#" method="post">
-                                            <input type="hidden" name="cmd" value="_cart">
-                                            <input type="hidden" name="add" value="1">
-                                            <input type="hidden" name="shopv_item" value="Men Casual Shirt">
-                                            <input type="hidden" name="amount" value="799.99">
-                                            <button type="submit" class="shopv-cart pshopv-cart add-to-cart">
-                                                Add to Cart
-                                            </button>
-                                        </form>
-                                    </div>
-                                </div>
-                                <div class="product-content">
-                                    <h3 class="title"><a href="product-single.html">Men Casual Shirt </a></h3>
-                                    <span class="price"><del>$875.00</del>$799.99</span>
-                                </div>
-                            </div>
-
-                        </div>
-                        <div class="col-lg-4 col-6 product-incfhny mt-4">
-                            <div class="product-grid2">
-                                <div class="product-image2">
-                                    <a href="product-single.html">
-                                        <img class="pic-1 img-fluid radius-image" src="assets/images/shop-4.jpg">
-                                        <img class="pic-2 img-fluid radius-image" src="assets/images/shop-4.jpg">
-                                    </a>
-                                    <ul class="social">
-                                        <li><a href="#" data-tip="Quick View"><span class="fa fa-eye"></span></a></li>
-
-                                        <li><a href="products.html" data-tip="Add to Cart"><span class="fa fa-shopping-bag"></span></a>
-                                        </li>
-                                    </ul>
-                                    <div class="shopv single-item">
-                                        <form action="#" method="post">
-                                            <input type="hidden" name="cmd" value="_cart">
-                                            <input type="hidden" name="add" value="1">
-                                            <input type="hidden" name="shopv_item" value="Blend Straight Kurta">
-                                            <input type="hidden" name="amount" value="399.99">
-                                            <button type="submit" class="shopv-cart pshopv-cart add-to-cart">
-                                                Add to Cart
-                                            </button>
-                                        </form>
-                                    </div>
-                                </div>
-                                <div class="product-content">
-                                    <h3 class="title"><a href="product-single.html">Blend Straight Kurta </a></h3>
-                                    <span class="price"><del>$475.00</del>$399.99</span>
-                                </div>
-                            </div>
-
-                        </div>
-                        <div class="col-lg-4 col-6 product-incfhny mt-4">
-                            <div class="product-grid2">
-                                <div class="product-image2">
-                                    <a href="product-single.html">
-                                        <img class="pic-1 img-fluid radius-image" src="assets/images/shop-5.jpg">
-                                        <img class="pic-2 img-fluid radius-image" src="assets/images/shop-5.jpg">
-                                    </a>
-                                    <ul class="social">
-                                        <li><a href="#" data-tip="Quick View"><span class="fa fa-eye"></span></a></li>
-
-                                        <li><a href="products.html" data-tip="Add to Cart"><span class="fa fa-shopping-bag"></span></a>
-                                        </li>
-                                    </ul>
-                                    <div class="shopv single-item">
-                                        <form action="#" method="post">
-                                            <input type="hidden" name="cmd" value="_cart">
-                                            <input type="hidden" name="add" value="1">
-                                            <input type="hidden" name="shopv_item" value="Dark Blue  Top">
-                                            <input type="hidden" name="amount" value="299.99">
-                                            <button type="submit" class="shopv-cart pshopv-cart add-to-cart">
-                                                Add to Cart
-                                            </button>
-                                        </form>
-                                    </div>
-                                </div>
-                                <div class="product-content">
-                                    <h3 class="title"><a href="product-single.html">Women Maroon Top</a></h3>
-                                    <span class="price"><del>$575.00</del>$299.99</span>
-                                </div>
-                            </div>
-
-                        </div>
-                        <div class="col-lg-4 col-6 product-incfhny mt-4">
-                            <div class="product-grid2">
-                                <div class="product-image2">
-                                    <a href="product-single.html">
-                                        <img class="pic-1 img-fluid radius-image" src="assets/images/shop-6.jpg">
-                                        <img class="pic-2 img-fluid radius-image" src="assets/images/shop-6.jpg">
-                                    </a>
-                                    <ul class="social">
-                                        <li><a href="#" data-tip="Quick View"><span class="fa fa-eye"></span></a></li>
-
-                                        <li><a href="products.html" data-tip="Add to Cart"><span class="fa fa-shopping-bag"></span></a>
-                                        </li>
-                                    </ul>
-                                    <div class="shopv single-item">
-                                        <form action="#" method="post">
-                                            <input type="hidden" name="cmd" value="_cart">
-                                            <input type="hidden" name="add" value="1">
-                                            <input type="hidden" name="shopv_item" value="Pink Shirt ">
-                                            <input type="hidden" name="amount" value="699.99">
-                                            <button type="submit" class="shopv-cart pshopv-cart add-to-cart">
-                                                Add to Cart
-                                            </button>
-                                        </form>
-                                    </div>
-                                </div>
-                                <div class="product-content">
-                                    <h3 class="title"><a href="product-single.html">Pink Shirt </a></h3>
-                                    <span class="price"><del>$775.00</del>$699.99</span>
-                                </div>
-                            </div>
-
-                        </div>
-                        <div class="col-lg-4 col-6 product-incfhny mt-4">
-                            <div class="product-grid2">
-                                <div class="product-image2">
-                                    <a href="product-single.html">
-                                        <img class="pic-1 img-fluid radius-image" src="assets/images/shop-7.jpg">
-                                        <img class="pic-2 img-fluid radius-image" src="assets/images/shop-7.jpg">
-                                    </a>
-                                    <ul class="social">
-                                        <li><a href="#" data-tip="Quick View"><span class="fa fa-eye"></span></a></li>
-
-                                        <li><a href="products.html" data-tip="Add to Cart"><span class="fa fa-shopping-bag"></span></a>
-                                        </li>
-                                    </ul>
-                                    <div class="shopv single-item">
-                                        <form action="#" method="post">
-                                            <input type="hidden" name="cmd" value="_cart">
-                                            <input type="hidden" name="add" value="1">
-                                            <input type="hidden" name="shopv_item" value="Dark Blue Top">
-                                            <input type="hidden" name="amount" value="599.99">
-                                            <button type="submit" class="shopv-cart pshopv-cart add-to-cart">
-                                                Add to Cart
-                                            </button>
-                                        </form>
-                                    </div>
-                                </div>
-                                <div class="product-content">
-                                    <h3 class="title"><a href="product-single.html">Dark Blue Top </a></h3>
-                                    <span class="price"><del>$675.00</del>$599.99</span>
-                                </div>
-                            </div>
-
-                        </div>
-                        <div class="col-lg-4 col-6 product-incfhny mt-4">
-                            <div class="product-grid2">
-                                <div class="product-image2">
-                                    <a href="product-single.html">
-                                        <img class="pic-1 img-fluid radius-image" src="assets/images/shop-8.jpg">
-                                        <img class="pic-2 img-fluid radius-image" src="assets/images/shop-8.jpg">
-                                    </a>
-                                    <ul class="social">
-                                        <li><a href="#" data-tip="Quick View"><span class="fa fa-eye"></span></a></li>
-
-                                        <li><a href="products.html" data-tip="Add to Cart"><span class="fa fa-shopping-bag"></span></a>
-                                        </li>
-                                    </ul>
-                                    <div class="shopv single-item">
-                                        <form action="#" method="post">
-                                            <input type="hidden" name="cmd" value="_cart">
-                                            <input type="hidden" name="add" value="1">
-                                            <input type="hidden" name="shopv_item" value="White T-Shirt">
-                                            <input type="hidden" name="amount" value="599.99">
-                                            <button type="submit" class="shopv-cart pshopv-cart add-to-cart">
-                                                Add to Cart
-                                            </button>
-                                        </form>
-                                    </div>
-                                </div>
-                                <div class="product-content">
-                                    <h3 class="title"><a href="product-single.html">White T-Shirt </a></h3>
-                                    <span class="price"><del>$675.00</del>$599.99</span>
-                                </div>
-                            </div>
-
-                        </div>
-                        <div class="col-lg-4 col-6 product-incfhny mt-4">
-                            <div class="product-grid2">
-                                <div class="product-image2">
-                                    <a href="product-single.html">
-                                        <img class="pic-1 img-fluid radius-image" src="assets/images/shop-9.jpg">
-                                        <img class="pic-2 img-fluid radius-image" src="assets/images/shop-9.jpg">
-                                    </a>
-                                    <ul class="social">
-                                        <li><a href="#" data-tip="Quick View"><span class="fa fa-eye"></span></a></li>
-
-                                        <li><a href="products.html" data-tip="Add to Cart"><span class="fa fa-shopping-bag"></span></a>
-                                        </li>
-                                    </ul>
-                                    <div class="shopv single-item">
-                                        <form action="#" method="post">
-                                            <input type="hidden" name="cmd" value="_cart">
-                                            <input type="hidden" name="add" value="1">
-                                            <input type="hidden" name="shopv_item" value="Pink Bag ">
-                                            <input type="hidden" name="amount" value="599.99">
-                                            <button type="submit" class="shopv-cart pshopv-cart add-to-cart">
-                                                Add to Cart
-                                            </button>
-                                        </form>
-                                    </div>
-                                </div>
-                                <div class="product-content">
-                                    <h3 class="title"><a href="product-single.html">Pink Bag </a></h3>
-                                    <span class="price"><del>$675.00</del>$599.99</span>
-                                </div>
-                            </div>
-
-                        </div>
-
+                        @endforeach
                     </div>
                     <div class="row w3l-3-grids mt-5">
                         <div class="col-md-6 mt-md-0">
