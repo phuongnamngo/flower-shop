@@ -17,17 +17,17 @@ class ProductDetailController extends Controller
                 'categories.name as category_name',
                 'product.*',
             )->where('product.id', $id)->first();
-        if (auth()->id()) {
-            $this->comment = Comment::leftJoin('users', 'users.id', '=', 'comment.user_id')
-                ->select('comment.*', 'users.name as name')
-                ->where('comment.user_id', auth()->id())->where('comment.product_id', $id)->get();
-        }
+        $this->comment = Comment::leftJoin('users', 'users.id', '=', 'comment.user_id')
+            ->select('comment.*', 'users.name as name')->where('comment.product_id', $id)->get();
         return view('main.product.productDetails')->with('product', $product)->with('comment', $this->comment);
     }
     public function comment(Request $request)
     {
+        $request->validate([
+            'body' => 'required',
+        ]);
         $comment = new Comment;
-        $comment->user_id = $request->user_id;
+        $comment->user_id = $request->user_id ? $request->user_id : '';
         $comment->product_id = $request->product_id;
         $comment->body = $request->body;
         $comment->save();

@@ -148,28 +148,54 @@
                             </ul>
                         </div>
                     </div> -->
-                    <div class="description mb-4">
-                        <h4 class="mb-4">Bình luận sản phẩm</h4>
-                        @foreach($comment as $item)
-                        <div class="">
-                            <h5>{{$item->name}}</h5>
-                            <p>{{$item->body}}</p>
-                        </div>
-                        @endforeach
-                        <form action="{{route('comment')}}" class="d-flex" method="POST">
-                            @csrf
-                            <input type="text" placeholder="Comment" required name="body">
-                            <input type="text" hidden placeholder="Enter pincode" value="{{$product->id}}" required name="product_id">
-                            <input type="text" hidden placeholder="Enter pincode" required class="hidden" value="{{auth()->id()}}" name="user_id">
-                            <button class="submit btn btn-style btn-primary ms-3" type="submit">Comment</button>
-                        </form>
-                    </div>
 
                 </div>
             </div>
         </div>
         <!--//row1-->
 
+    </div>
+</section>
+<section style="background-color: #eee;">
+    <div class="container py-5">
+        <div class="row d-flex justify-content-center">
+            <div class="col-lg-12">
+                <div class="card">
+                    @foreach($comment as $item)
+                    <div class="card-body">
+                        <div class="d-flex flex-start align-items-center">
+                            <div>
+
+                                <h6 class="fw-bold text-primary mb-1">{{$item->name}}</h6>
+                            </div>
+                        </div>
+                        <p class="mt-2 pb-2">
+                            {{$item->body}}
+                        </p>
+                    </div>
+                    @endforeach
+                    <div class="card-footer py-3 border-0" style="background-color: #f8f9fa;">
+                        <form action="{{route('comment')}}" method="POST" novalidate>
+                            @csrf
+                            <div class="d-flex flex-start w-100">
+                                <div class="form-outline w-100">
+                                    <textarea class="form-control" name="body" id="textAreaExample" rows="4" style="background: #fff;"></textarea>
+                                    @if ($errors->has('body'))
+                                    <span class="text-danger">{{ $errors->first('body') }}</span>
+                                    @endif
+                                    <label class="form-label" for="textAreaExample">Comment</label>
+                                    <input type="text" hidden placeholder="Enter pincode" value="{{$product->id}}" required name="product_id">
+                                    <input type="text" hidden placeholder="Enter pincode" required class="hidden" value="{{auth()->id() ? auth()->id() : ''}}" name="user_id">
+                                </div>
+                            </div>
+                            <div class="float-end mt-2 pt-1">
+                                <button type="submit" class="btn btn-primary btn-sm">Post comment</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </section>
 <section class="w3l-witemshny-main py-5">
