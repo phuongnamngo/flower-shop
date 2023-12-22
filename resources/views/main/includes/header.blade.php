@@ -62,7 +62,7 @@
                     @endguest
                 </li>
                 <li class="shopvcart galssescart2 cart cart box_1 get-btn">
-                    <form action="#" method="post" class="last">
+                    <form action="" method="post" class="last">
                         <input type="hidden" name="cmd" value="_cart">
                         <input type="hidden" name="display" value="1">
                         <button class="top_shopv_cart" type="submit" name="submit" value="">
