@@ -226,7 +226,7 @@
                         <div class="col-lg-4 col-6 product-incfhny mt-4">
                             <div class="product-grid2 shopv">
                                 <div class="product-image2">
-                                    <a href="product-single.html">
+                                    <a href="{{route('product.detail', $product->id)}}">
                                         <img class="pic-1 img-fluid radius-image" src="{{asset('public/' .$product->img)}}">
                                         <img class="pic-2 img-fluid radius-image" src="{{asset('public/' .$product->img)}}">
                                     </a>
@@ -236,20 +236,9 @@
                                         <li><a href="products.html" data-tip="Add to Cart"><span class="fa fa-shopping-bag"></span></a>
                                         </li>
                                     </ul>
-                                    <div class="shopv single-item">
-                                        <form action="#" method="post">
-                                            <input type="hidden" name="cmd" value="_cart">
-                                            <input type="hidden" name="add" value="1">
-                                            <input type="hidden" name="shopv_item" value="Checkered Casual Shirt">
-                                            <input type="hidden" name="amount" value="899.99">
-                                            <button type="submit" class="shopv-cart pshopv-cart add-to-cart">
-                                                Add to Cart
-                                            </button>
-                                        </form>
-                                    </div>
                                 </div>
                                 <div class="product-content">
-                                    <h3 class="title"><a href="product-single.html">{{$product->name}} </a></h3>
+                                    <h3 class="title"><a href="{{route('product.detail', $product->id)}}">{{$product->name}} </a></h3>
                                     <span class="price">{{$product->price}}</span>
                                 </div>
                             </div>
