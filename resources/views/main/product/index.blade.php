@@ -239,7 +239,7 @@
                                 </div>
                                 <div class="product-content">
                                     <h3 class="title"><a href="{{route('product.detail', $product->id)}}">{{$product->name}} </a></h3>
-                                    <span class="price">{{$product->price}}</span>
+                                    <span class="price">${{ $product['price'] }}</span>
                                 </div>
                             </div>
                         </div>

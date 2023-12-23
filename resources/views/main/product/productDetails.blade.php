@@ -61,6 +61,7 @@
                                     <input type="hidden" name="product_id" value="{{ $product->id }}">
                                     <input type="hidden" name="product_name" value="{{ $product->name }}">
                                     <input type="hidden" name="product_price" value="{{ $product->price }}">
+                                    <input type="hidden" name="product_quantity" value="1">
 
                                     <button type="submit"
                                         class="shopv-cart pshopv-cart add-to-cart btn btn-style btn-primary">
@@ -105,7 +106,7 @@
                             </ul>
 
                             <h6>
-                                <span class="item_price">{{ $product->price }}</span>
+                                <span class="item_price">${{ $product->price }}</span>
                                 <!-- <del>$1,199</del> Free Delivery -->
                             </h6>
                         </div>
@@ -423,7 +424,6 @@
 <script>
     $(document).ready(function() {
         @if (session('success'))
-        console.log('aaa');
             alert('{{ session('success') }}');
         @endif
     });
