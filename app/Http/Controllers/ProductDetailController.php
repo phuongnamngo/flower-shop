@@ -44,6 +44,6 @@ class ProductDetailController extends Controller
         $rate->product_id = $request->product_id;
         $rate->rating = $request->index;
         $rate->save();
-        return response()->json(['success' => 'successfully']);
+        return response()->json(['success' => 'Bạn đánh gía sản phẩm thành công!']);
     }
 }

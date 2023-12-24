@@ -261,7 +261,6 @@ Author URL: http://w3layouts.com
             $(document).on('click', '.rating', function() {
                 var index = $(this).data("index");
                 var product_id = $(this).data("product-id");
-                console.log('meoem: ', index);
                 $.ajax({
                     url: '{{ route("insert.rating")}}',
                     type: 'POST',
@@ -270,7 +269,8 @@ Author URL: http://w3layouts.com
                         product_id: product_id,
                     },
                     success: function(response) {
-                        alert(response.success);
+                        alert(response.success)
+                        location.reload();
                     }
                 });
             });
