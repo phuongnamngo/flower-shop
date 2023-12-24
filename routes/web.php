@@ -54,6 +54,7 @@ Route::middleware(['auth:admin', 'verified'])->group(function () {
     Route::get('admin/edit-category/{id}', [CategoriesController::class, 'edit'])->name('admin.category.edit');
     Route::put('admin/update-category/{id}', [CategoriesController::class, 'update'])->name('admin.category.update');
     Route::delete('admin/delete-category/{id}', [CategoriesController::class, 'destroy'])->name('admin.category.destroy');
+    Route::post('admin/update-status', [CategoriesController::class, 'updateStatus'])->name('admin.category.updateStatus');
     Route::get('/admin/profile', [ProfileAdminController::class, 'index']);
 
     //product

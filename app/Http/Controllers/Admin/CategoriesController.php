@@ -33,27 +33,31 @@ class CategoriesController extends Controller
         ]);
 
         Category::create($request->all());
-
         return redirect()->route('admin.category')
             ->with('success', 'Categories created successfully.');
     }
+    public function updateStatus(Request $request)
+    {
+        $category = Category::find($request->id);
+        $category->status = $request->status;
+        $category->save();
 
-    /**
-     * Display the specified resource.
-     */
-    // public function show(Product $product): View
-    // {
-    //     return view('products.show', compact('product'));
-    // }
+        return response()->json(['message' => 'Status updated successfully.']);
+    }
 
+    public function hide($id)
+    {
+        Category::where('id', $id)->update(['status' => 0]);
+        return response()->json(['success' => true]);
+    }
     /**
      * Show the form for editing the specified resource.
      */
     public function edit($id): View
     {
-      
+
         $categories = Category::where("id", $id)->first();
-        return view('admin.categories.edit')->with('categories',$categories);
+        return view('admin.categories.edit')->with('categories', $categories);
     }
 
     /**
@@ -63,12 +67,10 @@ class CategoriesController extends Controller
     {
         $request->validate([
             'name' => 'required',
-            'status' => 'required',
         ]);
 
         $category = Category::find($id);
         $category->name = $request->input('name');
-        $category->status = $request->input('status');
         $category->update();
 
         return redirect()->route('admin.category')

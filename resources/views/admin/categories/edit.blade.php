@@ -141,21 +141,8 @@
                                         @endif
                                     </div>
                                 </div>
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label for="example-text-input" class="form-control-label">Trạng thái</label>
-                                        <select class="form-select" name="status" aria-label="Default select example">
-                                            <option selected>Trạng thái</option>
-                                            <option value="0">Ẩn</option>
-                                            <option value="1">Hiện</option>
-                                        </select>
-                                        @if ($errors->has('status'))
-                                        <span class="text-danger">{{ $errors->first('status') }}</span>
-                                        @endif
-                                    </div>
-                                </div>
-                                <div class="text-center">
-                                    <button type="submit" class="btn btn-lg btn-primary btn-lg mt-4 mb-0">Thêm</button>
+                                <div class="text-start">
+                                    <button type="submit" class="btn btn-lg btn-primary btn-lg mt-4 mb-0">Sửa</button>
                                 </div>
                             </div>
                         </form>

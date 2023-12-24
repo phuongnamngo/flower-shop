@@ -151,11 +151,14 @@
                                             <span class="text-secondary text-xs font-weight-bold">{{ $category->name }}</span>
                                         </td>
                                         <td class="align-middle text-center text-sm">
-                                            @if($category->status == 1)
+                                            <div class="form-check form-switch justify-content-center">
+                                                <input class="form-check-input category_status" type="checkbox" id="{{ $category->id }}" value="{{ $category->status == '1' ? '0' : '1' }}">
+                                            </div>
+                                            <!-- @if($category->status == 1)
                                             <span class="badge badge-sm bg-gradient-success">Hiện</span>
                                             @else
                                             <span class="badge badge-sm bg-gradient-success">Ẩn</span>
-                                            @endif
+                                            @endif -->
                                         </td>
                                         <td class="align-middle text-center">
                                             <form action="{{ route('admin.category.destroy',$category->id) }}" method="POST">

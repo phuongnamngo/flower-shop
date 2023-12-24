@@ -17,6 +17,7 @@
 
 <head>
     <meta charset="utf-8" />
+    <meta name="csrf-token" content="{{ csrf_token() }}" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="apple-touch-icon" sizes="76x76" href="{{asset('public/assets/img/apple-icon.png')}}">
     <link rel="icon" type="image/png" href="{{asset('public/assets/img/favicon.png')}}">
@@ -104,11 +105,40 @@
     </aside>
     @yield('content')
     <!--   Core JS Files   -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="{{asset('public/assets/js/core/popper.min.js')}}"></script>
+    <script src="{{asset('public/assets/js/update-status.js')}}"></script>
     <script src="{{asset('public/assets/js/core/bootstrap.min.js')}}"></script>
     <script src="{{asset('public/assets/js/plugins/perfect-scrollbar.min.js')}}"></script>
     <script src="{{asset('public/assets/js/plugins/smooth-scrollbar.min.js')}}"></script>
     <script src="{{asset('public/assets/js/plugins/chartjs.min.js')}}"></script>
+    <script type="text/javascript">
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
+    </script>
+    <script>
+        $(document).ready(function() {
+            $('.category_status').change(function() {
+                var id = $(this).attr('id');
+                var status = $(this).val();
+
+                $.ajax({
+                    url: '{{ route("admin.category.updateStatus")}}',
+                    type: 'POST',
+                    data: {
+                        id: id,
+                        status: status
+                    },
+                    success: function(response) {
+                       // alert(response.message);
+                    }
+                });
+            });
+        });
+    </script>
     <script>
         var ctx1 = document.getElementById("chart-line").getContext("2d");
 

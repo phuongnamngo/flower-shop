@@ -21594,7 +21594,7 @@ fieldset:disabled .btn {
   border: 1px solid #e9ecef;
   position: relative;
   background-color: rgba(33, 37, 41, 0.1);
-  height: 1.25em;
+  height: 1.5em;
 }
 
 .form-switch .form-check-input:after {
