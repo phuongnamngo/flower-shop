@@ -76,23 +76,10 @@
                     <div class="caption">
 
                         <ul class="d-flex">
-                            @for($count = 1; $count <= 5; $count ++)
-                            @php 
-                            if($count <= $rating)
-                            { $color='color:#ef233c;'; } 
-                            else 
-                            { $color='color:#ccc;'; } 
-                            @endphp 
-                            <li title="Rating" 
-                            id="{{$product->id}}-{{$count}}" 
-                            data-index="{{$count}}" 
-                            data-product-id="{{$product->id}}" 
-                            data-rating="{{$rating}}" 
-                            class="rating" 
-                            style="cursor:pointer;{{$color}} font-size:30px">
+                            @for($count = 1; $count <= 5; $count ++) @php if($count <=$rating) { $color='color:#ef233c;' ; } else { $color='color:#ccc;' ; } @endphp <li title="Rating" id="{{$product->id}}-{{$count}}" data-index="{{$count}}" data-product-id="{{$product->id}}" data-rating="{{$rating}}" class="rating" style="cursor:pointer;{{$color}} font-size:30px">
                                 &#9733;
                                 </li>
-                            @endfor
+                                @endfor
                         </ul>
 
                         <h6>
@@ -152,62 +139,43 @@
 <section style="background-color: #FFF;">
 
     <div class="container py-5">
-        <ul class="nav nav-tabs" id="myTab" role="tablist">
-            <li class="nav-item" role="presentation">
-                <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home" type="button" role="tab" aria-controls="home" aria-selected="true">Bình luận</button>
-            </li>
-            <li class="nav-item" role="presentation">
-                <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile" type="button" role="tab" aria-controls="profile" aria-selected="false">Đánh giá</button>
-            </li>
-            <!-- <li class="nav-item" role="presentation">
-                <button class="nav-link" id="contact-tab" data-bs-toggle="tab" data-bs-target="#contact" type="button" role="tab" aria-controls="contact" aria-selected="false">Contact</button>
-            </li> -->
-        </ul>
-        <div class="tab-content" id="myTabContent">
-            <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
-                <div class="row d-flex justify-content-center">
-                    <div class="col-lg-12">
-                        <div class="card" style="border-top:none">
-                            @foreach ($comment as $item)
-                            <div class="card-body">
-                                <div class="d-flex flex-start align-items-center">
-                                    <div>
+        <div class="row d-flex justify-content-center">
+            <div class="col-lg-12">
+                <div class="card">
+                    @foreach ($comment as $item)
+                    <div class="card-body">
+                        <div class="d-flex flex-start align-items-center">
+                            <div>
 
-                                        <h6 class="fw-bold text-primary mb-1">{{ $item->name }}</h6>
-                                    </div>
-                                </div>
-                                <p class="mt-2 pb-2">
-                                    {{ $item->body }}
-                                </p>
-                            </div>
-                            @endforeach
-                            <div class="card-footer py-3 border-0" style="background-color: #f8f9fa;">
-                                <form action="{{ route('comment') }}" method="POST" novalidate>
-                                    @csrf
-                                    <div class="d-flex flex-start w-100">
-                                        <div class="form-outline w-100">
-                                            <textarea class="form-control" name="body" id="textAreaExample" rows="4" style="background: #fff;"></textarea>
-                                            @if ($errors->has('body'))
-                                            <span class="text-danger">{{ $errors->first('body') }}</span>
-                                            @endif
-                                            <label class="form-label" for="textAreaExample">Comment</label>
-                                            <input type="text" hidden placeholder="Enter pincode" value="{{ $product->id }}" required name="product_id">
-                                            <input type="text" hidden placeholder="Enter pincode" required class="hidden" value="{{ auth()->id() ? auth()->id() : '' }}" name="user_id">
-                                        </div>
-                                    </div>
-                                    <div class="float-end mt-2 pt-1">
-                                        <button type="submit" class="btn btn-primary btn-sm">Post comment</button>
-                                    </div>
-                                </form>
+                                <h6 class="fw-bold text-primary mb-1">{{ $item->name }}</h6>
                             </div>
                         </div>
+                        <p class="mt-2 pb-2">
+                            {{ $item->body }}
+                        </p>
+                    </div>
+                    @endforeach
+                    <div class="card-footer py-3 border-0" style="background-color: #f8f9fa;">
+                        <form action="{{ route('comment') }}" method="POST" novalidate>
+                            @csrf
+                            <div class="d-flex flex-start w-100">
+                                <div class="form-outline w-100">
+                                    <textarea class="form-control" name="body" id="textAreaExample" rows="4" style="background: #fff;"></textarea>
+                                    @if ($errors->has('body'))
+                                    <span class="text-danger">{{ $errors->first('body') }}</span>
+                                    @endif
+                                    <label class="form-label" for="textAreaExample">Comment</label>
+                                    <input type="text" hidden placeholder="Enter pincode" value="{{ $product->id }}" required name="product_id">
+                                    <input type="text" hidden placeholder="Enter pincode" required class="hidden" value="{{ auth()->id() ? auth()->id() : '' }}" name="user_id">
+                                </div>
+                            </div>
+                            <div class="float-end mt-2 pt-1">
+                                <button type="submit" class="btn btn-primary btn-sm">Post comment</button>
+                            </div>
+                        </form>
                     </div>
                 </div>
             </div>
-            <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
-
-            </div>
-            <!-- <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">meo 3</div> -->
         </div>
 
     </div>
