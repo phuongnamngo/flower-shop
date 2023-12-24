@@ -40,10 +40,7 @@ Route::get('/contact', [ContactController::class, 'index']);
 Route::get('/checkout', [CheckoutController::class, 'viewCart']);
 Route::get('/faq', [FaqController::class, 'index']);
 
-Route::post('/remove-from-cart/{product}', [CartController::class, 'removeFromCart'])->name('cart.remove');
-Route::post('/add-to-cart', [CartController::class, 'addToCart'])->name('cart.add');
-Route::get('/view-cart', [CartController::class, 'viewCart'])->name('cart.view');
-Route::post('/update-cart', [CartController::class, 'updateCart']);
+
 
 Route::middleware('auth')->group(function () {
     // Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
@@ -74,6 +71,11 @@ Route::middleware(['auth:admin', 'verified'])->group(function () {
 });
 Route::middleware('auth')->group(function () {
     Route::post('/comment', [ProductDetailController::class, 'comment'])->name('comment');
+    Route::post('/remove-from-cart/{product}', [CartController::class, 'removeFromCart'])->name('cart.remove');
+    Route::post('/add-to-cart', [CartController::class, 'addToCart'])->name('cart.add');
+    Route::get('/view-cart', [CartController::class, 'viewCart'])->name('cart.view');
+    Route::post('/update-cart', [CartController::class, 'updateCart']);
+    Route::post('/add-rating', [ProductDetailController::class, 'addRating'])->name('insert.rating');
 });
 
 require __DIR__ . '/adminauth.php';

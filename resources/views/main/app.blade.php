@@ -8,6 +8,7 @@ Author URL: http://w3layouts.com
 <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
+    <meta name="csrf-token" content="{{ csrf_token() }}" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>ShoppyKart - Ecommerce Category Bootstrap Responsive Template | Home :: W3layouts </title>
     <!-- google fonts -->
@@ -226,8 +227,54 @@ Author URL: http://w3layouts.com
 
         <!-- //bootstrap -->
         <script src="{{asset('public/js/bootstrap.min.js')}}"></script>
-
-
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script type="text/javascript">
+            $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                }
+            });
+        </script>
+        <script type="text/javascript">
+            function remove_background(product_id) {
+                for (var count = 1; count <= 5; count++) {
+                    $('#' + product_id + '-' + count).css('color', '#ccc')
+                }
+            }
+            $(document).on('mouseenter', '.rating', function() {
+                var index = $(this).data("index");
+                var product_id = $(this).data("product-id");
+                remove_background(product_id);
+                for (var count = 1; count <= index; count++) {
+                    $('#' + product_id + '-' + count).css('color', '#ef233c')
+                }
+            });
+            $(document).on('mouseleave', '.rating', function() {
+                var index = $(this).data("index");
+                var product_id = $(this).data("product-id");
+                var rating = $(this).data("rating");
+                remove_background(product_id);
+                for (var count = 1; count <= rating; count++) {
+                    $('#' + product_id + '-' + count).css('color', '#ef233c')
+                }
+            });
+            $(document).on('click', '.rating', function() {
+                var index = $(this).data("index");
+                var product_id = $(this).data("product-id");
+                console.log('meoem: ', index);
+                $.ajax({
+                    url: '{{ route("insert.rating")}}',
+                    type: 'POST',
+                    data: {
+                        index: index,
+                        product_id: product_id,
+                    },
+                    success: function(response) {
+                        alert(response.success);
+                    }
+                });
+            });
+        </script>
         <script>
             (function() {
                 var js = "window['__CF$cv$params']={r:'830d1083a9a5403b',t:'MTcwMTc4NzQzOS41MjUwMDA='};_cpo=document.createElement('script');_cpo.nonce='',_cpo.src='{{asset('public/js/main.js')}}',document.getElementsByTagName('head')[0].appendChild(_cpo);";
