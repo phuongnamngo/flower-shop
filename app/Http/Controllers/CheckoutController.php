@@ -11,4 +11,9 @@ class CheckoutController extends Controller
     {
         return view('main.checkout.index');
     }
+    public function viewCart()
+    {
+        $cart = session()->get('cart', []);
+        return view('main.checkout.index', compact('cart'));
+    }
 }

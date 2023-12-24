@@ -62,12 +62,9 @@
                     @endguest
                 </li>
                 <li class="shopvcart galssescart2 cart cart box_1 get-btn">
-                    <form action="#" method="post" class="last">
-                        <input type="hidden" name="cmd" value="_cart">
-                        <input type="hidden" name="display" value="1">
-                        <button class="top_shopv_cart" type="submit" name="submit" value="">
-                            <span class="fas fa-shopping-bag me-lg-2"></span> <span class="btn-texe-inf">Cart</span>
-
+                    <form action="{{route('cart.view')}}">
+                        <button class="top_shopv_cart">
+                           <span class="fas fa-shopping-bag me-lg-2"></span><span class="btn-texe-inf">Cart</span>
                         </button>
                     </form>
                 </li>

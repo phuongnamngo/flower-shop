@@ -13,4 +13,6 @@ class ProductController extends Controller
         $products = Product::where('status', '1')->get();
         return view('main.product.index')->with('products', $products);
     }
+    
+    
 }
