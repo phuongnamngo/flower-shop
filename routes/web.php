@@ -41,9 +41,13 @@ Route::get('/contact', [ContactController::class, 'index']);
 Route::get('/checkout', [CheckoutController::class, 'viewCheckout'])->name('checkout.view');
 Route::get('/faq', [FaqController::class, 'index']);
 
-Route::post('/checkout/process', [CheckoutController::class, 'process'])->name('checkout.process');
-Route::get('/payment', [OrderController::class, 'viewOrder'])->name('order.view');
+// Route::post('/checkout/process', [CheckoutController::class, 'process'])->name('checkout.process');
+// Route::get('/payment', [OrderController::class, 'viewOrder'])->name('order.view');
 
+// routes/web.php
+
+Route::post('/checkout', [CheckoutController::class, 'store'])->name('checkout.store');
+Route::get('/order/{order}', [OrderController::class, 'show'])->name('order.show'); // For order confirmation
 
 Route::post('/remove-from-cart/{product}', [CartController::class, 'removeFromCart'])->name('cart.remove');
 Route::post('/add-to-cart', [CartController::class, 'addToCart'])->name('cart.add');
