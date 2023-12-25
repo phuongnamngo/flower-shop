@@ -9,10 +9,13 @@ class OrderController extends Controller
 {
     public function show($orderId)
     {
-        // $order = Order::all();
-        // return view('main.payment.index', compact('order'));
-        $order = Order::find($orderId);
-        // Pass order information to the "Thank You" view
+    
+        // $order = Order::find($orderId);
+        $order = Order::leftJoin('users', 'users.id' , '=' , 'orders.user_id')
+            ->leftJoin('orderitem', 'orderitem.order_id' , '=' , 'orders.id')
+            ->select('users.name as user_name', 'users.email as user_email', 'orderitem.*', 'orders.*')
+            ->where('orders.id', $orderId)->first();
+        
         return view('main.payment.index', compact('order'));
     }
 }
