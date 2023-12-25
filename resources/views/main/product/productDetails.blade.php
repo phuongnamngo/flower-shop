@@ -49,8 +49,28 @@
                                         <li data-thumb="{{ asset('public/images/cart4.jpg') }}">
                                             <div class="thumb-image"> <img src="{{ asset('public/images/cart4.jpg') }}" data-imagezoom="true" class="img-fluid radius-image" alt=" "> </div>
                                         </li> -->
-                        </ul>
-                        <div class="clearfix"></div>
+                            </ul>
+                            <div class="clearfix"></div>
+                        </div>
+                        <div class="eco-buttons mt-5 d-flex">
+
+                            <div class="shopv single-item">
+                                <form action="{{ route('cart.add') }}" method="POST">
+                                    @csrf
+                                    <input type="hidden" name="product_id" value="{{ $product->id }}">
+                                    <input type="hidden" name="product_name" value="{{ $product->name }}">
+                                    <input type="hidden" name="product_img" value="{{ $product->img }}">
+                                    <input type="hidden" name="product_price" value="{{ $product->price }}">
+                                    <input type="hidden" name="product_quantity" value="1">
+
+                                    <button type="submit"
+                                        class="shopv-cart pshopv-cart add-to-cart btn btn-style btn-primary">
+                                        Add to Cart
+                                    </button>
+                                </form>
+                            </div>
+                            <div class="buyhny-now"><a href="#buy" class="btn btn-style btn-primary">Buy Now</a></div>
+                        </div>
                     </div>
                     <div class="eco-buttons mt-5 d-flex">
 

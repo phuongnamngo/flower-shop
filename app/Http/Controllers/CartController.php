@@ -10,12 +10,14 @@ class CartController extends Controller
     public function viewCart()
     {
         $cart = session()->get('cart', []);
+
         return view('main.cart.view', compact('cart'));
     }
     public function addToCart(Request $request)
     {
         $productId = $request->input('product_id');
         $productName = $request->input('product_name');
+        $productImg = $request->input('product_img');
         $productPrice = $request->input('product_price');
         $productQuantity = $request->input('product_quantity');
 
@@ -27,6 +29,7 @@ class CartController extends Controller
             $cart[$productId] = [
                 'id' => $productId,
                 'name' => $productName,
+                'img' => $productImg,
                 'quantity' => $productQuantity,
                 'price' => $productPrice,
             ];

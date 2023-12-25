@@ -13,6 +13,7 @@ use App\Http\Controllers\ContactController;
 use App\Http\Controllers\CustomAuthController;
 use App\Http\Controllers\FaqController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\OrderController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProductDetailController;
 use App\Http\Controllers\ProfileController;
@@ -32,15 +33,22 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [HomeController::class, 'index']);
 Route::get('home', [CustomAuthController::class, 'home']);
 Route::get('/about', [AboutController::class, 'index']);
-Route::get('/products', [ProductController::class, 'index']);
+Route::get('/products', [ProductController::class, 'index'])->name('product.index');
 Route::get('/products/{id}', [ProductDetailController::class, 'index'])->name('product.detail');
 Route::get('/blog', [BlogController::class, 'index']);
 Route::get('/blog/{id}', [BlogController::class, 'blogDetail']);
 Route::get('/contact', [ContactController::class, 'index']);
-Route::get('/checkout', [CheckoutController::class, 'viewCart']);
+Route::get('/checkout', [CheckoutController::class, 'viewCheckout'])->name('checkout.view');
 Route::get('/faq', [FaqController::class, 'index']);
 
+Route::post('/checkout/process', [CheckoutController::class, 'process'])->name('checkout.process');
+Route::get('/payment', [OrderController::class, 'viewOrder'])->name('order.view');
 
+
+Route::post('/remove-from-cart/{product}', [CartController::class, 'removeFromCart'])->name('cart.remove');
+Route::post('/add-to-cart', [CartController::class, 'addToCart'])->name('cart.add');
+Route::get('/view-cart', [CartController::class, 'viewCart'])->name('cart.view');
+Route::post('/update-cart', [CartController::class, 'updateCart']);
 
 Route::middleware('auth')->group(function () {
     // Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
