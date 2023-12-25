@@ -6,6 +6,7 @@ use App\Models\Cart;
 use App\Models\Order;
 use App\Models\OrderItem;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class CheckoutController extends Controller
 {
@@ -22,18 +23,19 @@ class CheckoutController extends Controller
     
     public function store(Request $request)
     {
+        $user = auth()->user();
+       
         $order = Order::create([
-            'user_id' => '1',
-            'total_price' => '2,000',
-            'shipping_address' => 'test',
-            'billing_address' => 'test',
+            'user_id' =>  $user->id,
+            'total_price' => $request->total_price,
+            'shipping_address' => $request->shipping_address,
+            'billing_address' => $request->billing_address,
             'payment_method' => 'delivery',
-            'status' => 'pending',
+            'status' => 0,
        
         ]);
 
         $cart = session()->get('cart', []);
-        // Create order items
         foreach ($cart as $item) {
             OrderItem::create([
                 'order_id' => $order->id,
@@ -43,12 +45,12 @@ class CheckoutController extends Controller
             ]);
         }
 
-        // Process payment if applicable
+    
 
         // Clear cart session
         session()->forget('cart');
 
-        // Redirect to order confirmation page
+     
         return redirect()->route('order.show', $order->id);
     }
     

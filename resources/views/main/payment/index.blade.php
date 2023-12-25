@@ -1,6 +1,6 @@
 @extends('main.app')
 @section('content')
-    <div class="inner-banner py-5">
+    {{-- <div class=" py-5">
         <section class="w3l-breadcrumb text-left py-sm-5 ">
             <div class="container">
                 <div class="w3breadcrumb-gids">
@@ -18,83 +18,102 @@
 
             </div>
         </section>
-    </div>
-    <section class="w3l-ecommerce-main">
-     
-        <div class="ecom-contenthny py-5">
-            <div class="container py-lg-2">
-           
-                <div class="ecom-contenthny-w3lcheckout privacy">
-                    <h3>Details<span> Order</span></h3>
-                    <div class="checkout-right ">
-                        <p class="mb-3"></p>
+    </div> --}}
+    <section class="h-100 gradient-custom">
+        <div class="container py-5 h-100">
+          <div class="row d-flex justify-content-center align-items-center h-100">
+            <div class="col-lg-10 col-xl-8">
+              <div class="card" style="border-radius: 10px;">
+                <div class="card-header px-4 py-5">
+                  <h5 class="text-muted mb-0">Thanks for your Order, <span style="color: #ef233c;">{{$order->user_name}}</span>!</h5>
+                </div>
+                <div class="card-body p-4">
+                  <div class="d-flex justify-content-between align-items-center mb-4">
+                    <p class="lead fw-normal mb-0" style="color: #ef233c;">Receipt</p>
+                    <p class="small text-muted mb-0">Order ID: {{$order->id}}</p>
+                  </div>
+                  <div class="card shadow-0 border mb-4">
+                    <div class="card-body">
+                      <div class="row">
+                        {{-- <div class="col-md-2">
+                          <img src="https://mdbcdn.b-cdn.net/img/Photos/Horizontal/E-commerce/Products/13.webp"
+                            class="img-fluid" alt="Phone">
+                        </div> --}}
+                        <div class="col-md-2 text-center d-flex justify-content-center align-items-center">
+                            <p class="text-muted mb-0">{{$order->quantity}}</p>
+                          </div>
+                        <div class="col-md-2 text-center d-flex justify-content-center align-items-center">
+                            <p class="text-muted mb-0">{{$order->product_id}}</p>
+                          </div>
+                        
+                        <div class="col-md-2 text-center d-flex justify-content-center align-items-center">
+                          <p class="text-muted mb-0 small">White</p>
+                        </div>
+                        <div class="col-md-2 text-center d-flex justify-content-center align-items-center">
+                          <p class="text-muted mb-0 small">Capacity: 64GB</p>
+                        </div>
+                        {{-- <div class="col-md-2 text-center d-flex justify-content-center align-items-center">
+                          <p class="text-muted mb-0 small">Qty: 1</p>
+                        </div> --}}
+                        <div class="col-md-2 text-center d-flex justify-content-center align-items-center">
+                          <p class="text-muted mb-0 small">${{ number_format($order->price, 2) }}</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  {{-- <div class="card shadow-0 border mb-4">
+                    <div class="card-body">
+                      <div class="row">
+                        <div class="col-md-2">
+                          <img src="https://mdbcdn.b-cdn.net/img/Photos/Horizontal/E-commerce/Products/1.webp"
+                            class="img-fluid" alt="Phone">
+                        </div>
+                        <div class="col-md-2 text-center d-flex justify-content-center align-items-center">
+                          <p class="text-muted mb-0">iPad</p>
+                        </div>
+                        <div class="col-md-2 text-center d-flex justify-content-center align-items-center">
+                          <p class="text-muted mb-0 small">Pink rose</p>
+                        </div>
+                        <div class="col-md-2 text-center d-flex justify-content-center align-items-center">
+                          <p class="text-muted mb-0 small">Capacity: 32GB</p>
+                        </div>
+                        <div class="col-md-2 text-center d-flex justify-content-center align-items-center">
+                          <p class="text-muted mb-0 small">Qty: 1</p>
+                        </div>
+                        <div class="col-md-2 text-center d-flex justify-content-center align-items-center">
+                          <p class="text-muted mb-0 small">$399</p>
+                        </div>
+                      </div>
+                     
                       
                     </div>
-                   
-                    <div class="row checkout-left mt-5">
-                        <div class="col-md-4 checkout-left-basket">
-                            <div class="d-flex align-items-center justify-content-between">
-                                <h3 class="h4"></h3>
-                                <h3 class="h4 text-black">
-                                    Order ID: {{$order->id}}
-                                </h3>
-                            </div>
-                            <div class="d-flex align-items-center justify-content-between mt-4">
-                                <h3 class="h4">Payment Methods: {{$order->shipping_address}}</h3>
-                                <h3 class="h4 text-black">Delivery</h3>
-                            </div>  
-                        </div>
-                        <div class="col-md-8 address_form_agile ps-lg-5">
-                              
-                                <form action="{{ route('checkout.store') }}" method="POST"
-                                    class="creditly-card-form agileinfo_form mt-4">
-                                    @csrf
-                                    <section class="creditly-wrapper wthree, w3_agileits_wrapper">
-                                        <div class="information-wrapper">
-                                            <div class="first-row form-group">
-                                                <div class="controls">
-                                                    <input class="billing-address-name form-control" type="text"
-                                                        name="customer_name" placeholder="Full name" required>
-                                                </div>
-                                                <div class="w3_agileits_card_number_grids">
-                                                    <div class="w3_agileits_card_number_grid_right">
-                                                        <div class="controls">
-                                                            <input class="form-control" type="email" name="customer_email"
-                                                                required placeholder="Email" required>
-                                                        </div>
-                                                    </div>
-                                                    <div class="w3_agileits_card_number_grid_left">
-                                                        <div class="controls">
-                                                            <input class="form-control" name="customer_phone" type="text"
-                                                                placeholder="Mobile number" required>
-                                                        </div>
-                                                    </div>
-
-                                                    <div class="clear"></div>
-                                                </div>
-                                                <div class="controls">
-                                                    <input class="form-control" type="text" name="customer_address"
-                                                        placeholder="Address" required>
-                                                </div>
-                                                <div class="controls">
-                                                    <input class="form-control" type="text" name="order_details"
-                                                        placeholder="Order notes (optional)">
-
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </section>
-                                    <div class="checkout-right-basket m-0">
-                                        <button class="btn btn-style btn-primary" href="{{ route('checkout.store') }}">Payment<i
-                                                class="fas fa-arrow-right ms-lg-3 ms-2"></i></button>
-                                    </div>
-                                </form>
-                        </div>
-                    </div>
-                  
-                   
-                </div>     
+                  </div> --}}
+      
+                  <div class="d-flex justify-content-between pt-2">
+                    <p class="fw-bold mb-0">Order Details</p>
+                    <p class="text-muted mb-0"><span class="fw-bold me-4">Total:</span> ${{ number_format($order->total_price, 2) }}</p>
+                  </div>
+      
+      
+                  <div class="d-flex justify-content-between">
+                    <p class="text-muted mb-0 "><span>Create date: {{ $order->created_at }}</span></p>
+                    {{-- <p class="text-muted mb-0"><span class="fw-bold me-4">GST 18%</span> 123</p> --}}
+                  </div>
+      
+                  <div class="d-flex justify-content-between mb-5">
+                    {{-- <p class="text-muted mb-0">Recepits Voucher : 18KU-62IIK</p> --}}
+                    <p class="text-muted mb-0"><span class=" me-2">Delivery Charges:</span>Free</p>
+                  </div>
+                </div>
+                <div class="card-footer border-0 px-4 py-5"
+                  style="background-color: #ef233c; border-bottom-left-radius: 10px; border-bottom-right-radius: 10px;">
+                  <h5 class="d-flex align-items-center justify-content-end text-white text-uppercase mb-0">Total
+                    paid: <span class="h2 mb-0 ms-2">${{ number_format($order->total_price, 2) }}</span></h5>
+                </div>
+              </div>
             </div>
+          </div>
         </div>
-    </section>
+      </section>
 @endsection
