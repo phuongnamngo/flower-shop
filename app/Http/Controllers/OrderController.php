@@ -7,10 +7,12 @@ use Illuminate\Http\Request;
 
 class OrderController extends Controller
 {
-    public function viewOrder()
+    public function show($orderId)
     {
-        $order = session()->get('cart', []);
-        dd($order);
+        // $order = Order::all();
+        // return view('main.payment.index', compact('order'));
+        $order = Order::find($orderId);
+        // Pass order information to the "Thank You" view
         return view('main.payment.index', compact('order'));
     }
 }
