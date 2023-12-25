@@ -44,12 +44,7 @@ class CategoriesController extends Controller
 
         return response()->json(['message' => 'Status updated successfully.']);
     }
-
-    public function hide($id)
-    {
-        Category::where('id', $id)->update(['status' => 0]);
-        return response()->json(['success' => true]);
-    }
+    
     /**
      * Show the form for editing the specified resource.
      */

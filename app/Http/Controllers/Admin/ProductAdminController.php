@@ -59,14 +59,14 @@ class ProductAdminController extends Controller
             ->with('success', 'Categories created successfully.');
     }
 
-    /**
-     * Display the specified resource.
-     */
-    // public function show(Product $product): View
-    // {
-    //     return view('products.show', compact('product'));
-    // }
+    public function updateStatus(Request $request)
+    {
+        $product = Product::find($request->id);
+        $product->status = $request->status;
+        $product->save();
 
+        return response()->json(['message' => 'Status updated successfully.']);
+    }
     /**
      * Show the form for editing the specified resource.
      */

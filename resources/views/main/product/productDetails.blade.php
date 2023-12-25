@@ -61,7 +61,6 @@
                                 <input type="hidden" name="product_name" value="{{ $product->name }}">
                                 <input type="hidden" name="product_price" value="{{ $product->price }}">
                                 <input type="hidden" name="product_quantity" value="1">
-
                                 <button type="submit" class="shopv-cart pshopv-cart add-to-cart btn btn-style btn-primary">
                                     Add to Cart
                                 </button>

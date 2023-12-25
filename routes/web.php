@@ -58,7 +58,7 @@ Route::middleware(['auth:admin', 'verified'])->group(function () {
     Route::get('admin/edit-category/{id}', [CategoriesController::class, 'edit'])->name('admin.category.edit');
     Route::put('admin/update-category/{id}', [CategoriesController::class, 'update'])->name('admin.category.update');
     Route::delete('admin/delete-category/{id}', [CategoriesController::class, 'destroy'])->name('admin.category.destroy');
-    Route::post('admin/update-status', [CategoriesController::class, 'updateStatus'])->name('admin.category.updateStatus');
+    Route::post('admin/update-category-status', [CategoriesController::class, 'updateStatus'])->name('admin.category.updateStatus');
     Route::get('/admin/profile', [ProfileAdminController::class, 'index']);
 
     //product
@@ -68,6 +68,7 @@ Route::middleware(['auth:admin', 'verified'])->group(function () {
     Route::get('admin/edit-product/{product_id}', [ProductAdminController::class, 'edit'])->name('admin.product.edit');
     Route::put('admin/update-product/{product_id}', [ProductAdminController::class, 'update'])->name('admin.product.update');
     Route::delete('admin/delete-product/{product_id}', [ProductAdminController::class, 'destroy'])->name('admin.product.destroy');
+    Route::post('admin/update-product-status', [ProductAdminController::class, 'updateStatus'])->name('admin.product.updateStatus');
 });
 Route::middleware('auth')->group(function () {
     Route::post('/comment', [ProductDetailController::class, 'comment'])->name('comment');

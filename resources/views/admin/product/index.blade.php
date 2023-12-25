@@ -167,11 +167,13 @@
                                         </td>
 
                                         <td class="align-middle text-center text-sm">
-                                            @if($item->status == 1)
-                                            <span class="badge badge-sm bg-gradient-success">Hiện</span>
-                                            @else
-                                            <span class="badge badge-sm bg-gradient-success">Ẩn</span>
-                                            @endif
+                                            <div class="form-check form-switch justify-content-center">
+                                                @if($item->status == 1)
+                                                <input class="form-check-input product_status" type="checkbox" id="{{ $item->id }}" value="0" checked>
+                                                @else
+                                                <input class="form-check-input product_status" type="checkbox" id="{{ $item->id }}" value="1">
+                                                @endif
+                                            </div>
                                         </td>
                                         <td class="align-middle text-center text-sm">
                                             <form action="{{ route('admin.product.destroy',$item->id) }}" method="POST">

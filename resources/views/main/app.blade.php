@@ -227,7 +227,7 @@ Author URL: http://w3layouts.com
 
         <!-- //bootstrap -->
         <script src="{{asset('public/js/bootstrap.min.js')}}"></script>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> -->
         <script type="text/javascript">
             $.ajaxSetup({
                 headers: {

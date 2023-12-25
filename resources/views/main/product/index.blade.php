@@ -232,9 +232,6 @@
                                     </a>
                                     <ul class="social">
                                         <li><a href="{{route('product.detail', $product->id)}}" data-tip="Quick View"><span class="fa fa-eye"></span></a></li>
-
-                                        <li><a href="products.html" data-tip="Add to Cart"><span class="fa fa-shopping-bag"></span></a>
-                                        </li>
                                     </ul>
                                 </div>
                                 <div class="product-content">

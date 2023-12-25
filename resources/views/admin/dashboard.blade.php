@@ -133,7 +133,27 @@
                         status: status
                     },
                     success: function(response) {
-                       // alert(response.message);
+                        alert(response.message);
+                        location.reload();
+                    }
+                });
+            });
+        });
+        $(document).ready(function() {
+            $('.product_status').change(function() {
+                var id = $(this).attr('id');
+                var status = $(this).val();
+
+                $.ajax({
+                    url: '{{ route("admin.product.updateStatus")}}',
+                    type: 'POST',
+                    data: {
+                        id: id,
+                        status: status
+                    },
+                    success: function(response) {
+                        alert(response.message);
+                        location.reload();
                     }
                 });
             });
