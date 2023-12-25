@@ -162,6 +162,7 @@
             $('.order_status').click(function() {
                 var id = $(this).attr('id');
                 var status = $(this).val();
+                console.log('meoe: ', id + status);
                 $.ajax({
                     url: '{{ route("admin.order.updateStatus")}}',
                     type: 'POST',

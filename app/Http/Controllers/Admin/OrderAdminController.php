@@ -17,11 +17,12 @@ class OrderAdminController extends Controller
         $user = '';
         $orderItem = OrderItem::leftJoin('orders', 'orders.id', '=', 'orderItem.order_id')
             ->leftJoin('product', 'product.id', '=', 'orderItem.product_id')
-            ->select('orders.total_price', 'orders.shipping_address', 'orders.status', 'product.name as product_name', 'orderItem.*')->get();
+            ->select('orders.total_price','orders.id as idOrder', 'orders.user_id','orders.shipping_address', 'orders.status', 'product.name as product_name', 'orderItem.*')->get();
         foreach ($orderItem as $item) {
+            
             $user = User::where('id', $item->user_id)->first();
         }
-
+        
         return view('admin.order.index', compact('orderItem', 'user'))
             ->with('i', (request()->input('page', 1) - 1) * 5);
     }

@@ -37,8 +37,6 @@
                                         <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
                                             Tên sản phẩm</th>
                                         <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                                            Hình ảnh</th>
-                                        <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
                                             Số lượng</th>
                                         <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
                                             Thành tiền</th>
@@ -65,9 +63,6 @@
                                             <span class="text-secondary text-xs font-weight-bold">{{ $item->product_name }}</span>
                                         </td>
                                         <td class="align-middle text-center text-sm">
-                                            <!-- <img height="70px" width="80px" src="{{asset('public/'.$item->product_img)}}"> -->
-                                        </td>
-                                        <td class="align-middle text-center text-sm">
                                             <span class="text-secondary text-xs font-weight-bold">{{ $item->quantity }}</span>
                                         </td>
                                         <td class="align-middle text-center text-sm">
@@ -76,9 +71,9 @@
                                         <td class="align-middle text-center text-sm">
                                             <div class="form-check form-switch justify-content-center">
                                                 <!-- @if($item->status == 0) -->
-                                                <button class="btn btn-success order_status" id="{{ $item->id }}" value="1">Confirm</button>
+                                                <button class="btn btn-success order_status" id="{{ $item->idOrder }}" value="1">Confirm</button>
                                                 <!-- @endif -->
-                                                <a class="btn btn-secondary mx-2" href="{{route('admin.order.detail', $item->id)}}">Detail</a>
+                                                <!-- <a class="btn btn-secondary mx-2" href="{{route('admin.order.detail', $item->id)}}">Detail</a> -->
                                             </div>
                                         </td>
                                     </tr>

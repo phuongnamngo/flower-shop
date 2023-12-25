@@ -29,35 +29,28 @@
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label for="example-text-input" class="form-control-label">Tên khách hàng</label>
-                                        <input class="form-control" type="text" value="{{$order->customer_name}}" disabled>
+                                        <input class="form-control" type="text" value="{{$user->name}}" disabled>
                                      
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label for="example-text-input" class="form-control-label">Email</label>
-                                        <input class="form-control" type="text" value="{{$order->customer_email}}" disabled>
-                                     
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label for="example-text-input" class="form-control-label">Số điện thoại</label>
-                                        <input class="form-control" type="text" value="{{$order->customer_phone}}" disabled>
+                                        <input class="form-control" type="text" value="{{$user->email}}" disabled>
                                      
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label for="example-text-input" class="form-control-label">Đia chỉ</label>
-                                        <input class="form-control" type="text" value="{{$order->customer_address}}" disabled>
+                                        <input class="form-control" type="text" value="{{orderItem->shipping_address}}" disabled>
                                      
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label for="example-text-input" class="form-control-label">Chi tiết đơn hàng</label>
-                                        <input class="form-control" type="text" value="{{$order->order_details}}" disabled>
+                                        <input class="form-control" type="text" value="{{orderItem->order_details}}" disabled>
                                      
                                     </div>
                                 </div>
