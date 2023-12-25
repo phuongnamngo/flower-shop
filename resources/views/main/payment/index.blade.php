@@ -34,7 +34,7 @@
             <div class="container py-lg-2">
                 <!-- about -->
                 <div class="ecom-contenthny-w3lcheckout privacy">
-                    <h3>Chec<span>kout</span></h3>
+                    <h3>Pay<span>ment</span></h3>
                     <div class="checkout-right ">
                         <p class="mb-3"></p>
                         <table class="timetable_sub">
@@ -51,23 +51,29 @@
                                 $counter = 1;
                             @endphp
                             <tbody>
-                                @foreach ($cart as $item)
+                                @if (empty($order))
+                                @foreach ($order as $item)
                                     <tr class="rem1">
                                         <td class="invert">{{ $counter++ }}</td>
                                         <td class="invert-image"><a href="product-single.html">
-                                                <img src="{{ asset('public/' . $item['img']) }}"
+                                                <img src="{{ asset('public/' . $item['customer_name']) }}"
                                                     class="img-fluid radius-image" alt=""></a></td>
                                         <td class="invert">
                                             <div class="quantity">
                                                 <div class="quantity-select">
-                                                    <div class="entry "><span>{{ $item['quantity'] }}</span></div>
+                                                    <div class="entry "><span>{{ $item['customer_email'] }}</span></div>
                                                 </div>
                                             </div>
                                         </td>
-                                        <td class="invert">{{ $item['name'] }}</td>
-                                        <td class="invert">${{ number_format($item['price'], 2) }}</td>
+                                        <td class="invert">{{ $item['customer_phone'] }}</td>
+                                        <td class="invert">{{ $item['customer_address'] }}</td>
+                                        <td class="invert">{{ $item['total_price'] }}</td>
+                                        {{-- <td class="invert">${{ number_format($item['price'], 2) }}</td> --}}
                                     </tr>
                                 @endforeach
+                                @else
+                                <p>Your cart is empty.</p>
+                                @endif
                             </tbody>
                         </table>
                     </div>
@@ -82,20 +88,18 @@
                             </ul> --}}
                             <div class="d-flex align-items-center justify-content-between">
                                 <h3 class="h4">Total Payment:</h3>
-                                <h3 class="h4 text-black">${{ number_format(array_sum(array_column($cart, 'price')), 2) }}
+                                {{-- <h3 class="h4 text-black">${{ number_format(array_sum(array_column($cart, 'price')), 2) }} --}}
+                                </h3>
+                            </div>
+                            <div class="d-flex align-items-center justify-content-between">
+                                <h3 class="h4">Payment Method:</h3>
+                                {{-- <h3 class="h4 text-black">${{ number_format(array_sum(array_column($cart, 'price')), 2) }} --}}
                                 </h3>
                             </div>
                         </div>
-                        <div class="col-md-8 address_form_agile ps-lg-5">
-                            @if (empty($cart['name']))
-                            <div class="checkout-right-basket m-0">
-                                <a class="btn btn-style btn-primary" href="{{ route('order.view') }}">Make a Payment <i
-                                        class="fas fa-arrow-right ms-lg-3 ms-2"></i></a>
-                            </div>
-                            @else
-                            
-                            <h4>Add a new Details</h4>
-                            <form action="{{ route('checkout.process') }}" method="POST" class="creditly-card-form agileinfo_form mt-4">
+                        {{-- <div class="col-md-8 address_form_agile ps-lg-5">
+                            <h4>Infomations</h4>
+                            <form action="" method="POST" class="creditly-card-form agileinfo_form mt-4">
                                 @csrf
                                 <section class="creditly-wrapper wthree, w3_agileits_wrapper">
                                     <div class="information-wrapper">
@@ -128,20 +132,13 @@
                                             </div>
                                         </div>
                                     </div>
-                                    {{-- <input type="hidden" name="product_id"  value="{{$cart['id']}}"> --}}
-                                    {{-- <input type="hidden" name="product_name"  value="}}">
-                                    <input type="hidden" name="product_img" value="{{$cart['img']}}">
-                                    <input type="hidden" name="product_quantity" value="{{$cart['quantity']}}">
-                                    <input type="hidden" name="total_price" value="{{$cart['price']}}"> --}}
-
                                 </section>
                                 <div class="checkout-right-basket m-0">
-                                    <button class="btn btn-style btn-primary">Make a Payment <i
+                                    <button class="btn btn-style btn-primary" href="">Payment <i
                                             class="fas fa-arrow-right ms-lg-3 ms-2"></i></button>
                                 </div>
                             </form>
-                        @endif
-                        </div>
+                        </div> --}}
                         {{-- @if (!empty($cart))
                             <ul>
                                 @foreach ($cart as $item)
@@ -166,7 +163,7 @@
                         @endif --}}
                     </div>
                 </div>
-                <!-- //about -->
+                
             </div>
         </div>
     </section>

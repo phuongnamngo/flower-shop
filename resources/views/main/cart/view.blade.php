@@ -24,9 +24,14 @@
 
     <section class="w3l-ecommerce-main">
         <div class="ecom-contenthny py-2">
-            <div class="container py-lg-5">
+            <div class="container py-lg-2">
                 <div class="ecom-contenthny-w3lcheckout privacy">
-                    <div class="checkout-right mt-4">
+                    <div class="checkout-right mt-2">
+                        <div class="checkout-left-basket" style="float: right">
+                            <a href="{{ route('product.index') }}">
+                                <h4>Countinue shopping</h4>
+                            </a>
+                        </div>
                         <table class="timetable_sub">
                             <thead>
                                 <tr>
@@ -47,8 +52,8 @@
                                         <td class="invert">{{ $counter++ }}</td>
                                         <td class="invert-image">
                                             <a href="product-single.html">
-                                                <img src="assets/images/shop-1.jpg" class="img-fluid radius-image"
-                                                    alt="">
+                                                <img src="{{ asset('public/' . $item['img']) }}"
+                                                    class="img-fluid radius-image" alt="">
                                             </a>
                                         </td>
                                         <td class="invert">
@@ -92,15 +97,20 @@
                             </tbody>
                         </table>
                     </div>
+
                 </div>
+
                 <div class="row checkout-left mt-5">
                     <div class="col-md-4 checkout-left-basket">
                         <div class="d-flex align-items-center justify-content-between">
-
                             <h3 class="h4">Total Payment:</h3>
                             <h3 class="h4 text-black">${{ number_format(array_sum(array_column($cart, 'price')), 2) }}</h3>
                         </div>
-                        <h4>Continue to Checkout</h4>
+                        <div class="">
+                            <a href="{{ route('checkout.view') }}">
+                                <h4>Continue to Checkout</h4>
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>

@@ -60,6 +60,7 @@
                                     @csrf
                                     <input type="hidden" name="product_id" value="{{ $product->id }}">
                                     <input type="hidden" name="product_name" value="{{ $product->name }}">
+                                    <input type="hidden" name="product_img" value="{{ $product->img }}">
                                     <input type="hidden" name="product_price" value="{{ $product->price }}">
                                     <input type="hidden" name="product_quantity" value="1">
 
