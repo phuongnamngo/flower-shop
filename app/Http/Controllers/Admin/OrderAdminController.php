@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Order;
+use App\Models\OrderItem;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
 
@@ -12,8 +14,15 @@ class OrderAdminController extends Controller
     //
     public function index()
     {
-        $orders = Order::get();
-        return view('admin.order.index', compact('orders'))
+        $user = '';
+        $orderItem = OrderItem::leftJoin('orders', 'orders.id', '=', 'orderItem.order_id')
+            ->leftJoin('product', 'product.id', '=', 'orderItem.product_id')
+            ->select('orders.total_price', 'orders.shipping_address', 'orders.status', 'product.name as product_name', 'orderItem.*')->get();
+        foreach ($orderItem as $item) {
+            $user = User::where('id', $item->user_id)->first();
+        }
+
+        return view('admin.order.index', compact('orderItem', 'user'))
             ->with('i', (request()->input('page', 1) - 1) * 5);
     }
     public function updateStatus(Request $request)
@@ -25,7 +34,11 @@ class OrderAdminController extends Controller
     }
     public function orderDetail($id): View
     {
-        $order = Order::where('id', $id)->first();
-        return view('admin.order.orderDetail')->with('order', $order);
+        $orderItem = OrderItem::leftJoin('orders', 'orders.id' . '=' . 'orderItem.order_id')
+            ->leftJoin('product', 'product.id' . '=' . 'orderItem.product_id')
+            ->select('order.*', 'product.name as product_name', 'orderItem.*')
+            ->where('orderItem.order_id', $id)->fisrt();
+        $user = User::where('id', $orderItem->user_id)->first();
+        return view('admin.order.orderDetail', compact('orderItem', 'user'));
     }
 }

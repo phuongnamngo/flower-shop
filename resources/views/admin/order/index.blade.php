@@ -47,31 +47,31 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach ($orders as $item)
+                                    @foreach ($orderItem as $item)
                                     <tr>
                                         <td class="px-4">
                                             <span class="text-secondary text-xs font-weight-bold">{{ ++$i }}</span>
                                         </td>
                                         <td>
-                                            <span class="text-secondary text-xs font-weight-bold">{{ $item->customer_name }}</span>
+                                            <span class="text-secondary text-xs font-weight-bold">{{ $user->name }}</span>
                                         </td>
                                         <td class="align-middle text-center text-sm">
-                                            <span class="text-secondary text-xs font-weight-bold">{{ $item->customer_email }}</span>
+                                            <span class="text-secondary text-xs font-weight-bold">{{ $user->email }}</span>
                                         </td>
                                         <td class="align-middle text-center text-sm">
-                                            <span class="text-secondary text-xs font-weight-bold">{{ $item->customer_address }}</span>
+                                            <span class="text-secondary text-xs font-weight-bold">{{ $item->shipping_address }}</span>
                                         </td>
                                         <td class="align-middle text-center text-sm">
                                             <span class="text-secondary text-xs font-weight-bold">{{ $item->product_name }}</span>
                                         </td>
                                         <td class="align-middle text-center text-sm">
-                                            <img height="70px" width="80px" src="{{asset('public/'.$item->product_img)}}">
+                                            <!-- <img height="70px" width="80px" src="{{asset('public/'.$item->product_img)}}"> -->
                                         </td>
                                         <td class="align-middle text-center text-sm">
-                                            <span class="text-secondary text-xs font-weight-bold">{{ $item->product_quantity }}</span>
+                                            <span class="text-secondary text-xs font-weight-bold">{{ $item->quantity }}</span>
                                         </td>
                                         <td class="align-middle text-center text-sm">
-                                            <span class="text-secondary text-xs font-weight-bold">{{ $item->total_price }}</span>
+                                            <span class="text-secondary text-xs font-weight-bold">{{ $item->price }}</span>
                                         </td>
                                         <td class="align-middle text-center text-sm">
                                             <div class="form-check form-switch justify-content-center">
