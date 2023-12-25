@@ -3,6 +3,7 @@
 use App\Http\Controllers\AboutController;
 use App\Http\Controllers\Admin\CategoriesController;
 use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\Admin\OrderAdminController;
 use App\Http\Controllers\Admin\ProductAdminController;
 use App\Http\Controllers\Admin\ProfileAdminController;
 // use App\Http\Controllers\AuthAdmin\AuthenticatedSessionController;
@@ -77,6 +78,11 @@ Route::middleware(['auth:admin', 'verified'])->group(function () {
     Route::put('admin/update-product/{product_id}', [ProductAdminController::class, 'update'])->name('admin.product.update');
     Route::delete('admin/delete-product/{product_id}', [ProductAdminController::class, 'destroy'])->name('admin.product.destroy');
     Route::post('admin/update-product-status', [ProductAdminController::class, 'updateStatus'])->name('admin.product.updateStatus');
+
+    //order
+    Route::get('admin/order', [OrderAdminController::class, 'index'])->name('admin.order');
+    Route::post('admin/update-order-status', [OrderAdminController::class, 'updateStatus'])->name('admin.order.updateStatus');
+    Route::get('admin/order/{id}', [OrderAdminController::class, 'orderDetail'])->name('admin.order.detail');
 });
 Route::middleware('auth')->group(function () {
     Route::post('/comment', [ProductDetailController::class, 'comment'])->name('comment');

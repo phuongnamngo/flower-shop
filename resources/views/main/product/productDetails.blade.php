@@ -40,37 +40,8 @@
                             <li data-thumb="{{ asset('public/' . $product->img) }}">
                                 <div class="thumb-image"> <img src="{{ asset('public/' . $product->img) }}" data-imagezoom="true" class="img-fluid radius-image" alt=" "> </div>
                             </li>
-                            <!-- <li data-thumb="{{ asset('public/images/cart2.jpg') }}">
-                                            <div class="thumb-image"> <img src="{{ asset('public/images/cart2.jpg') }}" data-imagezoom="true" class="img-fluid radius-image" alt=" "> </div>
-                                        </li>
-                                        <li data-thumb="{{ asset('public/images/cart3.jpg') }}">
-                                            <div class="thumb-image"> <img src="{{ asset('public/images/cart3.jpg') }}" data-imagezoom="true" class="img-fluid radius-image" alt=" "> </div>
-                                        </li>
-                                        <li data-thumb="{{ asset('public/images/cart4.jpg') }}">
-                                            <div class="thumb-image"> <img src="{{ asset('public/images/cart4.jpg') }}" data-imagezoom="true" class="img-fluid radius-image" alt=" "> </div>
-                                        </li> -->
-                            </ul>
-                            <div class="clearfix"></div>
-                        </div>
-                        <div class="eco-buttons mt-5 d-flex">
-
-                            <div class="shopv single-item">
-                                <form action="{{ route('cart.add') }}" method="POST">
-                                    @csrf
-                                    <input type="hidden" name="product_id" value="{{ $product->id }}">
-                                    <input type="hidden" name="product_name" value="{{ $product->name }}">
-                                    <input type="hidden" name="product_img" value="{{ $product->img }}">
-                                    <input type="hidden" name="product_price" value="{{ $product->price }}">
-                                    <input type="hidden" name="product_quantity" value="1">
-
-                                    <button type="submit"
-                                        class="shopv-cart pshopv-cart add-to-cart btn btn-style btn-primary">
-                                        Add to Cart
-                                    </button>
-                                </form>
-                            </div>
-                            <div class="buyhny-now"><a href="#buy" class="btn btn-style btn-primary">Buy Now</a></div>
-                        </div>
+                        </ul>
+                        <div class="clearfix"></div>
                     </div>
                     <div class="eco-buttons mt-5 d-flex">
 
@@ -79,8 +50,10 @@
                                 @csrf
                                 <input type="hidden" name="product_id" value="{{ $product->id }}">
                                 <input type="hidden" name="product_name" value="{{ $product->name }}">
+                                <input type="hidden" name="product_img" value="{{ $product->img }}">
                                 <input type="hidden" name="product_price" value="{{ $product->price }}">
                                 <input type="hidden" name="product_quantity" value="1">
+
                                 <button type="submit" class="shopv-cart pshopv-cart add-to-cart btn btn-style btn-primary">
                                     Add to Cart
                                 </button>
@@ -93,65 +66,26 @@
                     <h3>{{ $product->name }}
                     </h3>
                     <div class="caption">
-
                         <ul class="d-flex">
                             @for($count = 1; $count <= 5; $count ++) @php if($count <=$rating) { $color='color:#ef233c;' ; } else { $color='color:#ccc;' ; } @endphp <li title="Rating" id="{{$product->id}}-{{$count}}" data-index="{{$count}}" data-product-id="{{$product->id}}" data-rating="{{$rating}}" class="rating" style="cursor:pointer;{{$color}} font-size:30px">
                                 &#9733;
                                 </li>
                                 @endfor
                         </ul>
-
                         <h6>
                             <span class="item_price">${{ $product->price }}</span>
-                            <!-- <del>$1,199</del> Free Delivery -->
                         </h6>
                     </div>
-                    <!-- <div class="desc_single my-4">
-                                    <ul class="emi-views">
-                                        <li><span>Special Price</span> Get extra 5% off (price inclusive of discount)</li>
-                                        <li><span>Bank Offer</span> 5% Unlimited Cashback on Flipkart Axis Bank Credit Card</li>
-                                        <li><span>Bank Offer</span> 5% Cashback* on HDFC Bank Debit Cards</li>
-                                        <li><span>Bank Offer</span> Extra 5% off* with Axis Bank Buzz Credit Card</li>
-                                    </ul>
-                                </div> -->
                     <div class="desc_single mb-4">
                         <h5>Description:</h5>
                         <p>{{ $product->desc }}</p>
                     </div>
-                    <!-- <div class="description-apt d-grid mb-4">
-                                    <div class="occasional">
-                                        <h5 class="sp_title mb-3">Highlights:</h5>
-                                        <ul class="single_specific">
-                                            <li>
-                                                Neck : Collar Neck</li>
-                                            <li>
-                                                Fit : Slim</li>
-
-                                            <li> Sleeve : Full Sleeve
-                                            </li>
-                                            <li> Material : Pure Cutton</li>
-
-                                        </ul>
-
-                                    </div>
-
-                                    <div class="color-quality">
-                                        <h5 class="sp_title">Services:</h5>
-                                        <ul class="single_serv">
-                                            <li>
-                                                <a href="#">30 Day Return Policy</a>
-                                            </li>
-                                            <li class="gap">
-                                                <a href="#">Cash on Delivery available</a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div> -->
-
                 </div>
             </div>
+
         </div>
-        <!--//row1-->
+    </div>
+    <!--//row1-->
 
     </div>
 </section>

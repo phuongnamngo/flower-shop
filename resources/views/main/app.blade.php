@@ -66,7 +66,11 @@ Author URL: http://w3layouts.com
         @yield('content')
         @include('main.includes.footer')
         <!-- Template JavaScript -->
+        @if(request()->is('/'))
         <script src="{{asset('public/js/jquery-3.3.1.min.js')}}"></script>
+        @else
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        @endif
         <script src="{{asset('public/js/theme-change.js')}}"></script>
         <!-- cart-js -->
         <script src="{{asset('public/js/minicart.js')}}"></script>
@@ -227,7 +231,6 @@ Author URL: http://w3layouts.com
 
         <!-- //bootstrap -->
         <script src="{{asset('public/js/bootstrap.min.js')}}"></script>
-        <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> -->
         <script type="text/javascript">
             $.ajaxSetup({
                 headers: {
