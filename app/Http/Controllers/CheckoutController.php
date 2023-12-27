@@ -44,13 +44,7 @@ class CheckoutController extends Controller
                 'price' => $item['price'],
             ]);
         }
-
-    
-
-        // Clear cart session
         session()->forget('cart');
-
-     
         return redirect()->route('order.show', $order->id);
     }
     
