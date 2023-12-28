@@ -30,7 +30,7 @@ class CheckoutController extends Controller
             'total_price' => $request->total_price,
             'shipping_address' => $request->shipping_address,
             'billing_address' => $request->billing_address,
-            'payment_method' => 'delivery',
+            'payment_method' => $request->payment_method,
             'status' => 0,
        
         ]);

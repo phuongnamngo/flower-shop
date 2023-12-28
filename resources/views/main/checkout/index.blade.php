@@ -26,7 +26,6 @@
                 <div class="row justify-content-between align-items-start container py-4"
                     style="box-shadow: -6px 6px 20px 0px rgba(91, 111, 163, 0.15); border-radius: 10px">
                     <div class="col-md-6 col-12 ecom-contenthny-w3lcheckout">
-
                         <div class="checkout-right mt-2 mb-0">
                             <table class="timetable_sub">
                                 <thead>
@@ -81,43 +80,49 @@
                                 <div class="d-flex align-items-center justify-content-between">
                                     <h3 class="h5">Payment Methods:</h3>
                                 </div>
-                                {{-- <section class="creditly-wrapper wthree w3_agileits_wrapper mt-2">
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="radio" name="flexRadioDefault"
-                                            id="flexRadioDefault1">
-                                        <label class="form-check-label" for="flexRadioDefault1">
-                                            Cash on Delivery
-                                        </label>
-                                    </div>
-                          
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="radio" name="flexRadioDefault"
-                                            id="flexRadioDefault1">
-                                        <label class="form-check-label" for="flexRadioDefault1">
-                                            Bank Transfer
-                                        </label>
-                                    </div>
-                                    <div class="form-check ">
-                                        <input class="form-check-input " type="radio" name="flexRadioDefault"
-                                            id="flexRadioDefault2" checked>
-                                        <label class="form-check-label" for="flexRadioDefault2">
-                                            Momo
-                                        </label>
-                                        <div class="bg-dark">
-                                            Number: +84 37 887 8087
+                                <div class="d-flex justify-content-start align-items-center" style="gap: 30px">
+                                    <form>
+                                        <div class="d-flex justify-content-center align-items-center" style="gap: 5px">
+                                            <input class="form-check-input m-0" type="radio" name="payment_method" value="Cash on Delivery"
+                                                onclick="showContent('content1')" checked>
+                                            <label class="form-check-label" style="color: #ef233c; border: 1px solid #ef233c; padding: 10px">Cash on
+                                                Delivery</label>
                                         </div>
-                                    </div>
-                                </section> --}}
-                                <div class="d-flex justify-content-start align-items-center cursor-pointer" style="gap: 10px">
-                                    <div class="p-2" style="border: 1px solid #f7f6f6; color: black">
-                                        <div class="top_shopv_cart">Cash on Delivery</div>
-                                    </div>
-                                    <div class="p-2" style="border: 1px solid #f7f6f6; color: black">
-                                        <span class="top_shopv_cart">Bank Transfer</span>
-                                    </div>
-                                    <div class="p-2" style="border: 1px solid #f7f6f6; color: black">
-                                        <span class="top_shopv_cart">Momo</span>
-                                    </div>
+                                        <div class="d-flex justify-content-center align-items-center" style="gap: 5px">
+                                            <input class="form-check-input m-0" type="radio" name="payment_method" value="Bank Transfer"
+                                                onclick="showContent('content2')">
+                                            <label class="form-check-label" style="color: #ef233c; border: 1px solid #ef233c; padding: 10px">Bank Transfer</label>
+
+                                        </div>
+                                        <div class="d-flex justify-content-center align-items-center" style="gap: 5px">
+                                            <input class="form-check-input m-0" type="radio" name="payment_method" value="Momo"
+                                                onclick="showContent('content3')">
+                                            <label class="form-check-label" style="color: #ef233c; border: 1px solid #ef233c; padding: 10px"    >Momo</label>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                            <div id="content3" class="collapse mt-2 hidden">
+                                <div class="card card-body d-flex flex-column">
+                                    <span>
+                                        Number: 0979797979
+                                    </span>
+                                    <span>
+                                        Owner: XXXXXXXXXX
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="collapse mt-2 hidden" id="content2">
+                                <div class="card card-body d-flex flex-column">
+                                    <span>
+                                        Bank: Vietcombank
+                                    </span>
+                                    <span>
+                                        Name: XXXXXXXXXX
+                                    </span>
+                                    <span>
+                                        Card number: 0797979
+                                    </span>
                                 </div>
                             </div>
                             <div class="col-auto m-0 mt-4">
@@ -126,6 +131,7 @@
                                     <div class="information-wrapper">
                                         <div class="first-row form-group">
                                             <div class="w3_agileits_card_number_grids">
+
                                                 <div class="w3_agileits_card_number_grid_right">
                                                     <div class="controls">
                                                         <input class="form-control" type="text" name=""
@@ -140,8 +146,8 @@
                                                 </div>
                                                 <div class="w3_agileits_card_number_grid_left">
                                                     <div class="controls">
-                                                        <input class="form-control" name="shipping_address" type="text"
-                                                            placeholder="Shipping Address" required>
+                                                        <input class="form-control" name="shipping_address"
+                                                            type="text" placeholder="Shipping Address" required>
                                                     </div>
                                                 </div>
 
@@ -164,4 +170,22 @@
 @endsection
 
 <style>
+    .hidden {
+        display: none;
+    }
+
+    .form-check-input:checked {
+        background-color: #ef233c !important;
+        border-color: #ef233c !important;
+    }
 </style>
+<script>
+    function showContent(contentId) {
+        var allContents = document.querySelectorAll('.hidden');
+        allContents.forEach(function(content) {
+            content.style.display = 'none';
+        });
+        var selectedContent = document.getElementById(contentId);
+        selectedContent.style.display = 'block';
+    }
+</script>

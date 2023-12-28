@@ -12,8 +12,8 @@
                                     <th>No.</th>
                                     <th>Order ID</th>
                                     <th>Date</th>
-
                                     <th>Shipping address</th>
+                                    <th>Payment Method</th>
                                     <th>Total amount</th>
                                     <th>Status</th>
                                     <th>Action</th>
@@ -23,6 +23,7 @@
                                 $counter = 1;
                             @endphp
                             <tbody>
+
                                 @foreach ($orderHistory as $item)
                                     <tr class="rem1">
                                         <td class="invert">{{ $counter++ }}</td>
@@ -30,13 +31,18 @@
                                             {{ $item->id }}
                                         </td>
                                         <td class="invert">
-                                            {{ $item->created_at->format('d-m-Y H:i') }}
+                                            {{ $item->created_at->format('d/m/Y') }}
                                         </td>
                                         <td class="invert">
                                             {{ $item->shipping_address }}
                                         </td>
                                         <td class="invert">
-                                            ${{ number_format($item->total_price) }}
+                                            {{ $item->payment_method }}
+                                        </td>
+                                        <td class="invert">
+
+                                            ${{ $item->total_price }}
+
                                         </td>
                                         <td class="invert">
                                             @switch($item->status)
@@ -58,11 +64,28 @@
 
                                                 @default
                                             @endswitch
-                                          
+
                                         </td>
                                         <td class="invert">
-                                            <i class="fa fa-pen-to-square"></i>
-                                            <i class="fa fa-window-close"></i>
+                                            @if ($item->status == 0)
+                                                <input type="hidden" name="">
+                                                <form method="POST" action="{{ route('orders.edit', $item->id) }}">
+                                                    @csrf
+                                                    <button>
+                                                        <i class="fa fa-pencil" aria-hidden="true"></i>
+
+                                                    </button>
+                                                </form>
+                                                <button>
+                                                    <i class="fa fa-eye" aria-hidden="true"></i>
+
+                                                </button>
+                                            @else
+                                                <button>
+                                                    <i class="fa fa-eye" aria-hidden="true"></i>
+
+                                                </button>
+                                            @endif
                                         </td>
                                     </tr>
                                 @endforeach

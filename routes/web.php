@@ -51,6 +51,10 @@ Route::middleware(['auth'])->group(function () {
     Route::post('/checkout', [CheckoutController::class, 'store'])->name('checkout.store');
     Route::get('/order/{order}', [OrderController::class, 'show'])->name('order.show');
     Route::get('/checkout', [CheckoutController::class, 'viewCheckout'])->name('checkout.view');
+
+    Route::post('/order/{id}/edit', [OrderController::class, 'edit'])->name('orders.edit');
+    Route::put('/order/{id}', [OrderController::class, 'update'])->name('orders.update');
+
 });
 
 
