@@ -36,10 +36,29 @@
                                             {{ $item->shipping_address }}
                                         </td>
                                         <td class="invert">
-                                            ${{ $item->total_price }}
+                                            ${{ number_format($item->total_price) }}
                                         </td>
                                         <td class="invert">
-                                            {{ $item->status }}
+                                            @switch($item->status)
+                                                @case(0)
+                                                    <div class="btn btn-light">Order placed</div>
+                                                @break
+
+                                                @case(1)
+                                                    <div class="btn btn-warning">Shipped Out</div>
+                                                @break
+
+                                                @case(2)
+                                                    <div class="btn btn-success">Completed</div>
+                                                @break
+
+                                                @case(3)
+                                                    <div class="btn btn-danger">Cancelled</div>
+                                                @break
+
+                                                @default
+                                            @endswitch
+                                          
                                         </td>
                                         <td class="invert">
                                             <i class="fa fa-pen-to-square"></i>

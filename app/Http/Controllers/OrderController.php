@@ -22,7 +22,6 @@ class OrderController extends Controller
     {
         $user = Auth::user();
         $orderHistory = $user->orders;
-        
         return view('main.orderHistory.index',compact('orderHistory'));
     }
 }
