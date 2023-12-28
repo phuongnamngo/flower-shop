@@ -14,6 +14,7 @@ use App\Http\Controllers\ContactController;
 use App\Http\Controllers\CustomAuthController;
 use App\Http\Controllers\FaqController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\MoMo\ReturnUrlController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProductDetailController;
@@ -35,6 +36,7 @@ Route::get('/', [HomeController::class, 'index']);
 Route::get('home', [CustomAuthController::class, 'home']);
 Route::get('/about', [AboutController::class, 'index']);
 Route::get('/products', [ProductController::class, 'index'])->name('product.index');
+Route::get('/product-by-category/{id}', [ProductController::class, 'productByCate'])->name('product.by.category');
 Route::get('/products/{id}', [ProductDetailController::class, 'index'])->name('product.detail');
 Route::get('/blog', [BlogController::class, 'index']);
 Route::get('/blog/{id}', [BlogController::class, 'blogDetail']);
@@ -43,7 +45,7 @@ Route::get('/checkout', [CheckoutController::class, 'viewCheckout'])->name('chec
 Route::get('/faq', [FaqController::class, 'index']);
 
 Route::post('/checkout', [CheckoutController::class, 'store'])->name('checkout.store');
-Route::get('/order/{order}', [OrderController::class, 'show'])->name('order.show'); 
+Route::get('/order/{order}', [OrderController::class, 'show'])->name('order.show');
 
 Route::post('/remove-from-cart/{product}', [CartController::class, 'removeFromCart'])->name('cart.remove');
 Route::post('/add-to-cart', [CartController::class, 'addToCart'])->name('cart.add');
@@ -90,6 +92,8 @@ Route::middleware('auth')->group(function () {
     Route::get('/view-cart', [CartController::class, 'viewCart'])->name('cart.view');
     Route::post('/update-cart', [CartController::class, 'updateCart']);
     Route::post('/add-rating', [ProductDetailController::class, 'addRating'])->name('insert.rating');
+    Route::get('/momo/returnUrl', [ReturnUrlController::class, 'index'])->name('momo.returnurl');
+
 });
 
 require __DIR__ . '/adminauth.php';

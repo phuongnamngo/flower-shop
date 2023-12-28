@@ -345,7 +345,7 @@
 <script>
     $(document).ready(function() {
         @if(session('success'))
-        alert("{{ session('success ') }}");
+        alert("Thêm sản phẩm vào giỏ hàng thành công");
         @endif
     });
 </script>
