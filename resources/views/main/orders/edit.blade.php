@@ -53,9 +53,6 @@
                                         @foreach ($order as $item)
                                             <tr class="rem1">
                                                 <td class="invert">{{ $counter++ }}</td>
-                                                {{-- <td class="invert-image"><a href="product-single.html">
-                                                        <img src="{{ asset('public/' . $item['img']) }}"
-                                                            class="img-fluid radius-image" alt=""></a></td> --}}
                                                 <td class="invert">
                                                     <div class="quantity">
                                                         <div class="quantity-select">
@@ -64,7 +61,7 @@
                                                     </div>
                                                 </td>
                                                 <td class="invert">{{ $item->product_id }}</td>
-                                                <td class="invert">${{ number_format($item->price) }}</td>
+                                                <td class="invert">${{ $item->price }}</td>
                                             </tr>
                                         @endforeach
                                     </tbody>
@@ -154,14 +151,15 @@
                                                     <div class="w3_agileits_card_number_grid_right">
                                                         <div class="controls">
                                                             <input class="form-control" type="text"
-                                                                name="billing_address" placeholder="{{$order[0]->billing_address}}"
-                                                                required>
+                                                                name="billing_address"
+                                                                placeholder="{{ $order[0]->billing_address }}" required>
                                                         </div>
                                                     </div>
                                                     <div class="w3_agileits_card_number_grid_left">
                                                         <div class="controls">
                                                             <input class="form-control" name="shipping_address"
-                                                                type="text" placeholder="{{$order[0]->shipping_address}}" required>
+                                                                type="text"
+                                                                placeholder="{{ $order[0]->shipping_address }}" required>
                                                         </div>
                                                     </div>
 

@@ -18,13 +18,14 @@ class CheckoutController extends Controller
     public function viewCheckout()
     {
         $cart = session()->get('cart', []);
-        return view('main.checkout.index', compact('cart'));
+        $total = $this->calculateTotal($cart);
+     
+        return view('main.checkout.index', compact('cart', 'total'));
     }
     
     public function store(Request $request)
     {
         $user = auth()->user();
-       
         $order = Order::create([
             'user_id' =>  $user->id,
             'total_price' => $request->total_price,
@@ -47,5 +48,15 @@ class CheckoutController extends Controller
         session()->forget('cart');
         return redirect()->route('order.show', $order->id);
     }
-    
+    private function calculateTotal($cart)
+    {
+        $total = 0;
+
+        foreach ($cart as $item) {
+        
+            $total += str_replace(',', '', $item['price']) *$item['quantity'];
+        }
+        return $total;
+    }
+  
 }

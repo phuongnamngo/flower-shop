@@ -78,7 +78,7 @@
                                                 <p class="text-muted mb-0">{{ $item->product_id }}</p>
                                             </div>
                                             <div class="col text-center d-flex justify-content-center align-items-center">
-                                                <p class="text-muted mb-0 ">${{ number_format($item->price) }}</p>
+                                                <p class="text-muted mb-0 ">${{ $item->price }}</p>
                                             </div>
 
                                         </div>
@@ -103,7 +103,7 @@
                                 </div>
                             </div>
                             <h5 class="d-flex align-items-center justify-content-end text-white text-uppercase mb-0">Total
-                                paid: <span class="h2 mb-0 ms-2">${{ number_format($order[0]->total_price) }}</span></h5>
+                                paid: <span class="h2 mb-0 ms-2">${{$order[0]->total_price }}</span></h5>
                         </div>
                     </div>
                 </div>
