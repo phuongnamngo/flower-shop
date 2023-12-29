@@ -24,8 +24,10 @@
                             Pages <span class="fa fa-angle-down ms-1"></span>
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <li><a class="dropdown-item pt-2" href="{{url('/blog')}}">Blog Page</a></li>
+                            <li><a class="dropdown-item pt-2" href="{{url('order-history')}}">Order History</a></li>
+                            <li><a class="dropdown-item" href="{{url('/blog')}}">Blog Page</a></li>
                             <li><a class="dropdown-item" href="{{url('/faq')}}">FaQ</a></li>
+
                         </ul>
                     </li>
                     <li class="nav-item">
@@ -64,7 +66,7 @@
                 <li class="shopvcart galssescart2 cart cart box_1 get-btn">
                     <form action="{{route('cart.view')}}">
                         <button class="top_shopv_cart">
-                           <span class="fas fa-shopping-bag me-lg-2"></span><span class="btn-texe-inf">Cart</span>
+                            <span class="fas fa-shopping-bag me-lg-2"></span><span class="btn-texe-inf">Cart</span>
                         </button>
                     </form>
                 </li>
