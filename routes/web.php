@@ -41,16 +41,26 @@ Route::get('/products/{id}', [ProductDetailController::class, 'index'])->name('p
 Route::get('/blog', [BlogController::class, 'index']);
 Route::get('/blog/{id}', [BlogController::class, 'blogDetail']);
 Route::get('/contact', [ContactController::class, 'index']);
-Route::get('/checkout', [CheckoutController::class, 'viewCheckout'])->name('checkout.view');
 Route::get('/faq', [FaqController::class, 'index']);
 
-Route::post('/checkout', [CheckoutController::class, 'store'])->name('checkout.store');
-Route::get('/order/{order}', [OrderController::class, 'show'])->name('order.show');
 
-Route::post('/remove-from-cart/{product}', [CartController::class, 'removeFromCart'])->name('cart.remove');
-Route::post('/add-to-cart', [CartController::class, 'addToCart'])->name('cart.add');
-Route::get('/view-cart', [CartController::class, 'viewCart'])->name('cart.view');
-Route::post('/update-cart', [CartController::class, 'updateCart']);
+
+Route::middleware(['auth'])->group(function () {
+    Route::get('/order-history', [OrderController::class, 'getAllOrder'])->name('order.history');
+    Route::get('/view-cart', [CartController::class, 'viewCart'])->name('cart.view');
+    Route::post('/remove-from-cart/{product}', [CartController::class, 'removeFromCart'])->name('cart.remove');
+    Route::post('/add-to-cart', [CartController::class, 'addToCart'])->name('cart.add');
+    Route::post('/update-cart', [CartController::class, 'updateCart']);
+    Route::post('/checkout', [CheckoutController::class, 'store'])->name('checkout.store');
+    Route::get('/order/{order}', [OrderController::class, 'show'])->name('order.show');
+    Route::get('/checkout', [CheckoutController::class, 'viewCheckout'])->name('checkout.view');
+
+    Route::post('/order/{id}/edit', [OrderController::class, 'edit'])->name('orders.edit');
+    Route::put('/order/{id}', [OrderController::class, 'update'])->name('orders.update');
+
+});
+
+
 
 Route::middleware('auth')->group(function () {
     // Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

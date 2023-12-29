@@ -80,7 +80,7 @@
                                             </div>
                                         </td>
                                         <td class="invert">{{ $item['name'] }}</td>
-                                        <td class="invert">${{ number_format($item['price'], 2) }}</td>
+                                        <td class="invert">${{ number_format($item['price']) }}</td>
                                         <td class="invert">
                                             <div class="rem">
                                                 <form action="{{ route('cart.remove', $item['id']) }}" method="POST">
@@ -97,20 +97,22 @@
                             </tbody>
                         </table>
                     </div>
-
                 </div>
-
                 <div class="row checkout-left mt-5">
                     <div class="col-md-4 checkout-left-basket">
                         <div class="d-flex align-items-center justify-content-between">
                             <h3 class="h4">Total Payment:</h3>
-                            <h3 class="h4 text-black">${{ number_format(array_sum(array_column($cart, 'price')), 2) }}</h3>
+                            <h3 class="h4 text-black">${{ number_format(array_sum(array_column($cart, 'price'))) }}</h3>
                         </div>
-                        <div class="">
-                            <a href="{{ route('checkout.view') }}">
-                                <h4>Continue to Checkout</h4>
-                            </a>
-                        </div>
+                        @if ($cart)
+                            <div class="">
+                                <a href="{{ route('checkout.view') }}">
+                                    <h4>Continue to Checkout</h4>
+                                </a>
+                            </div>
+                        @else
+                            <div>Cart is empty!</div>
+                        @endif
                     </div>
                 </div>
             </div>

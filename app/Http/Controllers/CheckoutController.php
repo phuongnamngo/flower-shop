@@ -68,7 +68,7 @@ class CheckoutController extends Controller
             'total_price' => $request->total_price,
             'shipping_address' => $request->shipping_address,
             'billing_address' => $request->billing_address,
-            'payment_method' => $request->radio ?? 'delivery',
+            'payment_method' => $request->radio ?? $request->payment_method,
             'status' => 0,
         ]);
         foreach ($cart as $item) {
