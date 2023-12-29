@@ -26,60 +26,85 @@
                     <div class="card-body px-4 pt-0 pb-4">
                         <form action="" enctype="multipart/form-data">
                             <div class="row">
-                                <div class="col-md-6">
+                                <div class="col-md-4">
                                     <div class="form-group">
                                         <label for="example-text-input" class="form-control-label">Tên khách hàng</label>
                                         <input class="form-control" type="text" value="{{$user->name}}" disabled>
-                                     
+
                                     </div>
                                 </div>
-                                <div class="col-md-6">
+                                <div class="col-md-4">
                                     <div class="form-group">
                                         <label for="example-text-input" class="form-control-label">Email</label>
                                         <input class="form-control" type="text" value="{{$user->email}}" disabled>
-                                     
+
                                     </div>
                                 </div>
-                                <div class="col-md-6">
+                                <div class="col-md-4">
                                     <div class="form-group">
                                         <label for="example-text-input" class="form-control-label">Đia chỉ</label>
-                                        <input class="form-control" type="text" value="{{orderItem->shipping_address}}" disabled>
-                                     
+                                        <input class="form-control" type="text" value="{{$orderItem->shipping_address}}" disabled>
+
                                     </div>
                                 </div>
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label for="example-text-input" class="form-control-label">Chi tiết đơn hàng</label>
-                                        <input class="form-control" type="text" value="{{orderItem->order_details}}" disabled>
-                                     
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
+                                <div class="col-md-4">
                                     <div class="form-group">
                                         <label for="example-text-input" class="form-control-label">Tên sản phẩm</label>
-                                        <input class="form-control" type="text" value="{{$order->product_name}}" disabled>
-                                     
+                                        <input class="form-control" type="text" value="{{$orderItem->product_name}}" disabled>
+
                                     </div>
                                 </div>
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label for="example-text-input" class="form-control-label">Hình ảnh</label>
-                                        <img height="100px" width="110px" src="{{asset('public/'.$order->product_img)}}" disabled>
-                                      
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
+                                <div class="col-md-4">
                                     <div class="form-group">
                                         <label for="example-text-input" class="form-control-label">Số lượng</label>
-                                        <input class="form-control" type="text" value="{{$order->product_quantity}}" disabled>
-                                     
+                                        <input class="form-control" type="text" value="{{$orderItem->quantity}}" disabled>
+
                                     </div>
                                 </div>
-                                <div class="col-md-6">
+                                <div class="col-md-4">
                                     <div class="form-group">
                                         <label for="example-text-input" class="form-control-label">Thành tiền</label>
-                                        <input class="form-control" type="text" value="{{$order->total_price}}" disabled>
-                                     
+                                        <input class="form-control" type="text" value="{{$orderItem->total_price}}" disabled>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label for="example-text-input" class="form-control-label">Nội dung</label>
+                                        <input class="form-control" type="text" value="{{$momoItem->message ?? 'Đặt hàng thành công'}}" disabled>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label for="example-text-input" class="form-control-label">Phương thức</label>
+                                        <input class="form-control" type="text" value="{{$orderItem->payment_method}}" disabled>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label for="example-text-input" class="form-control-label">Trạng thái</label>
+                                        @switch($orderItem->status)
+                                        @case(0)
+                                        <input class="form-control" type="text" value="Đã đặt hàng" disabled>
+                                        @break
+
+                                        @case(1)
+                                        <input class="form-control" type="text" value="Đã xác nhận" disabled>
+                                        @break
+
+                                        @case(2)
+                                        <input class="form-control" type="text" value="Đang vận chuyển" disabled>
+                                        @break
+
+                                        @case(3)
+                                        <input class="form-control" type="text" value="Hoàn thành" disabled>
+                                        @break
+
+                                        @case(4)
+                                        <input class="form-control" type="text" value="Đơn hàng hủy" disabled>
+                                        @break
+                                        @default
+                                        @endswitch
+
                                     </div>
                                 </div>
                             </div>

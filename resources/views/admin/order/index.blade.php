@@ -30,50 +30,90 @@
                                 <thead>
                                     <tr>
                                         <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">No</th>
-                                        <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Tên khách hàng</th>
+                                        <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Khách hàng</th>
                                         <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Email</th>
                                         <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
                                             Địa chỉ</th>
                                         <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                                            Tên sản phẩm</th>
-                                        <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                                            Số lượng</th>
+                                            Nội dung</th>
                                         <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
                                             Thành tiền</th>
+                                        <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                            Phương thức</th>
+                                        <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                            Trạng thái</th>
                                         <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
                                             Action</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach ($orderItem as $item)
+                                    @foreach ($order as $item)
                                     <tr>
                                         <td class="px-4">
                                             <span class="text-secondary text-xs font-weight-bold">{{ ++$i }}</span>
                                         </td>
                                         <td>
-                                            <span class="text-secondary text-xs font-weight-bold">{{ $user->name }}</span>
+                                            <span class="text-secondary text-xs font-weight-bold">{{ $item->name }}</span>
                                         </td>
                                         <td class="align-middle text-center text-sm">
-                                            <span class="text-secondary text-xs font-weight-bold">{{ $user->email }}</span>
+                                            <span class="text-secondary text-xs font-weight-bold">{{ $item->email }}</span>
                                         </td>
                                         <td class="align-middle text-center text-sm">
                                             <span class="text-secondary text-xs font-weight-bold">{{ $item->shipping_address }}</span>
                                         </td>
                                         <td class="align-middle text-center text-sm">
-                                            <span class="text-secondary text-xs font-weight-bold">{{ $item->product_name }}</span>
+                                            <span class="text-secondary text-xs font-weight-bold">{{ $item->message ?? 'Đặt hàng thành công'}}</span>
                                         </td>
                                         <td class="align-middle text-center text-sm">
-                                            <span class="text-secondary text-xs font-weight-bold">{{ $item->quantity }}</span>
+                                            <span class="text-secondary text-xs font-weight-bold">{{ $item->total_price }}</span>
                                         </td>
                                         <td class="align-middle text-center text-sm">
-                                            <span class="text-secondary text-xs font-weight-bold">{{ $item->price }}</span>
+                                            <span class="text-secondary text-xs font-weight-bold">{{ $item->payment_method }}</span>
                                         </td>
                                         <td class="align-middle text-center text-sm">
-                                            <div class="form-check form-switch justify-content-center">
-                                                <!-- @if($item->status == 0) -->
-                                                <button class="btn btn-success order_status" id="{{ $item->idOrder }}" value="1">Confirm</button>
-                                                <!-- @endif -->
-                                                <!-- <a class="btn btn-secondary mx-2" href="{{route('admin.order.detail', $item->id)}}">Detail</a> -->
+                                            @switch($item->status)
+                                            @case(0)
+                                            <span class="text-secondary text-xs font-weight-bold">Đã đặt hàng</span>
+                                            @break
+
+                                            @case(1)
+                                            <span class="text-secondary text-xs font-weight-bold">Đã xác nhận</span>
+                                            @break
+
+                                            @case(2)
+                                            <span class="text-secondary text-xs font-weight-bold">Đang vận chuyển</span>
+                                            @break
+
+                                            @case(3)
+                                            <span class="text-secondary text-xs font-weight-bold">Hoàn thành</span>
+                                            @break
+
+                                            @case(4)
+                                            <span class="text-secondary text-xs font-weight-bold">Đơn hàng hủy</span>
+                                            @break
+                                            @default
+                                            @endswitch
+                                        </td>
+                                        <td class="align-middle text-center text-sm">
+                                            <div class="flexcolumn p-0 justify-content-center">
+                                                @switch($item->status)
+                                                @case(0)
+                                                <button class="btn btn-primary order_status" id="{{ $item->id }}" value="1">Xác nhận</button>
+                                                @break
+
+                                                @case(1)
+                                                <button class="btn btn-info order_status" id="{{ $item->id }}" value="2">vận chuyển</button>
+                                                @break
+
+                                                @case(2)
+                                                <button class="btn btn-success order_status" id="{{ $item->id }}" value="3">Hoàn thành</button>
+                                                @break
+                                                @default
+                                                @endswitch
+                                                @if($item->status != 4)
+                                                <button class="btn btn-danger order_status" id="{{ $item->id }}" value="4">Hủy</button>
+                                                @endif
+                                                <a class="btn btn-secondary order_status" href="{{route('admin.order.detail', $item->id )}}">Chi tiết</a>
                                             </div>
                                         </td>
                                     </tr>

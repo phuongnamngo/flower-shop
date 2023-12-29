@@ -83,46 +83,15 @@
                                 <div class="d-flex justify-content-start align-items-center" style="gap: 30px">
                                     <form>
                                         <div class="d-flex justify-content-center align-items-center" style="gap: 5px">
-                                            <input class="form-check-input m-0" type="radio" name="payment_method" value="Cash on Delivery"
-                                                onclick="showContent('content1')" checked>
-                                            <label class="form-check-label" style="color: #ef233c; border: 1px solid #ef233c; padding: 10px">Cash on
+                                            <input class="form-check-input m-0" type="radio" name="payment_method" value="Cash on Delivery" checked>
+                                            <label class="form-check-label" style="color: #ef233c; padding: 10px">Cash on
                                                 Delivery</label>
                                         </div>
                                         <div class="d-flex justify-content-center align-items-center" style="gap: 5px">
-                                            <input class="form-check-input m-0" type="radio" name="payment_method" value="Bank Transfer"
-                                                onclick="showContent('content2')">
-                                            <label class="form-check-label" style="color: #ef233c; border: 1px solid #ef233c; padding: 10px">Bank Transfer</label>
-
-                                        </div>
-                                        <div class="d-flex justify-content-center align-items-center" style="gap: 5px">
-                                            <input class="form-check-input m-0" type="radio" name="payment_method" value="Momo"
-                                                onclick="showContent('content3')">
-                                            <label class="form-check-label" style="color: #ef233c; border: 1px solid #ef233c; padding: 10px"    >Momo</label>
+                                            <input class="form-check-input m-0" type="radio" name="payment_method" value="Momo">
+                                            <label class="form-check-label" style="color: #ef233c; padding: 10px">Momo</label>
                                         </div>
                                     </form>
-                                </div>
-                            </div>
-                            <div id="content3" class="collapse mt-2 hidden">
-                                <div class="card card-body d-flex flex-column">
-                                    <span>
-                                        Number: 0979797979
-                                    </span>
-                                    <span>
-                                        Owner: XXXXXXXXXX
-                                    </span>
-                                </div>
-                            </div>
-                            <div class="collapse mt-2 hidden" id="content2">
-                                <div class="card card-body d-flex flex-column">
-                                    <span>
-                                        Bank: Vietcombank
-                                    </span>
-                                    <span>
-                                        Name: XXXXXXXXXX
-                                    </span>
-                                    <span>
-                                        Card number: 0797979
-                                    </span>
                                 </div>
                             </div>
                             <div class="col-auto m-0 mt-4">

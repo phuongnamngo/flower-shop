@@ -47,21 +47,24 @@
                                         <td class="invert">
                                             @switch($item->status)
                                                 @case(0)
-                                                    <div class="btn btn-light">Order placed</div>
+                                                    <div class="btn btn-light">Đã đặt hàng</div>
                                                 @break
 
                                                 @case(1)
-                                                    <div class="btn btn-warning">Shipped Out</div>
+                                                    <div class="btn btn-warning">Đã xác nhận</div>
                                                 @break
 
                                                 @case(2)
-                                                    <div class="btn btn-success">Completed</div>
+                                                    <div class="btn btn-success">Đang vận chuyển</div>
                                                 @break
 
                                                 @case(3)
-                                                    <div class="btn btn-danger">Cancelled</div>
+                                                    <div class="btn btn-danger">Hoàn thành</div>
                                                 @break
 
+                                                @case(4)
+                                                    <div class="btn btn-danger">Đơn hàng hủy</div>
+                                                @break
                                                 @default
                                             @endswitch
 
