@@ -18,7 +18,9 @@ class CheckoutController extends Controller
     public function viewCheckout()
     {
         $cart = session()->get('cart', []);
-        return view('main.checkout.index', compact('cart'));
+        $total = $this->calculateTotal($cart);
+     
+        return view('main.checkout.index', compact('cart', 'total'));
     }
 
     public function store(Request $request)
@@ -117,4 +119,15 @@ class CheckoutController extends Controller
         curl_close($ch);
         return $result;
     }
+    private function calculateTotal($cart)
+    {
+        $total = 0;
+
+        foreach ($cart as $item) {
+        
+            $total += str_replace(',', '', $item['price']) *$item['quantity'];
+        }
+        return $total;
+    }
+  
 }

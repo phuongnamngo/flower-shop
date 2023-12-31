@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Cart;
 use App\Models\Product;
 use Illuminate\Http\Request;
 
@@ -10,8 +11,9 @@ class CartController extends Controller
     public function viewCart()
     {
         $cart = session()->get('cart', []);
-
-        return view('main.cart.view', compact('cart'));
+        $total = $this->calculateTotal($cart);
+        // dd($cart);
+        return view('main.cart.view', compact('cart', 'total'));
     }
     public function addToCart(Request $request)
     {
@@ -34,11 +36,9 @@ class CartController extends Controller
                 'price' => $productPrice,
             ];
         }
-   
             // $cart[$productId]['price'] = $cart[$productId]['quantity'] * $productPrice;
-            $cart[$productId]['price'] = (float) str_replace(',', '', $cart[$productId]['quantity']) * str_replace(',','', $productPrice);
+            // $cart[$productId]['price'] = (float) str_replace(',', '', $cart[$productId]['quantity']) * str_replace(',','', $productPrice);
 
-       
         session()->put('cart', $cart);
         return redirect()->back()->with('success', 'Product added to cart');
     }
@@ -59,13 +59,70 @@ class CartController extends Controller
         
         return redirect()->route('cart.view')->with('error', 'Product not found in cart');
     }
-    public function updateCart(Request $request)
+    public function increaseQuantity($productId)
     {
-        $productId = $request->input('productId');
-   
-        $quantity = $request->input('quantity');
+        // Retrieve the cart from the session or create an empty array
+        $cart = session('cart', []);
 
-        return response()->json(['success' => true]);
+        // Check if the product is in the cart
+        if (array_key_exists($productId, $cart)) {
+            // Increase the quantity
+            $cart[$productId]++;
+        }
+
+        // Store the updated cart in the session
+        session(['cart' => $cart]);
+
+        // Redirect back or to the cart page
+        return redirect()->route('cart.index');
     }
+
+    public function decreaseQuantity($productId)
+    {
+        // Retrieve the cart from the session or create an empty array
+        $cart = session('cart', []);
+
+        // Check if the product is in the cart and has a quantity greater than 1
+        if (array_key_exists($productId, $cart) && $cart[$productId] > 1) {
+            // Decrease the quantity
+            $cart[$productId]--;
+        }
+
+        // Store the updated cart in the session
+        session(['cart' => $cart]);
+
+        // Redirect back or to the cart page
+        return redirect()->route('cart.index');
+    }
+    // Trong controller hoặc nơi khác tùy thuộc vào cấu trúc của ứng dụng Laravel của bạn
+public function updateCart(Request $request, $productId)
+{
+    $action = $request->input('action');
+    $cart = session('cart', []);
+
+    if ($action == 'increase') {
+        // Tăng số lượng sản phẩm
+        $cart[$productId]['quantity']++;
+    } elseif ($action == 'decrease') {
+        // Giảm số lượng sản phẩm
+        if ($cart[$productId]['quantity'] > 1) {
+            $cart[$productId]['quantity']--;
+        }
+    }
+    $total = $this->calculateTotal($cart);
+    session(['cart' => $cart , $total => $cart ]);
+  
+    return redirect()->back();
+}
+
+private function calculateTotal($cart)
+{
+    $total = 0;
+
+    foreach ($cart as $item) {
     
+        $total += str_replace(',', '', $item['price']) *$item['quantity'];
+    }
+    return $total;
+}
 }

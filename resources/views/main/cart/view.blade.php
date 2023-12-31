@@ -58,29 +58,34 @@
                                         </td>
                                         <td class="invert">
                                             <div class="quantity">
-                                                <div class="quantity-select">
-                                                    {{-- <button class="entry value-minus">&nbsp;</button>
-                                                    <div class="entry value " style="color: black">
+                                                <div
+                                                    class="quantity-select d-flex justify-content-center align-items-center">
+                                                    <div>
+                                                        <form method="post"
+                                                            action="{{ route('cart.update', ['productId' => $item['id']]) }}">
+                                                            @csrf
+                                                            <input type="hidden" name="action" value="increase">
+                                                            <button class="entry value-plus" type="submit"></button>
+                                                        </form>
+                                                    </div>
+
+                                                    <div class=" value" style="color: black">
                                                         <span>{{ $item['quantity'] }}</span>
                                                     </div>
-                                                    <button class="entry value-plus active">&nbsp;</button> --}}
-
                                                     <div>
-                                                        <button class="entry value-minus"
-                                                            onclick="updateQuantity(-1, {{ $item['id'] }})">&nbsp;</button>
-                                                        <div class="entry value" style="color: black">
-                                                            <span
-                                                                id="quantity_{{ $item['id'] }}">{{ $item['quantity'] }}</span>
-                                                        </div>
-                                                        <button class="entry value-plus"
-                                                            onclick="updateQuantity(1, {{ $item['id'] }})">&nbsp;</button>
-
+                                                        <form method="post"
+                                                            action="{{ route('cart.update', ['productId' => $item['id']]) }}">
+                                                            @csrf
+                                                            <input type="hidden" name="action" value="decrease">
+                                                            <button class="entry value-minus" type="submit"></button>
+                                                        </form>
                                                     </div>
                                                 </div>
                                             </div>
                                         </td>
                                         <td class="invert">{{ $item['name'] }}</td>
-                                        <td class="invert">${{ number_format($item['price']) }}</td>
+                                        <td class="invert">${{ $item['price'] }}
+                                        </td>
                                         <td class="invert">
                                             <div class="rem">
                                                 <form action="{{ route('cart.remove', $item['id']) }}" method="POST">
@@ -102,7 +107,7 @@
                     <div class="col-md-4 checkout-left-basket">
                         <div class="d-flex align-items-center justify-content-between">
                             <h3 class="h4">Total Payment:</h3>
-                            <h3 class="h4 text-black">${{ number_format(array_sum(array_column($cart, 'price'))) }}</h3>
+                            <h3 class="h4 text-black">${{ number_format($total) }}</h3>
                         </div>
                         @if ($cart)
                             <div class="">
@@ -119,26 +124,3 @@
         </div>
     </section>
 @endsection
-<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-<script>
-    function updateQuantity(change, productId) {
-        let quantityElement = document.getElementById('quantity_' + productId);
-        let currentQuantity = parseInt(quantityElement.innerText);
-        let newQuantity = currentQuantity + change;
-
-        axios.post('./update-cart', {
-                productId: productId,
-                quantity: newQuantity
-            })
-            .then(response => {
-                if (response.data.success) {
-                    quantityElement.innerText = newQuantity;
-                } else {
-                    console.error('Failed to update cart.');
-                }
-            })
-            .catch(error => {
-                console.error(error);
-            });
-    }
-</script>

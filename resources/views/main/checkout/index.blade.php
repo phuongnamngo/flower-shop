@@ -55,7 +55,7 @@
                                                 </div>
                                             </td>
                                             <td class="invert">{{ $item['name'] }}</td>
-                                            <td class="invert">${{ number_format($item['price']) }}</td>
+                                            <td class="invert">${{ $item['price'] }}</td>
                                         </tr>
                                     @endforeach
                                 </tbody>
@@ -64,8 +64,8 @@
                                 <div class="d-flex align-items-center" style="gap: 10px">
                                     <h3 class="h5 text-uppercase">Total Payment:</h3>
                                     <h5 class="h5" style="color: #ef233c ">
-                                        ${{ number_format(array_sum(array_column($cart, 'price'))) }}
-                                        <input type="hidden" value="{{ array_sum(array_column($cart, 'price')) }}"
+                                        ${{ number_format($total)}}
+                                        <input type="hidden" value="{{ number_format($total)}}"
                                             name="total_price">
                                     </h5>
                                 </div>

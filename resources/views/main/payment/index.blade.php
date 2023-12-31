@@ -88,14 +88,64 @@
                                 <p class="text-white fw-bold mb-0">Order Details</p>
                                 {{-- <p class="text-muted mb-0"><span class="fw-bold me-4">Total:</span> ${{ number_format($orderItem->total_price, 2) }}</p> --}}
                             </div>
-                            <div class="d-flex justify-content-between">
-                                <p class="text-white small mb-0 "><span>Create date: {{ $orderItem->created_at }} </span></p>
-                                {{-- <p class= mb-0"><span class="fw-bold me-4">GST 18%</span> 123</p> --}}
+                            <div class="card-body ">
+                                <div class="row justify-content-between align-items-center">
+                                    <div class="col-md-2 text-center d-flex justify-content-center align-items-center">
+                                        <p class="fw-bold mb-0">No.</p>
+                                    </div>
+                                    <div class="col text-center d-flex justify-content-center align-items-center">
+                                        <p class="fw-bold mb-0">Qty</p>
+                                    </div>
+                                    <div class="col text-center d-flex justify-content-center align-items-center">
+                                        <p class="fw-bold mb-0">Product Name</p>
+                                    </div>
+                                    <div class="col text-center d-flex justify-content-center align-items-center">
+                                        <p class="fw-bold mb-0 ">Price</p>
+                                    </div>
+
+                                </div>
                             </div>
-                            <div class="d-flex justify-content-between mb-2">
-                                {{-- <p class= mb-0">Recepits Voucher : 18KU-62IIK</p> --}}
-                                <p class="text-white small mb-0"><span class=" me-2">Delivery Charges:</span>Free</p>
+
+                            @php
+                            $count = 0;
+                            @endphp
+                            <div class="card shadow-0 border mb-4">
+                                <div class="card-body">
+                                    <div class="row justify-content-between align-items-center">
+                                        <div class="col-md-2 text-center d-flex justify-content-center align-items-center">
+                                            <p class="text-muted mb-0">{{ $count++ }}</p>
+                                        </div>
+                                        <div class="col text-center d-flex justify-content-center align-items-center">
+                                            <p class="text-muted mb-0">{{ $orderItem->quantity }}</p>
+                                        </div>
+                                        <div class="col text-center d-flex justify-content-center align-items-center">
+                                            <p class="text-muted mb-0">{{ $orderItem->product_id }}</p>
+                                        </div>
+                                        <div class="col text-center d-flex justify-content-center align-items-center">
+                                            <p class="text-muted mb-0 ">${{ $orderItem->price }}</p>
+                                        </div>
+
+                                    </div>
+                                </div>
                             </div>
+                        </div>
+                        <div class="d-flex justify-content-between align-items-center card-footer border-0 px-4 py-4 m-0" style="background-color: #ef233c; border-bottom-left-radius: 10px; border-bottom-right-radius: 10px;">
+                            <div class="">
+                                <div class="d-flex justify-content-between pt-2">
+                                    <p class="text-white fw-bold mb-0">Order Details</p>
+                                    {{-- <p class="text-muted mb-0"><span class="fw-bold me-4">Total:</span> ${{ number_format($orderItem->total_price, 2) }}</p> --}}
+                                </div>
+                                <div class="d-flex justify-content-between">
+                                    <p class="text-white small mb-0 "><span>Create date: {{ $orderItem->created_at }} </span></p>
+                                    {{-- <p class= "mb-0"><span class="fw-bold me-4">GST 18%</span> 123</p> --}}
+                                </div>
+                                <div class="d-flex justify-content-between mb-2">
+                                    {{-- <p class=" mb-0">Recepits Voucher : 18KU-62IIK</p> --}}
+                                    <p class="text-white small mb-0"><span class=" me-2">Delivery Charges:</span>Free</p>
+                                </div>
+                            </div>
+                            <h5 class="d-flex align-items-center justify-content-end text-white text-uppercase mb-0">Total
+                                paid: <span class="h2 mb-0 ms-2">${{$orderItem->total_price }}</span></h5>
                         </div>
                         <h5 class="d-flex align-items-center justify-content-end text-white text-uppercase mb-0">Total
                             paid: <span class="h2 mb-0 ms-2">${{ number_format($orderItem->total_price) }}</span></h5>
