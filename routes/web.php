@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AboutController;
+use App\Http\Controllers\Admin\BlogController as AdminBlogController;
 use App\Http\Controllers\Admin\CategoriesController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\OrderAdminController;
@@ -36,6 +37,7 @@ Route::get('/', [HomeController::class, 'index']);
 Route::get('home', [CustomAuthController::class, 'home']);
 Route::get('/about', [AboutController::class, 'index']);
 Route::get('/products', [ProductController::class, 'index'])->name('product.index');
+Route::get('/search', [HomeController::class, 'searchProduct'])->name('search.product');
 Route::get('/product-by-category/{id}', [ProductController::class, 'productByCate'])->name('product.by.category');
 Route::get('/products/{id}', [ProductDetailController::class, 'index'])->name('product.detail');
 Route::get('/blog', [BlogController::class, 'index']);
@@ -56,9 +58,9 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/checkout', [CheckoutController::class, 'viewCheckout'])->name('checkout.view');
     Route::post('/order/{id}/edit', [OrderController::class, 'edit'])->name('orders.edit');
     Route::put('/order/{id}', [OrderController::class, 'update'])->name('orders.update');
-  
-    Route::post('/cart/update/{productId}',[CartController::class, 'updateCart'])->name('cart.update');
+    Route::get('/order-detail/{id}', [OrderController::class, 'viewOrderDetails'])->name('orders.detail.view');
 
+    Route::post('/cart/update/{productId}', [CartController::class, 'updateCart'])->name('cart.update');
 });
 
 
@@ -91,6 +93,14 @@ Route::middleware(['auth:admin', 'verified'])->group(function () {
     Route::delete('admin/delete-product/{product_id}', [ProductAdminController::class, 'destroy'])->name('admin.product.destroy');
     Route::post('admin/update-product-status', [ProductAdminController::class, 'updateStatus'])->name('admin.product.updateStatus');
 
+    //Blog
+    Route::get('admin/blog', [AdminBlogController::class, 'index'])->name('admin.blog');
+    Route::get('admin/add-blog', [AdminBlogController::class, 'create'])->name('admin.blog.create');
+    Route::post('admin/save-blog', [AdminBlogController::class, 'store'])->name('admin.blog.store');
+    Route::get('admin/edit-blog/{id}', [AdminBlogController::class, 'edit'])->name('admin.blog.edit');
+    Route::put('admin/update-blog/{id}', [AdminBlogController::class, 'update'])->name('admin.blog.update');
+    Route::delete('admin/delete-blog/{id}', [AdminBlogController::class, 'destroy'])->name('admin.blog.destroy');
+    Route::post('admin/update-blog-status', [AdminBlogController::class, 'updateStatus'])->name('admin.blog.updateStatus');
     //order
     Route::get('admin/order', [OrderAdminController::class, 'index'])->name('admin.order');
     Route::post('admin/update-order-status', [OrderAdminController::class, 'updateStatus'])->name('admin.order.updateStatus');
@@ -104,7 +114,6 @@ Route::middleware('auth')->group(function () {
     Route::post('/update-cart', [CartController::class, 'updateCart']);
     Route::post('/add-rating', [ProductDetailController::class, 'addRating'])->name('insert.rating');
     Route::get('/momo/returnUrl', [ReturnUrlController::class, 'index'])->name('momo.returnurl');
-
 });
 
 require __DIR__ . '/adminauth.php';

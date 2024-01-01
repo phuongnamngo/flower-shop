@@ -11,36 +11,35 @@
             <div class="collapse navbar-collapse" id="navbarScroll">
                 <ul class="navbar-nav me-lg-auto my-2 my-lg-0 navbar-nav-scroll">
                     <li class="nav-item">
-                        <a class="nav-link {{request()->is('/') ? 'active' : ''}} " aria-current="page" href="{{url('/')}}">Home</a>
+                        <a class="nav-link {{request()->is('/') ? 'active' : ''}} " aria-current="page" href="{{url('/')}}">Trang chủ</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link {{request()->is('about') ? 'active' : ''}}" href="{{url('/about')}}">About</a>
+                        <a class="nav-link {{request()->is('about') ? 'active' : ''}}" href="{{url('/about')}}">Về chúng tôi</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link {{request()->is('products') ? 'active' : ''}}" href="{{url('/products')}}">Products</a>
+                        <a class="nav-link {{request()->is('products') ? 'active' : ''}}" href="{{url('/products')}}">Sản phẩm</a>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle {{request()->is('blog') || request()->is('faq') ? 'active' : ''}}" href="#Pages" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            Pages <span class="fa fa-angle-down ms-1"></span>
+                            Trang <span class="fa fa-angle-down ms-1"></span>
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <li><a class="dropdown-item pt-2" href="{{url('order-history')}}">Order History</a></li>
-                            <li><a class="dropdown-item" href="{{url('/blog')}}">Blog Page</a></li>
+                            <li><a class="dropdown-item" href="{{url('/blog')}}">Trang Blog</a></li>
                             <li><a class="dropdown-item" href="{{url('/faq')}}">FaQ</a></li>
 
                         </ul>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link {{request()->is('contact') ? 'active' : ''}}" href="{{url('/contact')}}">Contact</a>
+                        <a class="nav-link {{request()->is('contact') ? 'active' : ''}}" href="tel:+84012319723">Liên hệ</a>
                     </li>
                     <li class="nav-item search-right">
                         <a href="#search" class="btn search-btn" title="search"><span class="fas fa-search me-2" aria-hidden="true"></span></a>
                         <!-- search popup -->
                         <div id="search" class="pop-overlay">
                             <div class="popup">
-                                <h3 class="title-w3l two mb-4 text-left">Search Here</h3>
-                                <form action="#" method="GET" class="search-box d-flex position-relative">
-                                    <input type="search" placeholder="Enter Keyword here" name="search" required="required" autofocus="">
+                                <h3 class="title-w3l two mb-4 text-left">Tìm kiếm ở đây</h3>
+                                <form action="{{ route('search.product') }}" method="GET" class="search-box d-flex position-relative">
+                                    <input class="text-white" type="search" placeholder="Nhập tên sản phẩm" name="keyword" required="required" autofocus="">
                                     <button type="submit" class="btn"><span class="fas fa-search" aria-hidden="true"></span></button>
                                 </form>
                             </div>
@@ -52,21 +51,33 @@
                 <!--/search-right-->
 
             </div>
-            <ul class="header-search me-lg-4 d-flex">
+            <ul class="header-search me-lg-4 d-flex align-items-center">
                 <li class="get-btn me-2">
                     @guest
-                    <a href="{{url('/login')}}" class="btn btn-style btn-primary" title="search"><i class="fas fa-user me-lg-2"></i> <span class="btn-texe-inf">Login</span></a>
+                    <a href="{{url('/login')}}" class="btn btn-style btn-primary" title="Đăng nhập"><i class="fas fa-user me-lg-2"></i> <span class="btn-texe-inf">Đăng nhập</span></a>
                     @else
-                    <form method="POST" action="{{route('logout')}}">
-                        @csrf
-                        <button type="submit" class="btn btn-style btn-success" title="search"><i class="fas fa-user me-lg-2"></i> <span class="btn-texe-inf">Logout</span></button>
-                    </form>
-                    @endguest
+                <li class="nav-item dropdown me-2">
+                    <a class="btn btn-success " id="navbarDropdownProfile" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Xin chào, {{auth()->user()->name}}
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdownProfile">
+                        <li><a class="dropdown-item pt-2" href="{{url('order-history')}}">Lịch sử đơn hàng</a></li>
+                        <li>
+                            <form method="POST" action="{{route('logout')}}">
+                                @csrf
+                                <button type="submit" class="dropdown-item pt-2" title="Đăng xuất">Đăng xuất</button>
+                            </form>
+                        </li>
+
+                    </ul>
+                </li>
+
+                @endguest
                 </li>
                 <li class="shopvcart galssescart2 cart cart box_1 get-btn">
-                    <form action="{{route('cart.view')}}">
+                    <form class="m-0" action="{{route('cart.view')}}">
                         <button class="top_shopv_cart">
-                            <span class="fas fa-shopping-bag me-lg-2"></span><span class="btn-texe-inf">Cart</span>
+                            <span class="fas fa-shopping-bag me-lg-2"></span><span class="btn-texe-inf">Giỏ hàng</span>
                         </button>
                     </form>
                 </li>

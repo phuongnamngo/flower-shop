@@ -6,12 +6,12 @@
             <div class="w3breadcrumb-gids">
                 <div class="w3breadcrumb-left text-left">
                     <h2 class="inner-w3-title">
-                        Login </h2>
+                        Đăng ký </h2>
                 </div>
                 <div class="w3breadcrumb-right">
                     <ul class="breadcrumbs-custom-path">
-                        <li><a href="index.html">Home</a></li>
-                        <li class="active"><span class="fas fa-angle-double-right mx-2"></span> Login </li>
+                        <li><a href="{{url('/')}}">Trang chủ</a></li>
+                        <li class="active"><span class="fas fa-angle-double-right mx-2"></span> Đăng ký </li>
                     </ul>
                 </div>
             </div>
@@ -31,7 +31,7 @@
             <form action="{{ route('register') }}" method="POST">
                 @csrf
                 <div class="form-sub-w3">
-                    <input type="text" name="name" placeholder="Name" required="" id="name" />
+                    <input type="text" name="name" placeholder="Tên" required="" id="name" />
                     @if ($errors->has('name'))
                     <span class="text-danger">{{ $errors->first('name') }}</span>
                     @endif
@@ -40,7 +40,7 @@
                     </div>
                 </div>
                 <div class="form-sub-w3">
-                    <input type="text" name="email" placeholder="Email " required="" id="email" />
+                    <input type="text" name="email" placeholder="Email" required="" id="email" />
                     @if ($errors->has('email'))
                     <span class="text-danger">{{ $errors->first('email') }}</span>
                     @endif
@@ -49,7 +49,7 @@
                     </div>
                 </div>
                 <div class="form-sub-w3">
-                    <input type="password" name="password" placeholder="Password" required="" id="password" />
+                    <input type="password" name="password" placeholder="Mật khẩu" required="" id="password" />
                     @if ($errors->has('password'))
                     <span class="text-danger">{{ $errors->first('password') }}</span>
                     @endif
@@ -58,7 +58,7 @@
                     </div>
                 </div>
                 <div class="form-sub-w3">
-                    <input type="password" name="password_confirmation" placeholder="Confirm Password" required="" id="password_confirmation" />
+                    <input type="password" name="password_confirmation" placeholder="Nhập lại mật khẩu" required="" id="password_confirmation" />
                     @if ($errors->has('password_confirmation'))
                     <span class="text-danger">{{ $errors->first('password_confirmation') }}</span>
                     @endif

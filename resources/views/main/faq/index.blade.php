@@ -10,7 +10,7 @@
                 </div>
                 <div class="w3breadcrumb-right">
                     <ul class="breadcrumbs-custom-path">
-                        <li><a href="index.html">Home</a></li>
+                        <li><a href="{{url('/')}}">Trang chủ</a></li>
                         <li class="active"><span class="fas fa-angle-double-right mx-2"></span> FaQ</li>
                     </ul>
                 </div>
@@ -25,7 +25,7 @@
     <div class="faq-inner py-md-5 py-3">
         <div class="container">
             <div class="title-content text-center">
-                <h6 class="title-subw3hny mb-1">Ask Questions?</h6>
+                <h6 class="title-subw3hny mb-1">CÂU HỎI?</h6>
                 <h3 class="title-w3l mb-5">FaQ's</h3>
             </div>
             <div class="container">
@@ -44,83 +44,11 @@
                     </div>
                     <details open>
                         <summary>
-                            What is the meaning of a vitae fringilla?
+                        Ý nghĩa của sơ yếu lý lịch là gì?
                             <span class="fa control-icon-expand fa-chevron-down"></span>
                             <span class="fa control-icon-close fa-times"></span>
                         </summary>
-                        <p>Curabitur dapibus non massa sed maximus. Nam venenatis justo vitae sodales mattis. Vestibulum at
-                            ullamcorper neque,
-                            vel lobortis tellus. consectetur vitae fringilla eu, ornare eu augue. Aliquam in tincidunt dui,
-                            nec
-                            mattis velit.
-                            Mauris at mauris erat. </p>
-                    </details>
-                    <details>
-                        <summary>
-                            Consectetur vitae fringilla eu, ornare eu augue?
-                            <span class="fa control-icon-expand fa-chevron-down"></span>
-                            <span class="fa control-icon-close fa-times"></span>
-                        </summary>
-                        <p>Curabitur dapibus non massa sed maximus. Nam venenatis justo vitae sodales mattis. Vestibulum at
-                            ullamcorper neque,
-                            vel lobortis tellus. consectetur vitae fringilla eu, ornare eu augue. Aliquam in tincidunt dui,
-                            nec
-                            mattis velit.
-                            Mauris at mauris erat. </p>
-                    </details>
-                    <details>
-                        <summary>
-                            What is meant by Cross fit?
-                            <span class="fa control-icon-expand fa-chevron-down"></span>
-                            <span class="fa control-icon-close fa-times"></span>
-                        </summary>
-                        <p>Curabitur dapibus non massa sed maximus. Nam venenatis justo vitae sodales mattis. Vestibulum at
-                            ullamcorper neque,
-                            vel lobortis tellus. consectetur vitae fringilla eu, ornare eu augue. Aliquam in tincidunt dui,
-                            nec
-                            mattis velit.
-                            Mauris at mauris erat. </p>
-                    </details>
-                    <details>
-                        <summary>
-                            How does fringilla help?
-                            <span class="fa control-icon-expand fa-chevron-down"></span>
-                            <span class="fa control-icon-close fa-times"></span>
-                        </summary>
-                        <p>Curabitur dapibus non massa sed maximus. Nam venenatis justo vitae sodales mattis. Vestibulum at
-                            ullamcorper neque,
-                            vel lobortis tellus. consectetur vitae fringilla eu, ornare eu augue. Aliquam in tincidunt dui,
-                            nec
-                            mattis velit.
-                            Mauris at mauris erat. </p>
-                    </details>
-                    <details>
-                        <summary>
-                            Aliquam in tincidunt dui, nec
-                            mattis velit.?
-                            <span class="fa control-icon-expand fa-chevron-down"></span>
-                            <span class="fa control-icon-close fa-times"></span>
-                        </summary>
-                        <p>Curabitur dapibus non massa sed maximus. Nam venenatis justo vitae sodales mattis. Vestibulum at
-                            ullamcorper neque,
-                            vel lobortis tellus. consectetur vitae fringilla eu, ornare eu augue. Aliquam in tincidunt dui,
-                            nec
-                            mattis velit.
-                            Mauris at mauris erat. </p>
-                    </details>
-                    <details>
-                        <summary>
-                            Aliquam in tincidunt dui, nec
-                            mattis velit.?
-                            <span class="fa control-icon-expand fa-chevron-down"></span>
-                            <span class="fa control-icon-close fa-times"></span>
-                        </summary>
-                        <p>Curabitur dapibus non massa sed maximus. Nam venenatis justo vitae sodales mattis. Vestibulum at
-                            ullamcorper neque,
-                            vel lobortis tellus. consectetur vitae fringilla eu, ornare eu augue. Aliquam in tincidunt dui,
-                            nec
-                            mattis velit.
-                            Mauris at mauris erat. </p>
+                        <p>Tôi đang nói về protein, không phải khối lượng, nhưng quan trọng. Vì các thành viên trong điền trang đều bị đầu độc. Tiền đình và ullamcorper neque, cũng không phải lobortis terus. theo đuổi đời sống sinh thái của bóng đá, tô điểm cho việc tuyên truyền bóng đá. Một số người trong số họ đang trong tình trạng khó khăn và không muốn có bất động sản. Mauris là một người theo chủ nghĩa Maurisian.</p>
                     </details>
                 </div>
             </div>

@@ -72,7 +72,7 @@
                                 </div>
                                 <div class="product-content">
                                     <h3 class="title"><a href="{{route('product.detail', $product->id)}}">{{$product->name}} </a></h3>
-                                    <span class="price">${{ $product['price'] }}</span>
+                                    <span class="price">{{ number_format($product->price) }} VNĐ</span>
                                 </div>
                             </div>
                         </div>

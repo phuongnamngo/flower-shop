@@ -74,6 +74,14 @@
                     </a>
                 </li>
                 <li class="nav-item">
+                    <a class="nav-link {{request()->is('admin/blog') ? 'active' : ''}}" href="{{url('admin/blog')}}">
+                        <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
+                            <i class="ni ni-single-copy-04 text-warning text-sm opacity-10"></i>
+                        </div>
+                        <span class="nav-link-text ms-1">Blog</span>
+                    </a>
+                </li>
+                <li class="nav-item">
                     <a class="nav-link {{request()->is('admin/order') ? 'active' : ''}}" href="{{url('admin/order')}}">
                         <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
                             <i class="ni ni-app text-info text-sm opacity-10"></i>
@@ -97,7 +105,7 @@
                         <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
                             <i class="ni ni-collection text-info text-sm opacity-10"></i>
                         </div>
-                        <span class="nav-link-text ms-1">Sign out</span>
+                        <span class="nav-link-text ms-1">Đăng xuất</span>
                     </a>
                 </li>
             </ul>
@@ -165,6 +173,25 @@
                 console.log('meoe: ', id + status);
                 $.ajax({
                     url: '{{ route("admin.order.updateStatus")}}',
+                    type: 'POST',
+                    data: {
+                        id: id,
+                        status: status
+                    },
+                    success: function(response) {
+                        alert(response.message);
+                        location.reload();
+                    }
+                });
+            });
+        });
+        $(document).ready(function() {
+            $('.blog_status').change(function() {
+                var id = $(this).attr('id');
+                var status = $(this).val();
+
+                $.ajax({
+                    url: '{{ route("admin.blog.updateStatus")}}',
                     type: 'POST',
                     data: {
                         id: id,

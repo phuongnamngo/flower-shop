@@ -7,9 +7,9 @@
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb bg-transparent mb-0 pb-0 pt-1 px-0 me-sm-6 me-5">
                     <li class="breadcrumb-item text-sm"><a class="opacity-5 text-white" href="javascript:;">Trang chủ</a></li>
-                    <li class="breadcrumb-item text-sm text-white active" aria-current="page">Danh mục</li>
+                    <li class="breadcrumb-item text-sm text-white active" aria-current="page">Blog</li>
                 </ol>
-                <h6 class="font-weight-bolder text-white mb-0">Danh mục</h6>
+                <h6 class="font-weight-bolder text-white mb-0">Blog</h6>
             </nav>
         </div>
     </nav>
@@ -20,19 +20,37 @@
                 <div class="card mb-4">
                     <div class="d-flex align-items-center justify-content-between px-4 pt-4 pb-2">
                         <div class="card-header p-0">
-                            <h6>Danh mục</h6>
+                            <h6>Blog</h6>
                         </div>
                     </div>
                     <div class="card-body px-4 pt-0 pb-4">
-                        <form method="POST" action="{{route('admin.category.store')}}">
+                        <form method="POST" action="{{route('admin.blog.store')}}" enctype="multipart/form-data">
                             @csrf
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label for="example-text-input" class="form-control-label">Tên danh mục</label>
-                                        <input class="form-control" type="text" placeholder="Nhập danh mục" name="name">
-                                        @if ($errors->has('name'))
-                                        <span class="text-danger">{{ $errors->first('name') }}</span>
+                                        <label for="example-text-input" class="form-control-label">Tiêu đề</label>
+                                        <input class="form-control" type="text" placeholder="Nhập tiêu đề" name="title">
+                                        @if ($errors->has('title'))
+                                        <span class="text-danger">{{ $errors->first('title') }}</span>
+                                        @endif
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="example-text-input" class="form-control-label">Nội dung</label>
+                                        <textarea class="form-control" type="text" placeholder="Nhập nội dung" name="content"></textarea>
+                                        @if ($errors->has('title'))
+                                        <span class="text-danger">{{ $errors->first('content') }}</span>
+                                        @endif
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="example-text-input" class="form-control-label">Hình ảnh</label>
+                                        <input class="form-control" type="file" name="img">
+                                        @if ($errors->has('img'))
+                                        <span class="text-danger">{{ $errors->first('img') }}</span>
                                         @endif
                                     </div>
                                 </div>

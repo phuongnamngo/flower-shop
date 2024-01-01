@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Order;
 use App\Models\OrderItem;
+use App\Models\ReturnUrlModel;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -25,7 +26,10 @@ class OrderController extends Controller
     {
         $user = Auth::user();
 
-        $orderHistory = $user->orders;
+        $orderHistory = Order::leftJoin('users', 'users.id', '=', 'orders.user_id')
+            ->leftJoin('return_url_momo', 'return_url_momo.orderId', '=', 'orders.id_order_momo')
+            ->select('users.id as userID', 'return_url_momo.*', 'orders.*')
+            ->where('users.id', $user->id)->get();
         // dd( $orderHistory->toArray());   
         return view('main.orderHistory.index', compact('orderHistory'));
     }
@@ -37,7 +41,7 @@ class OrderController extends Controller
             ->leftJoin('product', 'product.id', '=', 'orderItem.product_id')
             ->select('orders.total_price', 'orders.billing_address', 'orders.id as idOrder', 'orders.user_id', 'orders.shipping_address', 'orders.status', 'product.name as product_name', 'orderItem.*')
             ->where('orderItem.order_id', $id)
-            ->first();
+            ->get();
         return view('main.orders.edit', compact('orderItem'));
     }
     public function update(Request $request, $id)
@@ -45,41 +49,44 @@ class OrderController extends Controller
         $order = Order::findOrFail($id);
 
         $jsonResult = '';
+        $endpoint = "https://test-payment.momo.vn/gw_payment/transactionProcessor";
+        $notifyurl = "http://localhost:8000/atm/ipn_momo.php";
         $order_Id = $this->uid();
+        // Lưu ý: link notifyUrl không phải là dạng localhost
+        $bankCode = "SML";
         if ($request->payment_method == 'Momo') {
-            $endpoint = "https://test-payment.momo.vn/v2/gateway/api/create";
+
             $partnerCode = 'MOMOBKUN20180529';
             $accessKey = 'klm05TvNBzhg7h7j';
             $serectkey = 'at67qH6mk8w5Y1nAyMoYKMWACiEi2bsa';
-            $orderId = $order_Id; // Mã đơn hàng
+            $orderid = $order_Id;
             $orderInfo = 'Thanh toán qua MoMo';
-            $amount = $order->total_price;
-            $ipnUrl = "https://webhook.site/b3088a6a-2d17-4f8d-a383-71389a6c600b";
-            $redirectUrl = url('/momo/returnUrl');
-            $extraData = "";
+            $amount = "" . str_replace(',', '', $order->total_price) . "";
+            $bankCode = 'SML';
+            $returnUrl = url('/momo/returnUrl');
             $requestId = time() . "";
-            $requestType = "payWithATM";
+            $requestType = "payWithMoMoATM";
+            $extraData = "";
             //before sign HMAC SHA256 signature
-            $rawHash = "accessKey=" . $accessKey . "&amount=" . $amount . "&extraData=" . $extraData . "&ipnUrl=" . $ipnUrl . "&orderId=" . $orderId . "&orderInfo=" . $orderInfo . "&partnerCode=" . $partnerCode . "&redirectUrl=" . $redirectUrl . "&requestId=" . $requestId . "&requestType=" . $requestType;
+            $rawHash = "partnerCode=" . $partnerCode . "&accessKey=" . $accessKey . "&requestId=" . $requestId . "&bankCode=" . $bankCode . "&amount=" . $amount . "&orderId=" . $orderid . "&orderInfo=" . $orderInfo . "&returnUrl=" . $returnUrl . "&notifyUrl=" . $notifyurl . "&extraData=" . $extraData . "&requestType=" . $requestType;
             $signature = hash_hmac("sha256", $rawHash, $serectkey);
-            $data = array(
+            $data =  array(
                 'partnerCode' => $partnerCode,
-                'partnerName' => "Test",
-                "storeId" => "MomoTestStore",
+                'accessKey' => $accessKey,
                 'requestId' => $requestId,
                 'amount' => $amount,
-                'orderId' => $orderId,
+                'orderId' => $orderid,
                 'orderInfo' => $orderInfo,
-                'redirectUrl' => $redirectUrl,
-                'ipnUrl' => $ipnUrl,
-                'lang' => 'vi',
+                'returnUrl' => $returnUrl,
+                'bankCode' => $bankCode,
+                'notifyUrl' => $notifyurl,
                 'extraData' => $extraData,
                 'requestType' => $requestType,
                 'signature' => $signature
             );
             $result = $this->execPostRequest($endpoint, json_encode($data));
-            $jsonResult = json_decode($result, true);  // decode json
-        };
+            $jsonResult = json_decode($result, true);
+        }
 
         if ($order->status == 1) {
             return redirect()->route('orders.edit', $id)
@@ -125,5 +132,19 @@ class OrderController extends Controller
         //close connection
         curl_close($ch);
         return $result;
+    }
+    public function viewOrderDetails($id)
+    {
+        $user = '';
+        $orderItem = OrderItem::leftJoin('orders', 'orders.id', '=', 'orderItem.order_id')
+            ->leftJoin('product', 'product.id', '=', 'orderItem.product_id')
+            ->select('orders.total_price', 'orders.payment_method', 'orders.id_order_momo', 'orders.billing_address', 'orders.id as idOrder', 'orders.user_id', 'orders.shipping_address', 'orders.status', 'product.name as product_name', 'orderItem.*')
+            ->where('orderItem.order_id', $id)
+            ->get();
+        foreach ($orderItem as $item) {
+            $user = User::where('id', $item->user_id)->first();
+            $momoItem = ReturnUrlModel::where('orderId', $item->id_order_momo)->first();
+        }
+        return view('main.orders.view-order-detail', compact('orderItem', 'user', 'momoItem'));
     }
 }

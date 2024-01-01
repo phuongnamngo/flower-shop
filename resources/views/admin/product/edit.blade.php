@@ -20,7 +20,7 @@
                 <div class="card mb-4">
                     <div class="d-flex align-items-center justify-content-between px-4 pt-4 pb-2">
                         <div class="card-header p-0">
-                            <h6>Authors table</h6>
+                            <h6>Sản phẩm</h6>
                         </div>
                     </div>
                     <div class="card-body px-4 pt-0 pb-4">
@@ -49,7 +49,7 @@
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label for="example-text-input" class="form-control-label">Hình ảnh</label>
-                                        <input class="form-control" type="file" name="img">
+                                        <input class="form-control" type="file" value="{{$product->img}}" name="img">
                                         <img height="100px" width="110px" src="{{asset('public/'.$product->img)}}">
                                         @if ($errors->has('img'))
                                         <span class="text-danger">{{ $errors->first('img') }}</span>
@@ -107,7 +107,7 @@
                                     </div>
                                 </div>
                                 <div class="text-center">
-                                    <button type="submit" class="btn btn-lg btn-primary btn-lg mt-4 mb-0">Thêm</button>
+                                    <button type="submit" class="btn btn-lg btn-primary btn-lg mt-4 mb-0">Sửa</button>
                                 </div>
                             </div>
                         </form>

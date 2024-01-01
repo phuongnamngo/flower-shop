@@ -20,7 +20,7 @@
                 <div class="card mb-4">
                     <div class="d-flex align-items-center justify-content-between px-4 pt-4 pb-2">
                         <div class="card-header p-0">
-                            <h6>Authors table</h6>
+                            <h6>Danh mục</h6>
                         </div>
                         <a href="{{route('admin.category.create')}}" class="btn btn-primary m-0">Thêm</a>
                     </div>
@@ -30,11 +30,11 @@
                                 <thead>
                                     <tr>
                                         <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">No</th>
-                                        <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Name</th>
-                                        <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Status
+                                        <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Tiêu đề</th>
+                                        <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Trạng thái
                                         </th>
                                         <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                                            Action</th>
+                                        Hành động</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -57,11 +57,11 @@
                                         </td>
                                         <td class="align-middle text-center">
                                             <form action="{{ route('admin.category.destroy',$category->id) }}" method="POST">
-                                                <a class="btn btn-success mb-0" href="{{ route('admin.category.edit',$category->id) }}">Edit</a>
+                                                <a class="btn btn-success mb-0" href="{{ route('admin.category.edit',$category->id) }}">Điều chỉnh</a>
 
                                                 @csrf
                                                 @method('DELETE')
-                                                <button type="submit" class="btn btn-secondary mb-0">Delete</button>
+                                                <button type="submit" class="btn btn-secondary mb-0">Xóa</button>
                                             </form>
                                         </td>
                                     </tr>

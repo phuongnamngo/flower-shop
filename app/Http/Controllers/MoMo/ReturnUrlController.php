@@ -32,6 +32,9 @@ class ReturnUrlController extends Controller
             //Checksum
             $data['rawHash'] = 'partnerCode=' . $data['partnerCode'] . '&accessKey=' . $data['accessKey'] . '&requestId=' . $data['requestId'] . '&amount=' . $data['amount'] . '&orderId=' . $data['orderId'] . '&orderInfo=' . $data['orderInfo'] . '&orderType=' . $data['orderType'] . '&transId=' . $data['transId'] . '&message=' . $data['message'] . '&localMessage=' . $data['localMessage'] . '&responseTime=' . $data['responseTime'] . '&errorCode=' . $data['errorCode'] . '&payType=' . $data['payType'] . '&extraData=' . $data['extraData'];
             $data['partnerSignature'] = hash_hmac('sha256', $data['rawHash'], $data['secretKey']);
+            if ($data['errorCode'] == 0) {
+                session()->forget('cart');
+            }
             $returnUrl = new ReturnUrlModel();
             $returnUrl->partnerCode = $data['partnerCode'];
             $returnUrl->orderId = $data['orderId'];
@@ -44,8 +47,12 @@ class ReturnUrlController extends Controller
             $returnUrl->extraData = $data['extraData'];
             $returnUrl->payType = $data['payType'];
             $returnUrl->orderType = $data['orderType'];
+            $returnUrl->accessKey = $data['accessKey'];
+            $returnUrl->localMessage = $data['localMessage'];
+            $returnUrl->errorCode = $data['errorCode'];
             $returnUrl->save();
         }
+
         $returnUrl = ReturnUrlModel::where('orderId', $data['orderId'])->first();
         return view('main.momo.returnurl')->with('returnUrl', $returnUrl);
     }

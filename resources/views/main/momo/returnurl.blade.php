@@ -10,7 +10,11 @@
         <!--/row-1-->
         <div class="w3abin-top text-center">
             <div class="title-content">
-                <h3 class="title-w3l">{{$returnUrl->message}}</h3>
+                @if($returnUrl->errorCode == 0)
+                <h3 class="title-w3l">Bạn đã thanh toán Momo thành công</h3>
+                @else
+                <h3 class="title-w3l">Bạn đã thanh toán Momo thất bại</h3>
+                @endif
             </div>
             <a href="{{url('/')}}" class="btn btn-style btn-primary mt-sm-5 mt-4">Trang chủ<i class="fas fa-arrow-right ms-lg-3 ms-2"></i></a>
         </div>

@@ -8,10 +8,10 @@
             <div class="slider-info banner-view banner-top1">
                 <div class="container">
                     <div class="banner-info header-hero-19">
-                        <h5>Up To 60% Off Now</h5>
-                        <h3 class="title-hero-19">Mid Season Sale 40%</h3>
-                        <p>Final Clearance: Take 20% off ‘Sale Must-Haves'</p>
-                        <a href="{{url('/products')}}" class="btn btn-style btn-primary mt-sm-5 mt-4">Start Shopping <i class="fas fa-arrow-right ms-lg-3 ms-2"></i></a>
+                        <h5>Giảm tới 60% ngay bây giờ</h5>
+                        <h3 class="title-hero-19">Giảm Giá Giữa Mùa 40%</h3>
+                        <p>Thông quan cuối cùng: Giảm giá 20% cho 'Những sản phẩm phải có'</p>
+                        <a href="{{url('/products')}}" class="btn btn-style btn-primary mt-sm-5 mt-4">Bắt đầu mua sắm <i class="fas fa-arrow-right ms-lg-3 ms-2"></i></a>
                     </div>
                 </div>
             </div>
@@ -20,10 +20,10 @@
             <div class="slider-info banner-view banner-top2">
                 <div class="container">
                     <div class="banner-info header-hero-19">
-                        <h5>Fall Summer Clearance</h5>
-                        <h3 class="title-hero-19">Enjoy The Season Sale</h3>
-                        <p>Final Clearance: Take 20% off ‘Sale Must-Haves'</p>
-                        <a href="{{url('/products')}}" class="btn btn-style btn-primary mt-sm-5 mt-4">Start Shopping <i class="fas fa-arrow-right ms-lg-3 ms-2"></i></a>
+                        <h5>Giải phóng mặt bằng mùa thu hè</h5>
+                        <h3 class="title-hero-19">Tận hưởng đợt giảm giá theo mùa</h3>
+                        <p>Thông quan cuối cùng: Giảm giá 20% cho 'Những sản phẩm phải có'</p>
+                        <a href="{{url('/products')}}" class="btn btn-style btn-primary mt-sm-5 mt-4">Bắt đầu mua sắm <i class="fas fa-arrow-right ms-lg-3 ms-2"></i></a>
                     </div>
                 </div>
             </div>
@@ -32,10 +32,10 @@
             <div class="slider-info banner-view banner-top3">
                 <div class="container">
                     <div class="banner-info header-hero-19">
-                        <h5>Up To 60% Off Now</h5>
-                        <h3 class="title-hero-19">Mid Season Sale 40%</h3>
-                        <p>Final Clearance: Take 20% off ‘Sale Must-Haves'</p>
-                        <a href="{{url('/products')}}" class="btn btn-style btn-primary mt-sm-5 mt-4">Start Shopping <i class="fas fa-arrow-right ms-lg-3 ms-2"></i></a>
+                        <h5>Giảm tới 60% ngay bây giờ</h5>
+                        <h3 class="title-hero-19">Giảm Giá Giữa Mùa 40%</h3>
+                        <p>Thông quan cuối cùng: Giảm giá 20% cho 'Những sản phẩm phải có'</p>
+                        <a href="{{url('/products')}}" class="btn btn-style btn-primary mt-sm-5 mt-4">Bắt đầu mua sắm <i class="fas fa-arrow-right ms-lg-3 ms-2"></i></a>
                     </div>
                 </div>
             </div>
@@ -44,10 +44,10 @@
             <div class="slider-info banner-view banner-top4">
                 <div class="container">
                     <div class="banner-info header-hero-19">
-                        <h5>Fall Summer Clearance</h5>
-                        <h3 class="title-hero-19">Enjoy The Season Sale</h3>
-                        <p>Final Clearance: Take 20% off ‘Sale Must-Haves'</p>
-                        <a href="{{url('/products')}}" class="btn btn-style btn-primary mt-sm-5 mt-4">Start Shopping <i class="fas fa-arrow-right ms-lg-3 ms-2"></i></a>
+                        <h5>Giải phóng mặt bằng mùa thu hè</h5>
+                        <h3 class="title-hero-19">Tận hưởng đợt giảm giá theo mùa</h3>
+                        <p>Thông quan cuối cùng: Giảm giá 20% cho 'Những sản phẩm phải có'</p>
+                        <a href="{{url('/products')}}" class="btn btn-style btn-primary mt-sm-5 mt-4">Bắt đầu mua sắm <i class="fas fa-arrow-right ms-lg-3 ms-2"></i></a>
                     </div>
                 </div>
             </div>
@@ -57,7 +57,7 @@
 <!-- //main-slider -->
 <!-- /Free-Ship-->
 <section class="w3free-ship text-center py-md-5 py-4">
-    <h2>Free Shipping For You Till Midnight <i class="fas fa-shipping-fast ms-lg-3"></i></h2>
+    <h2>Miễn phí vận chuyển cho bạn đến nửa đêm <i class="fas fa-shipping-fast ms-lg-3"></i></h2>
 </section>
 <!--//Free-Ship-->
 <!--/bottom-3-grids-->
@@ -68,9 +68,9 @@
                 <div class="grids3-info position-relative">
                     <a href="#" class="d-block zoom"><img src="{{asset('public/images/banner5.jpg')}}" alt="" class="img-fluid news-image"></a>
                     <div class="w3-grids3-info">
-                        <h4 class="gdnhy-1"><a href="#">Platform Velvet <br>Sandals</a>
+                        <h4 class="gdnhy-1"><a href="#">Mua sắm <br>Sandals</a>
                             <a class="w3item-link btn btn-style mt-4" href="{{url('/products')}}">
-                                Shop Now <i class="fas fa-arrow-right ms-2"></i>
+                                Mua sắm ngay <i class="fas fa-arrow-right ms-2"></i>
                             </a>
                         </h4>
                     </div>
@@ -80,9 +80,9 @@
                 <div class="grids3-info second position-relative">
                     <a href="#" class="d-block zoom"><img src="{{asset('public/images/banner4.jpg')}}" alt="" class="img-fluid news-image"></a>
                     <div class="w3-grids3-info second">
-                        <h4 class="gdnhy-1"><a href="#">Pebbled Weekend <br>Bag</a>
+                        <h4 class="gdnhy-1"><a href="#">Mua sắm <br>Túi</a>
                             <a class="w3item-link btn btn-style mt-4" href="{{url('/products')}}">
-                                Shop Now <i class="fas fa-arrow-right ms-2"></i>
+                                Mua sắm ngay <i class="fas fa-arrow-right ms-2"></i>
                             </a>
                         </h4>
 
@@ -96,7 +96,7 @@
 <!--//bottom-3-grids-->
 <section class="w3l-witemshny-main py-5">
     <div class="container py-md-4">
-        <h3 class="title-w3l">Deals Of The Day</h3>
+        <h3 class="title-w3l">Ưu đãi trong ngày</h3>
         <!--/row-1-->
         <div class="witemshny-grids row mt-lg-3">
             <div class="col-xl-2 col-md-4 col-6 product-incfhny mt-4">
@@ -105,7 +105,7 @@
                     <div class="witemshny-inf">
                     </div>
                 </div>
-                <h4 class="gdnhy-1 mt-4"><a href="#">Min. 40% Off on Formal Wear</a>
+                <h4 class="gdnhy-1 mt-4"><a href="#">Tối thiểu. Giảm giá 40% cho trang phục trang trọng</a>
                 </h4>
             </div>
             <div class="col-xl-2 col-md-4 col-6 product-incfhny mt-4">
@@ -114,7 +114,7 @@
                     <div class="witemshny-inf">
                     </div>
                 </div>
-                <h4 class="gdnhy-1 mt-4"><a href="#">Min. 60% Off on Active Wear</a>
+                <h4 class="gdnhy-1 mt-4"><a href="#">Tối thiểu. Giảm giá 60% khi mặc đồ năng động</a>
                 </h4>
             </div>
             <div class="col-xl-2 col-md-4 col-6 product-incfhny mt-4">
@@ -123,7 +123,7 @@
                     <div class="witemshny-inf">
                     </div>
                 </div>
-                <h4 class="gdnhy-1 mt-4"><a href="#">Min. 40% Off on Shoes</a>
+                <h4 class="gdnhy-1 mt-4"><a href="#">Tối thiểu. Giảm giá 40% cho giày</a>
                 </h4>
             </div>
             <div class="col-xl-2 col-md-4 col-6 product-incfhny mt-4">
@@ -132,7 +132,7 @@
                     <div class="witemshny-inf">
                     </div>
                 </div>
-                <h4 class="gdnhy-1 mt-4"><a href="#">Min. 50% Off on Shirts</a>
+                <h4 class="gdnhy-1 mt-4"><a href="#">Tối thiểu. Giảm giá 50% cho áo sơ mi</a>
                 </h4>
             </div>
             <div class="col-xl-2 col-md-4 col-6 product-incfhny mt-4">
@@ -141,7 +141,7 @@
                     <div class="witemshny-inf">
                     </div>
                 </div>
-                <h4 class="gdnhy-1 mt-4"><a href="#">Min. 50% Off on Clothing</a>
+                <h4 class="gdnhy-1 mt-4"><a href="#">Tối thiểu. Giảm giá 50% cho quần áo</a>
                 </h4>
             </div>
             <div class="col-xl-2 col-md-4 col-6 product-incfhny mt-4">
@@ -150,12 +150,12 @@
                     <div class="witemshny-inf">
                     </div>
                 </div>
-                <h4 class="gdnhy-1 mt-4"><a href="#">Min. 60% Off on Sandles</a>
+                <h4 class="gdnhy-1 mt-4"><a href="#">Tối thiểu. Giảm giá 60% cho Sandles</a>
                 </h4>
             </div>
         </div>
         <!--//row-1-->
-        <h3 class="title-w3l mt-5 pt-lg-4">Best Discounts for You</h3>
+        <h3 class="title-w3l mt-5 pt-lg-4">Giảm giá tốt nhất cho bạn</h3>
         <!--/row2-->
         <div class="witemshny-grids row mt-lg-3">
             <div class="col-xl-2 col-md-4 col-6 product-incfhny mt-4">
@@ -164,7 +164,7 @@
                     <div class="witemshny-inf">
                     </div>
                 </div>
-                <h4 class="gdnhy-1 mt-4"><a href="#">Min. 40% Off on Swings</a>
+                <h4 class="gdnhy-1 mt-4"><a href="#">Tối thiểu. Giảm giá 40% cho xích đu</a>
                 </h4>
             </div>
             <div class="col-xl-2 col-md-4 col-6 product-incfhny mt-4">
@@ -173,7 +173,7 @@
                     <div class="witemshny-inf">
                     </div>
                 </div>
-                <h4 class="gdnhy-1 mt-4"><a href="#">Min. 30% Off on Office Chairs</a>
+                <h4 class="gdnhy-1 mt-4"><a href="#">Tối thiểu. Giảm giá 30% cho Ghế văn phòng</a>
                 </h4>
             </div>
             <div class="col-xl-2 col-md-4 col-6 product-incfhny mt-4">
@@ -182,7 +182,7 @@
                     <div class="witemshny-inf">
                     </div>
                 </div>
-                <h4 class="gdnhy-1 mt-4"><a href="#">Min. 40% Off on Glass Mirror</a>
+                <h4 class="gdnhy-1 mt-4"><a href="#">Tối thiểu. Giảm giá 40% cho Gương kính</a>
                 </h4>
             </div>
             <div class="col-xl-2 col-md-4 col-6 product-incfhny mt-4">
@@ -191,7 +191,7 @@
                     <div class="witemshny-inf">
                     </div>
                 </div>
-                <h4 class="gdnhy-1 mt-4"><a href="#">Min. 50% Off on Makeup Kit</a>
+                <h4 class="gdnhy-1 mt-4"><a href="#">Tối thiểu. Giảm giá 50% cho Bộ trang điểm</a>
                 </h4>
             </div>
             <div class="col-xl-2 col-md-4 col-6 product-incfhny mt-4">
@@ -200,7 +200,7 @@
                     <div class="witemshny-inf">
                     </div>
                 </div>
-                <h4 class="gdnhy-1 mt-4"><a href="#">Min. 60% Off on Handbgs</a>
+                <h4 class="gdnhy-1 mt-4"><a href="#">Tối thiểu. Giảm giá 60% cho Handbgs</a>
                 </h4>
             </div>
             <div class="col-xl-2 col-md-4 col-6 product-incfhny mt-4">
@@ -209,12 +209,12 @@
                     <div class="witemshny-inf">
                     </div>
                 </div>
-                <h4 class="gdnhy-1 mt-4"><a href="#">Min. 40% Off on Perfumes</a>
+                <h4 class="gdnhy-1 mt-4"><a href="#">Tối thiểu. Giảm giá 40% cho nước hoa</a>
                 </h4>
             </div>
         </div>
         <!--//row-2-->
-        <h3 class="title-w3l mt-5 pt-lg-4">Best Offers for You</h3>
+        <h3 class="title-w3l mt-5 pt-lg-4">Ưu đãi tốt nhất cho bạn</h3>
         <!--/row2-->
         <div class="witemshny-grids row mt-lg-3">
             <div class="col-xl-2 col-md-4 col-6 product-incfhny mt-4">
@@ -223,7 +223,7 @@
                     <div class="witemshny-inf">
                     </div>
                 </div>
-                <h4 class="gdnhy-1 mt-4"><a href="#">40% Off on Kids Wear</a>
+                <h4 class="gdnhy-1 mt-4"><a href="#">Giảm giá 40% cho trang phục trẻ em</a>
                 </h4>
             </div>
             <div class="col-xl-2 col-md-4 col-6 product-incfhny mt-4">
@@ -232,7 +232,7 @@
                     <div class="witemshny-inf">
                     </div>
                 </div>
-                <h4 class="gdnhy-1 mt-4"><a href="#">Min. 30% Off on Face Packs</a>
+                <h4 class="gdnhy-1 mt-4"><a href="#">Tối thiểu. Giảm giá 30% cho gói mặt</a>
                 </h4>
             </div>
             <div class="col-xl-2 col-md-4 col-6 product-incfhny mt-4">
@@ -241,7 +241,7 @@
                     <div class="witemshny-inf">
                     </div>
                 </div>
-                <h4 class="gdnhy-1 mt-4"><a href="#">Min. 30% Off on Women Heels</a>
+                <h4 class="gdnhy-1 mt-4"><a href="#">Tối thiểu. Giảm giá 30% cho giày cao gót nữ</a>
                 </h4>
             </div>
             <div class="col-xl-2 col-md-4 col-6 product-incfhny mt-4">
@@ -250,7 +250,7 @@
                     <div class="witemshny-inf">
                     </div>
                 </div>
-                <h4 class="gdnhy-1 mt-4"><a href="#">Min. 40% Off on Baby Toys</a>
+                <h4 class="gdnhy-1 mt-4"><a href="#">Tối thiểu. Giảm giá 40% cho Đồ chơi trẻ em</a>
                 </h4>
             </div>
             <div class="col-xl-2 col-md-4 col-6 product-incfhny mt-4">
@@ -259,7 +259,7 @@
                     <div class="witemshny-inf">
                     </div>
                 </div>
-                <h4 class="gdnhy-1 mt-4"><a href="#">Min. 60% Off on Herbal Products</a>
+                <h4 class="gdnhy-1 mt-4"><a href="#">Tối thiểu. Giảm giá 60% cho các sản phẩm thảo dược</a>
                 </h4>
             </div>
             <div class="col-xl-2 col-md-4 col-6 product-incfhny mt-4">
@@ -268,7 +268,7 @@
                     <div class="witemshny-inf">
                     </div>
                 </div>
-                <h4 class="gdnhy-1 mt-4"><a href="#">30% Off on Office Chairs</a>
+                <h4 class="gdnhy-1 mt-4"><a href="#">Giảm giá 30% cho Ghế văn phòng</a>
                 </h4>
             </div>
         </div>
@@ -288,8 +288,7 @@
         <div class="container">
             <div class="video-info">
                 <div class="title-content text-center">
-                    <h3 class="title-w3l two mb-5">Pre-Fall Collection,That mid-summer<br> craving for fall
-                        styles?</h3>
+                    <h3 class="title-w3l two mb-5">Bộ sưu tập trước mùa thu, giữa mùa hè năm ấy<br> Thèm phong cách mùa thu?</h3>
                 </div>
             </div>
             <div class="history-info py-lg-5 align-self pt-0">
@@ -314,8 +313,8 @@
     <!-- /products-->
     <div class="ecom-contenthny py-5">
         <div class="container py-lg-5">
-            <h3 class="title-w3l">Shop With Us</h3>
-            <p class="">Handpicked Favourites just for you</p>
+            <h3 class="title-w3l">Mua sắm với chúng tôi</h3>
+            <p class="">Mục yêu thích được lựa chọn cẩn thận chỉ dành cho bạn</p>
             <!-- /row-->
             <div class="ecom-products-grids row mt-lg-4 mt-3">
                 @foreach($products as $item)
@@ -330,20 +329,21 @@
                                 <li><a href="{{route('product.detail', $item->id)}}" data-tip="Quick View"><span class="fa fa-eye"></span></a></li>
                             </ul>
                             <div class="shopv single-item">
-                                <form action="#" method="post">
-                                    <input type="hidden" name="cmd" value="_cart">
-                                    <input type="hidden" name="add" value="1">
-                                    <input type="hidden" name="shopv_item" value="Checkered Casual Shirt">
-                                    <input type="hidden" name="amount" value="899.99">
+                                <form action="{{ route('cart.add') }}" method="POST">
+                                    @csrf
+                                    <input type="hidden" name="product_id" value="{{$item->id}}">
+                                    <input type="hidden" name="product_name" value="{{$item->name}}">
+                                    <input type="hidden" name="product_img" value="{{$item->img}}">
+                                    <input type="hidden" name="product_price" value="{{$item->price}}">
                                     <button type="submit" class="shopv-cart pshopv-cart add-to-cart">
-                                        Add to Cart
+                                        Thêm vào giỏ hàng
                                     </button>
                                 </form>
                             </div>
                         </div>
                         <div class="product-content">
                             <h3 class="title"><a href="{{route('product.detail', $item->id)}}">{{$item->name}}</a></h3>
-                            <span class="price">{{$item->price}}{{' '}}VNĐ</span>
+                            <span class="price">{{number_format($item->price )}}{{' '}}VNĐ</span>
                         </div>
                     </div>
                 </div>
@@ -364,10 +364,9 @@
         <div class="row">
             <div class="col-lg-4 testimonials-con-left-info py-sm-5 pt-0 py-3">
                 <div class="title-content text-left p-xl-3">
-                    <h6 class="title-subw3hny">Reviews</h6>
-                    <h3 class="title-w3l two">What Clients Say ?</h3>
-                    <p class="test-p mt-3">Lorem ipsum viverra feugiat. Pellen tesque libero ut justo,
-                        ultrices in ligula. Semper at tempufddfel.
+                    <h6 class="title-subw3hny">ĐÁNH GIÁ</h6>
+                    <h3 class="title-w3l two">Khách hàng nói gì?</h3>
+                    <p class="test-p mt-3">Chào mừng đến với phim hoạt hình feugiat. Họ giúp bạn tự do như bóng rổ trong giải đấu. Luôn luôn ở tempufddfel.
                     </p>
                 </div>
             </div>
@@ -376,96 +375,13 @@
                     <div class="item">
                         <div class="testimonial-content">
                             <div class="testimonial">
-
-                                <p><i class="fas fa-quote-left me-2"></i> Lorem ipsum dolor sit amet elit. hic
-                                    odio tenetur. ante ipsum primis in
-                                    faucibus orci luctus et ultrices posuere.</p>
+                                <p><i class="fas fa-quote-left me-2"></i> Sản phẩm mang thương hiệu tốt và được đánh giá rất tốt trên tất cả mặt hàng</p>
                             </div>
                             <div class="bottom-info mt-4">
                                 <a class="comment-img" href="#url"><img src="{{asset('public/images/team1.jpg')}}" class="img-fluid radius-image" alt="placeholder image"></a>
                                 <div class="people-info align-self">
-                                    <h3>Johnson william</h3>
-                                    <p class="identity">Example City</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="item">
-                        <div class="testimonial-content">
-                            <div class="testimonial">
-                                <p><i class="fas fa-quote-left me-2"></i> Lorem ipsum dolor sit amet elit. hic
-                                    odio tenetur. ante ipsum primis in
-                                    faucibus orci luctus et ultrices posuere.</p>
-                            </div>
-                            <div class="bottom-info mt-4">
-                                <a class="comment-img" href="#url"><img src="{{asset('public/images/team2.jpg')}}" class="img-fluid radius-image" alt="placeholder image"></a>
-                                <div class="people-info align-self">
-                                    <h3>Alexander sakura</h3>
-                                    <p class="identity">Example City</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="item">
-                        <div class="testimonial-content">
-                            <div class="testimonial">
-                                <p><i class="fas fa-quote-left me-2"></i> Lorem ipsum dolor sit amet elit. hic
-                                    odio tenetur. ante ipsum primis in
-                                    faucibus orci luctus et ultrices posuere.</p>
-                            </div>
-                            <div class="bottom-info mt-4">
-                                <a class="comment-img" href="#url"><img src="{{asset('public/images/team3.jpg')}}" class="img-fluid radius-image" alt="placeholder image"></a>
-                                <div class="people-info align-self">
-                                    <h3>John wilson</h3>
-                                    <p class="identity">Example City</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="item">
-                        <div class="testimonial-content">
-                            <div class="testimonial">
-                                <p><i class="fas fa-quote-left me-2"></i> Lorem ipsum dolor sit amet elit. hic
-                                    odio tenetur. ante ipsum primis in
-                                    faucibus orci luctus et ultrices posuere.</p>
-                            </div>
-                            <div class="bottom-info mt-4">
-                                <a class="comment-img" href="#url"><img src="{{asset('public/images/team4.jpg')}}" class="img-fluid radius-image" alt="placeholder image"></a>
-                                <div class="people-info align-self">
-                                    <h3>Julia sakura</h3>
-                                    <p class="identity">Example City</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="item">
-                        <div class="testimonial-content">
-                            <div class="testimonial">
-                                <p><i class="fas fa-quote-left me-2"></i> Lorem ipsum dolor sit amet elit. hic
-                                    odio tenetur. ante ipsum primis in
-                                    faucibus orci luctus et ultrices posuere.</p>
-                            </div>
-                            <div class="bottom-info mt-4">
-                                <a class="comment-img" href="#url"><img src="{{asset('public/images/team2.jpg')}}" class="img-fluid radius-image" alt="placeholder image"></a>
-                                <div class="people-info align-self">
-                                    <h3>John wilson</h3>
-                                    <p class="identity">Example City</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="item">
-                        <div class="testimonial-content">
-                            <div class="testimonial">
-                                <p><i class="fas fa-quote-left me-2"></i> Lorem ipsum dolor sit amet elit. hic
-                                    odio tenetur. ante ipsum primis in
-                                    faucibus orci luctus et ultrices posuere.</p>
-                            </div>
-                            <div class="bottom-info mt-4">
-                                <a class="comment-img" href="#url"><img src="{{asset('public/images/team3.jpg')}}" class="img-fluid radius-image" alt="placeholder image"></a>
-                                <div class="people-info align-self">
-                                    <h3>Julia sakura</h3>
-                                    <p class="identity">Example City</p>
+                                    <h3>Hạnh William</h3>
+                                    <p class="identity">TP Hồ Chí Minh</p>
                                 </div>
                             </div>
                         </div>
@@ -475,25 +391,13 @@
         </div>
     </div>
 </section>
-<!-- //testimonials-section-->
-<!--/w3l-subscription-infhny-->
-<section class="w3l-subscription-infhny py-5">
-    <div class="container py-md-5">
-        <div class="subscription-info text-center mx-auto">
-            <i class="far fa-envelope"></i>
-            <h3 class="title-w3l mb-2">Get On The List</h3>
-            <p>Shop Exclusive Promos & SAVE 20% on Your First Order</p>
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 
-            <form action="#" method="post" class="w3l-signin-form mt-4 mb-3">
-                <div class="forms-gds">
-                    <div class="form-input">
-                        <input type="email" name="" placeholder="Your email here" required="">
-                    </div>
-                    <div class="form-input"><button class="btn btn-style btn-primary">Subscribe</button></div>
-                </div>
-            </form>
-            <p>By entering your email, you are accepting our <a href="#">Terms of Use</a> and <a href="#">Privacy Policy</a>.</p>
-        </div>
-    </div>
-</section>
+<script>
+    $(document).ready(function() {
+        @if(session('success'))
+        alert("Thêm sản phẩm vào giỏ hàng thành công");
+        @endif
+    });
+</script>
 @endsection

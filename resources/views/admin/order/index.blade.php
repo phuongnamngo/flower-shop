@@ -48,6 +48,7 @@
                                 </thead>
                                 <tbody>
                                     @foreach ($order as $item)
+                                    @if($item->errorCode != 42)
                                     <tr>
                                         <td class="px-4">
                                             <span class="text-secondary text-xs font-weight-bold">{{ ++$i }}</span>
@@ -111,12 +112,15 @@
                                                 @default
                                                 @endswitch
                                                 @if($item->status != 4)
+                                                @if($item->status != 3)
                                                 <button class="btn btn-danger order_status" id="{{ $item->id }}" value="4">Hủy</button>
+                                                @endif
                                                 @endif
                                                 <a class="btn btn-secondary order_status" href="{{route('admin.order.detail', $item->id )}}">Chi tiết</a>
                                             </div>
                                         </td>
                                     </tr>
+                                    @endif
                                     @endforeach
                                 </tbody>
                             </table>

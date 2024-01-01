@@ -23,7 +23,13 @@
                             <h6>Chi tiết đơn hàng</h6>
                         </div>
                     </div>
+                    @php
+                    $count = 1
+                    @endphp
+                    @foreach($orderItem as $item)
+
                     <div class="card-body px-4 pt-0 pb-4">
+                        <h6>Đơn số {{$count++}}</h6>
                         <form action="" enctype="multipart/form-data">
                             <div class="row">
                                 <div class="col-md-4">
@@ -43,28 +49,28 @@
                                 <div class="col-md-4">
                                     <div class="form-group">
                                         <label for="example-text-input" class="form-control-label">Đia chỉ</label>
-                                        <input class="form-control" type="text" value="{{$orderItem->shipping_address}}" disabled>
+                                        <input class="form-control" type="text" value="{{$item->shipping_address}}" disabled>
 
                                     </div>
                                 </div>
                                 <div class="col-md-4">
                                     <div class="form-group">
                                         <label for="example-text-input" class="form-control-label">Tên sản phẩm</label>
-                                        <input class="form-control" type="text" value="{{$orderItem->product_name}}" disabled>
+                                        <input class="form-control" type="text" value="{{$item->product_name}}" disabled>
 
                                     </div>
                                 </div>
                                 <div class="col-md-4">
                                     <div class="form-group">
                                         <label for="example-text-input" class="form-control-label">Số lượng</label>
-                                        <input class="form-control" type="text" value="{{$orderItem->quantity}}" disabled>
+                                        <input class="form-control" type="text" value="{{$item->quantity}}" disabled>
 
                                     </div>
                                 </div>
                                 <div class="col-md-4">
                                     <div class="form-group">
                                         <label for="example-text-input" class="form-control-label">Thành tiền</label>
-                                        <input class="form-control" type="text" value="{{$orderItem->total_price}}" disabled>
+                                        <input class="form-control" type="text" value="{{$item->total_price}}" disabled>
                                     </div>
                                 </div>
                                 <div class="col-md-4">
@@ -76,13 +82,13 @@
                                 <div class="col-md-4">
                                     <div class="form-group">
                                         <label for="example-text-input" class="form-control-label">Phương thức</label>
-                                        <input class="form-control" type="text" value="{{$orderItem->payment_method}}" disabled>
+                                        <input class="form-control" type="text" value="{{$item->payment_method}}" disabled>
                                     </div>
                                 </div>
                                 <div class="col-md-4">
                                     <div class="form-group">
                                         <label for="example-text-input" class="form-control-label">Trạng thái</label>
-                                        @switch($orderItem->status)
+                                        @switch($item->status)
                                         @case(0)
                                         <input class="form-control" type="text" value="Đã đặt hàng" disabled>
                                         @break
@@ -110,6 +116,7 @@
                             </div>
                         </form>
                     </div>
+                    @endforeach
                 </div>
             </div>
         </div>

@@ -18,7 +18,7 @@ class OrderAdminController extends Controller
         $user = '';
         $order = Order::leftJoin('users', 'users.id', '=', 'orders.user_id')
             ->leftJoin('return_url_momo', 'return_url_momo.orderId', '=', 'orders.id_order_momo')
-            ->select('orders.*', 'users.name', 'users.email', 'return_url_momo.message')->get();
+            ->select('orders.*', 'users.name', 'users.email', 'return_url_momo.message', 'return_url_momo.errorCode')->get();
         return view('admin.order.index', compact('order'))
             ->with('i', (request()->input('page', 1) - 1) * 5);
     }
@@ -36,9 +36,11 @@ class OrderAdminController extends Controller
             ->leftJoin('product', 'product.id', '=', 'orderItem.product_id')
             ->select('orders.total_price', 'orders.payment_method', 'orders.id_order_momo', 'orders.billing_address', 'orders.id as idOrder', 'orders.user_id', 'orders.shipping_address', 'orders.status', 'product.name as product_name', 'orderItem.*')
             ->where('orderItem.order_id', $id)
-            ->first();
-        $user = User::where('id', $orderItem->user_id)->first();
-        $momoItem = ReturnUrlModel::where('orderId', $orderItem->id_order_momo)->first();
+            ->get();
+        foreach ($orderItem as $item) {
+            $user = User::where('id', $item->user_id)->first();
+            $momoItem = ReturnUrlModel::where('orderId', $item->id_order_momo)->first();
+        }
         return view('admin.order.orderDetail', compact('orderItem', 'user', 'momoItem'));
     }
 }

@@ -22,4 +22,8 @@ class Product extends Model
     {
         return $this->belongsTo('App\Models\Category', 'id', 'category_id');
     }
+    public function scopeSearch($query, $keyword)
+    {
+        return $query->where('name', 'LIKE', '%' . $keyword . '%');
+    }
 }

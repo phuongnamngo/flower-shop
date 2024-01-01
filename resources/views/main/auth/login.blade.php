@@ -6,12 +6,12 @@
             <div class="w3breadcrumb-gids">
                 <div class="w3breadcrumb-left text-left">
                     <h2 class="inner-w3-title">
-                        Login </h2>
+                    Đăng nhập </h2>
                 </div>
                 <div class="w3breadcrumb-right">
                     <ul class="breadcrumbs-custom-path">
-                        <li><a href="index.html">Home</a></li>
-                        <li class="active"><span class="fas fa-angle-double-right mx-2"></span> Login </li>
+                        <li><a href="{{url('/')}}">Trang chủ</a></li>
+                        <li class="active"><span class="fas fa-angle-double-right mx-2"></span> Đăng nhập </li>
                     </ul>
                 </div>
             </div>
@@ -27,7 +27,7 @@
         <!--form-stars-here-->
         <div class="form-wrapv">
 
-            <h2>Login to your account</h2>
+            <h2>Đăng nhập vào tài khoản của bạn</h2>
             <form method="POST" action="{{ route('login') }}">
                 @csrf
                 <div class="form-sub-w3">
@@ -40,7 +40,7 @@
                     </div>
                 </div>
                 <div class="form-sub-w3">
-                    <input type="password" name="password" placeholder="Password" required="" id="password" />
+                    <input type="password" name="password" placeholder="Mật khẩu" required="" id="password" />
                     @if ($errors->has('password'))
                     <span class="text-danger">{{ $errors->first('password') }}</span>
                     @endif
@@ -48,12 +48,14 @@
                         <span class="fas fa-unlock-alt" aria-hidden="true"></span>
                     </div>
                 </div>
-                <div class="form-sub-content">
+                <div class="col-lg-12">
                     <!-- <p class="forgot-w3ls">Forgot Password?<a class href="{{route('password.request')}}"> Click here</a></p> -->
-                    <p class="forgot-w3ls1 text-start">New User? <a class href="{{url('register')}}">Signup here</a></p>
+                    <p class="forgot-w3ls1 text-start">Người dùng mới? 
+                        <a class href="{{url('register')}}">Đăng ký tại đây</a>
+                    </p>
                 </div>
                 <div class="submit-button text-center">
-                    <button type="submit" class="btn btn-style btn-primary">Login Now</button>
+                    <button type="submit" class="btn btn-style btn-primary">Đăng nhập ngay</button>
 
                 </div>
             </form>

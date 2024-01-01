@@ -9,12 +9,12 @@
                 <div class="w3breadcrumb-gids">
                     <div class="w3breadcrumb-left text-left">
                         <h2 class="inner-w3-title">
-                            EDIT order </h2>
+                            Điều chỉnh đơn hàng </h2>
                     </div>
                     <div class="w3breadcrumb-right">
                         <ul class="breadcrumbs-custom-path">
-                            <li><a href="index.html">Home</a></li>
-                            <li class="active"><span class="fas fa-angle-double-right mx-2"></span>Edit </li>
+                            <li><a href="{{url('/')}}">Trang chủ</a></li>
+                            <li class="active"><span class="fas fa-angle-double-right mx-2"></span>Điều chỉnh</li>
                         </ul>
                     </div>
                 </div>
@@ -30,7 +30,7 @@
     @endif
     <section class="w3l-ecommerce-main">
         <div class="ecom-contenthny py-5">
-            <form action="{{ route('orders.update', $orderItem->idOrder) }}" method="POST">
+            <form action="{{ route('orders.update', $orderItem[0]->idOrder) }}" method="POST">
                 @csrf
                 @method('put')
                 <div class="row justify-content-between align-items-start container py-4" style="box-shadow: -6px 6px 20px 0px rgba(91, 111, 163, 0.15); border-radius: 10px">
@@ -40,42 +40,44 @@
                                 <thead>
                                     <tr>
                                         <th>No.</th>
-                                        <th>Quantity</th>
-                                        <th>Product Name</th>
-                                        <th>Total Price</th>
+                                        <th>Số lượng</th>
+                                        <th>Tên sản phẩm</th>
+                                        <th>Tổng giá</th>
                                     </tr>
                                 </thead>
                                 @php
                                 $counter = 1;
                                 @endphp
                                 <tbody>
+                                    @foreach ($orderItem as $item)
                                     <tr class="rem1">
                                         <td class="invert">{{ $counter++ }}</td>
                                         {{-- <td class="invert-image"><a href="product-single.html">
-                                                        <img src="{{ asset('public/' . $orderItem['img']) }}"
+                                                        <img src="{{ asset('public/' . $item['img']) }}"
                                         class="img-fluid radius-image" alt=""></a></td> --}}
                                         <td class="invert">
                                             <div class="quantity">
                                                 <div class="quantity-select">
-                                                    <div class="entry "><span>{{ $orderItem->quantity }}</span></div>
+                                                    <div class="entry "><span>{{ $item->quantity }}</span></div>
                                                 </div>
                                             </div>
                                         </td>
-                                        <td class="invert">{{ $orderItem->product_name }}</td>
-                                        <td class="invert">${{ number_format($orderItem->price) }}</td>
+                                        <td class="invert">{{ $item->product_name }}</td>
+                                        <td class="invert">{{ number_format($item->price) }} VNĐ</td>
                                     </tr>
+                                    @endforeach
                                 </tbody>
                             </table>
                             <div class="d-flex flex-column align-items-start justify-content-center mt-4" style="gap: 5px;">
                                 <div class="d-flex align-items-center" style="gap: 10px">
-                                    <h3 class="h5 text-uppercase">Total Payment:</h3>
+                                    <h3 class="h5 text-uppercase">Tổng thanh toán:</h3>
                                     <h5 class="h5" style="color: #ef233c ">
-                                        ${{ $orderItem->total_price }}
-                                        <input type="hidden" value="{{ $orderItem->total_price }}" name="total_price">
+                                        {{ $orderItem[0]->total_price }} VNĐ
+                                        <input type="hidden" value="{{ $orderItem[0]->total_price }}" name="total_price">
                                     </h5>
                                 </div>
-                                <h3 class="h6">Charge Fee: $0</h3>
-                                <h3 class="h6">Transport fee: $0</h3>
+                                <h3 class="h6">Phí: 0 VNĐ</h3>
+                                <h3 class="h6">Phí vận chuyển: 0 VNĐ</h3>
                             </div>
                         </div>
                     </div>
@@ -83,14 +85,13 @@
                         <div class="row flex-column">
                             <div class="col-auto ">
                                 <div class="d-flex align-items-center justify-content-between">
-                                    <h3 class="h5">Payment Methods:</h3>
+                                    <h3 class="h5">Phương thức thanh toán:</h3>
                                 </div>
                                 <div class="d-flex justify-content-start align-items-center" style="gap: 30px">
                                     <form>
                                         <div class="d-flex justify-content-center align-items-center" style="gap: 5px">
-                                            <input class="form-check-input m-0" type="radio" name="payment_method" value="Cash on Delivery" checked>
-                                            <label class="form-check-label" style="color: #ef233c; padding: 10px">Cash on
-                                                Delivery</label>
+                                            <input class="form-check-input m-0" type="radio" name="payment_method" value="Thanh toán khi giao hàng" checked>
+                                            <label class="form-check-label" style="color: #ef233c; padding: 10px">Thanh toán khi giao hàng</label>
                                         </div>
                                         <div class="d-flex justify-content-center align-items-center" style="gap: 5px">
                                             <input class="form-check-input m-0" type="radio" name="payment_method" value="Momo">
@@ -100,7 +101,7 @@
                                 </div>
                             </div>
                             <div class="col-auto m-0 mt-4">
-                                <h3 class="h5">Shipping Infomation:</h3>
+                                <h3 class="h5">Thông tin vận chuyển:</h3>
                                 <section class="creditly-wrapper wthree w3_agileits_wrapper mt-2">
                                     <div class="information-wrapper">
                                         <div class="first-row form-group">
@@ -108,26 +109,25 @@
 
                                                 <div class="w3_agileits_card_number_grid_right">
                                                     <div class="controls">
-                                                        <input class="form-control" type="text" name="" placeholder="Phone Number" required>
+                                                        <input class="form-control" type="text" name="" placeholder="Số điện thoại" required>
                                                     </div>
                                                 </div>
                                                 <div class="w3_agileits_card_number_grid_right">
                                                     <div class="controls">
-                                                        <input class="form-control" type="text" name="billing_address" value="{{$orderItem->billing_address}}" placeholder="Billing address" required>
+                                                        <input class="form-control" type="text" name="billing_address" value="{{$orderItem[0]->billing_address}}" placeholder="Địa chỉ thanh toán" required>
                                                     </div>
                                                 </div>
                                                 <div class="w3_agileits_card_number_grid_left">
                                                     <div class="controls">
-                                                        <input class="form-control" name="shipping_address" type="text" value="{{$orderItem->shipping_address}}" placeholder="Shipping address" required>
+                                                        <input class="form-control" name="shipping_address" type="text" value="{{$orderItem[0]->shipping_address}}" placeholder="Địa chỉ giao hàng" required>
                                                     </div>
                                                 </div>
-
                                             </div>
                                         </div>
                                     </div>
                                 </section>
                                 <div class="checkout-right-basketm-0">
-                                    <button type="submit" class="btn btn-style btn-primary w-100">Update Order<i class="fas fa-arrow-right ms-lg-3 ms-2"></i></button>
+                                    <button type="submit" class="btn btn-style btn-primary w-100">Cập nhật đơn hàng<i class="fas fa-arrow-right ms-lg-3 ms-2"></i></button>
                                 </div>
                             </div>
                         </div>

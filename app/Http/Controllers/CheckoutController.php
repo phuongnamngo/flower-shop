@@ -19,52 +19,51 @@ class CheckoutController extends Controller
     {
         $cart = session()->get('cart', []);
         $total = $this->calculateTotal($cart);
-     
+
         return view('main.checkout.index', compact('cart', 'total'));
     }
 
     public function store(Request $request)
     {
-
         $cart = session()->get('cart', []);
         $user = auth()->user();
         $jsonResult = '';
-        $order_Id = $this->uid(); // Mã đơn hàng
+        $endpoint = "https://test-payment.momo.vn/gw_payment/transactionProcessor";
+        $notifyurl = "http://localhost:8000/atm/ipn_momo.php";
+        $order_Id = $this->uid();
+        // Lưu ý: link notifyUrl không phải là dạng localhost
+        $bankCode = "SML";
         if ($request->payment_method == 'Momo') {
-            foreach ($cart as $itemCart) {
-                $endpoint = "https://test-payment.momo.vn/v2/gateway/api/create";
-                $partnerCode = 'MOMOBKUN20180529';
-                $accessKey = 'klm05TvNBzhg7h7j';
-                $serectkey = 'at67qH6mk8w5Y1nAyMoYKMWACiEi2bsa';
-                $orderId = $order_Id; // Mã đơn hàng
-                $orderInfo = 'Thanh toán qua MoMo';
-                $amount = $itemCart['price'];
-                $ipnUrl = "https://webhook.site/b3088a6a-2d17-4f8d-a383-71389a6c600b";
-                $redirectUrl = url('/momo/returnUrl');
-                $extraData = "";
-                $requestId = time() . "";
-                $requestType = "payWithATM";
-                //before sign HMAC SHA256 signature
-                $rawHash = "accessKey=" . $accessKey . "&amount=" . $amount . "&extraData=" . $extraData . "&ipnUrl=" . $ipnUrl . "&orderId=" . $orderId . "&orderInfo=" . $orderInfo . "&partnerCode=" . $partnerCode . "&redirectUrl=" . $redirectUrl . "&requestId=" . $requestId . "&requestType=" . $requestType;
-                $signature = hash_hmac("sha256", $rawHash, $serectkey);
-                $data = array(
-                    'partnerCode' => $partnerCode,
-                    'partnerName' => "Test",
-                    "storeId" => "MomoTestStore",
-                    'requestId' => $requestId,
-                    'amount' => $amount,
-                    'orderId' => $orderId,
-                    'orderInfo' => $orderInfo,
-                    'redirectUrl' => $redirectUrl,
-                    'ipnUrl' => $ipnUrl,
-                    'lang' => 'vi',
-                    'extraData' => $extraData,
-                    'requestType' => $requestType,
-                    'signature' => $signature
-                );
-                $result = $this->execPostRequest($endpoint, json_encode($data));
-                $jsonResult = json_decode($result, true);  // decode json
-            }
+            $partnerCode = 'MOMOBKUN20180529';
+            $accessKey = 'klm05TvNBzhg7h7j';
+            $serectkey = 'at67qH6mk8w5Y1nAyMoYKMWACiEi2bsa';
+            $orderid = $order_Id;
+            $orderInfo = 'Thanh toán qua MoMo';
+            $amount = "" . $this->calculateTotal($cart) . "";
+            $bankCode = 'SML';
+            $returnUrl = url('/momo/returnUrl');
+            $requestId = time() . "";
+            $requestType = "payWithMoMoATM";
+            $extraData = "";
+            //before sign HMAC SHA256 signature
+            $rawHash = "partnerCode=" . $partnerCode . "&accessKey=" . $accessKey . "&requestId=" . $requestId . "&bankCode=" . $bankCode . "&amount=" . $amount . "&orderId=" . $orderid . "&orderInfo=" . $orderInfo . "&returnUrl=" . $returnUrl . "&notifyUrl=" . $notifyurl . "&extraData=" . $extraData . "&requestType=" . $requestType;
+            $signature = hash_hmac("sha256", $rawHash, $serectkey);
+            $data =  array(
+                'partnerCode' => $partnerCode,
+                'accessKey' => $accessKey,
+                'requestId' => $requestId,
+                'amount' => $amount,
+                'orderId' => $orderid,
+                'orderInfo' => $orderInfo,
+                'returnUrl' => $returnUrl,
+                'bankCode' => $bankCode,
+                'notifyUrl' => $notifyurl,
+                'extraData' => $extraData,
+                'requestType' => $requestType,
+                'signature' => $signature
+            );
+            $result = $this->execPostRequest($endpoint, json_encode($data));
+            $jsonResult = json_decode($result, true);
         }
         $order = Order::create([
             'id_order_momo' => $order_Id,
@@ -83,11 +82,10 @@ class CheckoutController extends Controller
                 'price' => $item['price'],
             ]);
         }
-        // Clear cart session
-        session()->forget('cart');
         if ($request->payment_method == 'Momo') {
             return redirect()->to($jsonResult['payUrl']);
         } else {
+            session()->forget('cart');
             return redirect()->route('order.show', $order->id);
         }
     }
@@ -124,10 +122,9 @@ class CheckoutController extends Controller
         $total = 0;
 
         foreach ($cart as $item) {
-        
-            $total += str_replace(',', '', $item['price']) *$item['quantity'];
+
+            $total += str_replace(',', '', $item['price']) * $item['quantity'];
         }
         return $total;
     }
-  
 }

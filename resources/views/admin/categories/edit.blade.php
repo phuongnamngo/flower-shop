@@ -20,7 +20,7 @@
                 <div class="card mb-4">
                     <div class="d-flex align-items-center justify-content-between px-4 pt-4 pb-2">
                         <div class="card-header p-0">
-                            <h6>Authors table</h6>
+                            <h6>Danh mục</h6>
                         </div>
                     </div>
                     <div class="card-body px-4 pt-0 pb-4">
