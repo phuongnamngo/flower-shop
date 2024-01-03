@@ -70,12 +70,12 @@
                         <div class="row">
                             <div class="col-8">
                                 <div class="numbers">
-                                    <p class="text-sm mb-0 text-uppercase font-weight-bold">KH đăng ký</p>
+                                    <p class="text-sm mb-0 text-uppercase font-weight-bold">Tổng đơn hàng</p>
                                     <h5 class="font-weight-bolder">
-                                        {{$totalUser}}
+                                        {{number_format($yearlyTotal)}}
                                     </h5>
                                     <p class="mb-0">
-                                        <span class="text-lg font-weight-bolder">Tất cả</span>
+                                        <span class="text-lg font-weight-bolder">Hằng năm</span>
                                     </p>
                                 </div>
                             </div>

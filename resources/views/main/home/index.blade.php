@@ -61,263 +61,17 @@
 </section>
 <!--//Free-Ship-->
 <!--/bottom-3-grids-->
-<div class=" w3l-3-grids py-5" id="grids-3">
-    <div class="container py-md-4">
-        <div class="row">
-            <div class="col-md-6 mt-md-0">
-                <div class="grids3-info position-relative">
-                    <a href="#" class="d-block zoom"><img src="{{asset('public/images/banner5.jpg')}}" alt="" class="img-fluid news-image"></a>
-                    <div class="w3-grids3-info">
-                        <h4 class="gdnhy-1"><a href="#">Mua sắm <br>Sandals</a>
-                            <a class="w3item-link btn btn-style mt-4" href="{{url('/products')}}">
-                                Mua sắm ngay <i class="fas fa-arrow-right ms-2"></i>
-                            </a>
-                        </h4>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-6 mt-md-0 mt-4 grids3-info2">
-                <div class="grids3-info second position-relative">
-                    <a href="#" class="d-block zoom"><img src="{{asset('public/images/banner4.jpg')}}" alt="" class="img-fluid news-image"></a>
-                    <div class="w3-grids3-info second">
-                        <h4 class="gdnhy-1"><a href="#">Mua sắm <br>Túi</a>
-                            <a class="w3item-link btn btn-style mt-4" href="{{url('/products')}}">
-                                Mua sắm ngay <i class="fas fa-arrow-right ms-2"></i>
-                            </a>
-                        </h4>
-
-                    </div>
-                </div>
-            </div>
-
-        </div>
-    </div>
-</div>
-<!--//bottom-3-grids-->
-<section class="w3l-witemshny-main py-5">
-    <div class="container py-md-4">
-        <h3 class="title-w3l">Ưu đãi trong ngày</h3>
-        <!--/row-1-->
-        <div class="witemshny-grids row mt-lg-3">
-            <div class="col-xl-2 col-md-4 col-6 product-incfhny mt-4">
-                <div class="weitemshny-grid oposition-relative">
-                    <a href="#" class="d-block zoom"><img src="{{asset('public/images/d1.jpg')}}" alt="" class="img-fluid news-image"></a>
-                    <div class="witemshny-inf">
-                    </div>
-                </div>
-                <h4 class="gdnhy-1 mt-4"><a href="#">Tối thiểu. Giảm giá 40% cho trang phục trang trọng</a>
-                </h4>
-            </div>
-            <div class="col-xl-2 col-md-4 col-6 product-incfhny mt-4">
-                <div class="weitemshny-grid oposition-relative">
-                    <a href="#" class="d-block zoom"><img src="{{asset('public/images/d2.jpg')}}" alt="" class="img-fluid news-image"></a>
-                    <div class="witemshny-inf">
-                    </div>
-                </div>
-                <h4 class="gdnhy-1 mt-4"><a href="#">Tối thiểu. Giảm giá 60% khi mặc đồ năng động</a>
-                </h4>
-            </div>
-            <div class="col-xl-2 col-md-4 col-6 product-incfhny mt-4">
-                <div class="weitemshny-grid oposition-relative">
-                    <a href="#" class="d-block zoom"><img src="{{asset('public/images/d3.jpg')}}" alt="" class="img-fluid news-image"></a>
-                    <div class="witemshny-inf">
-                    </div>
-                </div>
-                <h4 class="gdnhy-1 mt-4"><a href="#">Tối thiểu. Giảm giá 40% cho giày</a>
-                </h4>
-            </div>
-            <div class="col-xl-2 col-md-4 col-6 product-incfhny mt-4">
-                <div class="weitemshny-grid oposition-relative">
-                    <a href="#" class="d-block zoom"><img src="{{asset('public/images/d4.jpg')}}" alt="" class="img-fluid news-image"></a>
-                    <div class="witemshny-inf">
-                    </div>
-                </div>
-                <h4 class="gdnhy-1 mt-4"><a href="#">Tối thiểu. Giảm giá 50% cho áo sơ mi</a>
-                </h4>
-            </div>
-            <div class="col-xl-2 col-md-4 col-6 product-incfhny mt-4">
-                <div class="weitemshny-grid oposition-relative">
-                    <a href="#" class="d-block zoom"><img src="{{asset('public/images/d5.jpg')}}" alt="" class="img-fluid news-image"></a>
-                    <div class="witemshny-inf">
-                    </div>
-                </div>
-                <h4 class="gdnhy-1 mt-4"><a href="#">Tối thiểu. Giảm giá 50% cho quần áo</a>
-                </h4>
-            </div>
-            <div class="col-xl-2 col-md-4 col-6 product-incfhny mt-4">
-                <div class="weitemshny-grid oposition-relative">
-                    <a href="#" class="d-block zoom"><img src="{{asset('public/images/d6.jpg')}}" alt="" class="img-fluid news-image"></a>
-                    <div class="witemshny-inf">
-                    </div>
-                </div>
-                <h4 class="gdnhy-1 mt-4"><a href="#">Tối thiểu. Giảm giá 60% cho Sandles</a>
-                </h4>
-            </div>
-        </div>
-        <!--//row-1-->
-        <h3 class="title-w3l mt-5 pt-lg-4">Giảm giá tốt nhất cho bạn</h3>
-        <!--/row2-->
-        <div class="witemshny-grids row mt-lg-3">
-            <div class="col-xl-2 col-md-4 col-6 product-incfhny mt-4">
-                <div class="weitemshny-grid oposition-relative">
-                    <a href="#" class="d-block zoom"><img src="{{asset('public/images/d7.jpg')}}" alt="" class="img-fluid news-image"></a>
-                    <div class="witemshny-inf">
-                    </div>
-                </div>
-                <h4 class="gdnhy-1 mt-4"><a href="#">Tối thiểu. Giảm giá 40% cho xích đu</a>
-                </h4>
-            </div>
-            <div class="col-xl-2 col-md-4 col-6 product-incfhny mt-4">
-                <div class="weitemshny-grid oposition-relative">
-                    <a href="#" class="d-block zoom"><img src="{{asset('public/images/d8.jpg')}}" alt="" class="img-fluid news-image"></a>
-                    <div class="witemshny-inf">
-                    </div>
-                </div>
-                <h4 class="gdnhy-1 mt-4"><a href="#">Tối thiểu. Giảm giá 30% cho Ghế văn phòng</a>
-                </h4>
-            </div>
-            <div class="col-xl-2 col-md-4 col-6 product-incfhny mt-4">
-                <div class="weitemshny-grid oposition-relative">
-                    <a href="#" class="d-block zoom"><img src="{{asset('public/images/d9.jpg')}}" alt="" class="img-fluid news-image"></a>
-                    <div class="witemshny-inf">
-                    </div>
-                </div>
-                <h4 class="gdnhy-1 mt-4"><a href="#">Tối thiểu. Giảm giá 40% cho Gương kính</a>
-                </h4>
-            </div>
-            <div class="col-xl-2 col-md-4 col-6 product-incfhny mt-4">
-                <div class="weitemshny-grid oposition-relative">
-                    <a href="#" class="d-block zoom"><img src="{{asset('public/images/d10.jpg')}}" alt="" class="img-fluid news-image"></a>
-                    <div class="witemshny-inf">
-                    </div>
-                </div>
-                <h4 class="gdnhy-1 mt-4"><a href="#">Tối thiểu. Giảm giá 50% cho Bộ trang điểm</a>
-                </h4>
-            </div>
-            <div class="col-xl-2 col-md-4 col-6 product-incfhny mt-4">
-                <div class="weitemshny-grid oposition-relative">
-                    <a href="#" class="d-block zoom"><img src="{{asset('public/images/d11.jpg')}}" alt="" class="img-fluid news-image"></a>
-                    <div class="witemshny-inf">
-                    </div>
-                </div>
-                <h4 class="gdnhy-1 mt-4"><a href="#">Tối thiểu. Giảm giá 60% cho Handbgs</a>
-                </h4>
-            </div>
-            <div class="col-xl-2 col-md-4 col-6 product-incfhny mt-4">
-                <div class="weitemshny-grid oposition-relative">
-                    <a href="#" class="d-block zoom"><img src="{{asset('public/images/d12.jpg')}}" alt="" class="img-fluid news-image"></a>
-                    <div class="witemshny-inf">
-                    </div>
-                </div>
-                <h4 class="gdnhy-1 mt-4"><a href="#">Tối thiểu. Giảm giá 40% cho nước hoa</a>
-                </h4>
-            </div>
-        </div>
-        <!--//row-2-->
-        <h3 class="title-w3l mt-5 pt-lg-4">Ưu đãi tốt nhất cho bạn</h3>
-        <!--/row2-->
-        <div class="witemshny-grids row mt-lg-3">
-            <div class="col-xl-2 col-md-4 col-6 product-incfhny mt-4">
-                <div class="weitemshny-grid oposition-relative">
-                    <a href="#" class="d-block zoom"><img src="{{asset('public/images/d13.jpg')}}" alt="" class="img-fluid news-image"></a>
-                    <div class="witemshny-inf">
-                    </div>
-                </div>
-                <h4 class="gdnhy-1 mt-4"><a href="#">Giảm giá 40% cho trang phục trẻ em</a>
-                </h4>
-            </div>
-            <div class="col-xl-2 col-md-4 col-6 product-incfhny mt-4">
-                <div class="weitemshny-grid oposition-relative">
-                    <a href="#" class="d-block zoom"><img src="{{asset('public/images/d14.jpg')}}" alt="" class="img-fluid news-image"></a>
-                    <div class="witemshny-inf">
-                    </div>
-                </div>
-                <h4 class="gdnhy-1 mt-4"><a href="#">Tối thiểu. Giảm giá 30% cho gói mặt</a>
-                </h4>
-            </div>
-            <div class="col-xl-2 col-md-4 col-6 product-incfhny mt-4">
-                <div class="weitemshny-grid oposition-relative">
-                    <a href="#" class="d-block zoom"><img src="{{asset('public/images/d15.jpg')}}" alt="" class="img-fluid news-image"></a>
-                    <div class="witemshny-inf">
-                    </div>
-                </div>
-                <h4 class="gdnhy-1 mt-4"><a href="#">Tối thiểu. Giảm giá 30% cho giày cao gót nữ</a>
-                </h4>
-            </div>
-            <div class="col-xl-2 col-md-4 col-6 product-incfhny mt-4">
-                <div class="weitemshny-grid oposition-relative">
-                    <a href="#" class="d-block zoom"><img src="{{asset('public/images/d16.jpg')}}" alt="" class="img-fluid news-image"></a>
-                    <div class="witemshny-inf">
-                    </div>
-                </div>
-                <h4 class="gdnhy-1 mt-4"><a href="#">Tối thiểu. Giảm giá 40% cho Đồ chơi trẻ em</a>
-                </h4>
-            </div>
-            <div class="col-xl-2 col-md-4 col-6 product-incfhny mt-4">
-                <div class="weitemshny-grid oposition-relative">
-                    <a href="#" class="d-block zoom"><img src="{{asset('public/images/d17.jpg')}}" alt="" class="img-fluid news-image"></a>
-                    <div class="witemshny-inf">
-                    </div>
-                </div>
-                <h4 class="gdnhy-1 mt-4"><a href="#">Tối thiểu. Giảm giá 60% cho các sản phẩm thảo dược</a>
-                </h4>
-            </div>
-            <div class="col-xl-2 col-md-4 col-6 product-incfhny mt-4">
-                <div class="weitemshny-grid oposition-relative">
-                    <a href="#" class="d-block zoom"><img src="{{asset('public/images/d8.jpg')}}" alt="" class="img-fluid news-image"></a>
-                    <div class="witemshny-inf">
-                    </div>
-                </div>
-                <h4 class="gdnhy-1 mt-4"><a href="#">Giảm giá 30% cho Ghế văn phòng</a>
-                </h4>
-            </div>
-        </div>
-        <!--//row-2-->
-    </div>
-</section>
-<!--/w3l-ecommerce-main-->
-<div style="margin: 8px auto; display: block; text-align:center;">
-
-    <!---728x90--->
-
-
-</div>
-<!-- /home-page-video-popup-->
-<section class="w3l-index5 py-5" id="video">
-    <div class="new-block py-5">
-        <div class="container">
-            <div class="video-info">
-                <div class="title-content text-center">
-                    <h3 class="title-w3l two mb-5">Bộ sưu tập trước mùa thu, giữa mùa hè năm ấy<br> Thèm phong cách mùa thu?</h3>
-                </div>
-            </div>
-            <div class="history-info py-lg-5 align-self pt-0">
-                <div class="position-relative mt-lg-3 py-5 pt-lg-0">
-                    <a href="#small-dialog" class="popup-with-zoom-anim play-view text-center position-absolute">
-                        <span class="video-play-icon">
-                            <span class="fa fa-play"></span>
-                        </span>
-                    </a>
-                    <!-- dialog itself, mfp-hide class is required to make dialog hidden -->
-                    <div id="small-dialog" class="zoom-anim-dialog mfp-hide">
-                        <iframe src="https://player.vimeo.com/video/145014989" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
-                    </div>
-                </div>
-            </div>
-
-        </div>
-    </div>
-</section>
 <!-- //home-page-video-popup-->
 <section class="w3l-ecommerce-main">
     <!-- /products-->
     <div class="ecom-contenthny py-5">
-        <div class="container py-lg-5">
-            <h3 class="title-w3l">Mua sắm với chúng tôi</h3>
-            <p class="">Mục yêu thích được lựa chọn cẩn thận chỉ dành cho bạn</p>
+        @foreach($categories as $category)
+        <div class="container py-4">
+
+            <h3 class="title-w3l text-center">{{ $category->name }}</h3>
             <!-- /row-->
             <div class="ecom-products-grids row mt-lg-4 mt-3">
-                @foreach($products as $item)
+                @foreach($category->products as $item)
                 <div class="col-lg-3 col-6 product-incfhny mt-4">
                     <div class="product-grid2 shopv">
                         <div class="product-image2">
@@ -349,7 +103,9 @@
                 </div>
                 @endforeach
             </div>
+
         </div>
+        @endforeach
     </div>
 </section>
 <!-- //products-->

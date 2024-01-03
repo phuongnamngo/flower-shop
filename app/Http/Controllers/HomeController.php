@@ -11,8 +11,10 @@ class HomeController extends Controller
     //
     public function index()
     {
-        $products = Product::where('status', '1')->get();
-        return view('main.home.index')->with('products', $products);
+        $categories = Category::where('status', 1)->with(['products' => function ($query) {
+            $query->where('status', 1);
+        }])->get();
+        return view('main.home.index', compact('categories'));
     }
     public function searchProduct(Request $request)
     {
