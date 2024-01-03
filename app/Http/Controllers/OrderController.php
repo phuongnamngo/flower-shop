@@ -61,7 +61,7 @@ class OrderController extends Controller
             $serectkey = 'at67qH6mk8w5Y1nAyMoYKMWACiEi2bsa';
             $orderid = $order_Id;
             $orderInfo = 'Thanh toán qua MoMo';
-            $amount = "" . str_replace(',', '', $order->total_price) . "";
+            $amount = "" . $order->total_price . "";
             $bankCode = 'SML';
             $returnUrl = url('/momo/returnUrl');
             $requestId = time() . "";
