@@ -63,7 +63,7 @@
                                 <h3 class="h5 text-uppercase">Tổng tiền thanh toán:</h3>
                                 <h5 class="h5" style="color: #ef233c ">
                                     {{ number_format($total)}} VNĐ
-                                    <input type="hidden" value="{{ number_format($total)}}" name="total_price">
+                                    <input type="hidden" value="{{$total}}" name="total_price">
                                 </h5>
                             </div>
                             <h3 class="h6">Phí: 0 VNĐ</h3>

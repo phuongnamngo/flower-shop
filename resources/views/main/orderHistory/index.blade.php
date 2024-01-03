@@ -42,7 +42,7 @@
                                 </td>
                                 <td class="invert">
 
-                                    ${{ $item->total_price }}
+                                    {{ number_format($item->total_price) }} VNĐ
 
                                 </td>
                                 <td class="invert">

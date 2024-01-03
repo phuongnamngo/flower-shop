@@ -72,7 +72,7 @@
                                 <div class="d-flex align-items-center" style="gap: 10px">
                                     <h3 class="h5 text-uppercase">Tổng thanh toán:</h3>
                                     <h5 class="h5" style="color: #ef233c ">
-                                        {{ $orderItem[0]->total_price }} VNĐ
+                                        {{ number_format($orderItem[0]->total_price) }} VNĐ
                                         <input type="hidden" value="{{ $orderItem[0]->total_price }}" name="total_price">
                                     </h5>
                                 </div>

@@ -86,7 +86,7 @@
                         <div class="pt-2">
                             <p class="text-white fw-bold mb-0">Chi tiết đặt hàng</p>
                         </div>
-                        <div class="d-flex justify-content-between align-items-center " >
+                        <div class="d-flex justify-content-between align-items-center ">
                             <div class="col-lg-6">
 
                                 <div class="card-body ">
@@ -137,7 +137,7 @@
                                 <div class="d-flex justify-content-between mb-2">
                                     <p class="text-white small mb-0"><span class=" me-2">Phí vận chuyển:</span>Miễn phí</p>
                                 </div>
-                                <h5 class="text-white text-uppercase mb-0">Tổng chi phí trả: <span class="h2 mb-0 ms-2">{{$orderItem->total_price }} VNĐ</span></h5>
+                                <h5 class="text-white text-uppercase mb-0">Tổng chi phí trả: <span class="h2 mb-0 ms-2">{{number_format($orderItem->total_price) }} VNĐ</span></h5>
                             </div>
                         </div>
                     </div>
