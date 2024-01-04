@@ -216,9 +216,9 @@
         new Chart(ctx1, {
             type: "line",
             data: {
-                labels: ["Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
+                labels: @json($labels),
                 datasets: [{
-                    label: "Mobile apps",
+                    label: "Doanh thu",
                     tension: 0.4,
                     borderWidth: 0,
                     pointRadius: 0,
@@ -226,7 +226,7 @@
                     backgroundColor: gradientStroke1,
                     borderWidth: 3,
                     fill: true,
-                    data: [50, 40, 300, 220, 500, 250, 400, 230, 500],
+                    data: @json($data),
                     maxBarThickness: 6
 
                 }],
